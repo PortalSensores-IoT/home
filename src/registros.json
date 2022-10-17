@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "fecha": "16/10/2022 23:30:55",
+    "unidad": "Boolean",
+    "valor": 1,
+    "frecuencia": 30
+  },
+  {
+    "id": 2,
+    "fecha": "16/10/2022 23:30:55",
+    "unidad": "Boolean",
+    "valor": 0,
+    "frecuencia": 30
+  },
+  {
+    "id": 3,
+    "fecha": "16/10/2022 23:30:55",
+    "unidad": "Celcius",
+    "valor": 40.3,
+    "frecuencia": 60
+  },
+  {
+    "id": 4,
+    "fecha": "16/10/2022 23:30:55",
+    "unidad": "Boolean",
+    "valor": 1,
+    "frecuencia": 30
+  }
+]

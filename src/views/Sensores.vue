@@ -1,68 +1,92 @@
 <template>
-  <div id="sensoresDiv">
-    <table>
-      <tr>
-        <th>Area</th>
-        <th>Tipo</th>
-        <th>Piso</th>
-        <th>Frecuencia de registro (en seg.)</th>
-      </tr>
-      <tr id="instanciaRow" v-for="instancia in instancias" :key="instancia.id">
-          <td>{{ instancia.nombre }}</td>
-          <td>{{ instancia.tipo }}</td>
-          <td>{{ instancia.piso }}</td>
-          <td>{{ instancia.frecuenciaRegistro }}</td>
-          <td>
-            <icon></icon>
-            <icon></icon>
-          </td>
-     </tr>
-    </table>
+  <div id="sensoresSectionDiv">
+    <div id="barraBusquedaId">
+      <div id="selectorGroupPiso">
+        <h4>Piso</h4>
+        <select id="comboBoxPiso">
+          <option v-for="piso in pisos" :key="piso.id" value="{{piso}}">
+            {{ piso }}
+          </option>
+        </select>
+      </div>
+      <div id="selectorGroupLugar">
+        <h4>Lugar</h4>
+        <select id="comboBoxLugar">
+          <option v-for="lugar in lugares" :key="lugar.id" value="{{lugar}}">
+            {{ lugar }}
+          </option>
+        </select>
+      </div>
+      <button id="btnBuscar">Buscar</button>
+    </div>
+    <registroTable />
   </div>
 </template>
 
 <script>
-import instancias from "@/instancias.json";
-import Instancia from "@/components/Instancia.vue";
+import RegistroTable from "@/components/RegistroTable.vue";
+import areas from "@/areas.json";
 
 export default {
   name: "Sensores",
-  components: { Instancia },
+  components: { RegistroTable },
   data() {
     return {
-      instancias,
+      areas,
+      pisos: [],
+      lugares: [],
     };
+  },
+  beforeMount() {
+    this.filtrarPisosYLugares();
+  },
+  methods: {
+    filtrarPisosYLugares() {
+      this.areas.forEach((area) => {
+        if (!this.pisos.includes(area.piso)) {
+          this.pisos.push(area.piso);
+        }
+        if (!this.lugares.includes(area.nombre)) {
+          this.lugares.push(area.nombre);
+        }
+      });
+      this.pisos.sort();
+      this.lugares.sort();
+    },
   },
 };
 </script>
 
-<style>
-
-#sensoresDiv {
-    display:flex;
-    justify-content: center;
-    flex-direction: row;
-    align-content: center;
+<style scoped>
+* {
+  background: #963535;
 }
 
-table {
-    font-family: consolas;
-    border-collapse: collapse;
-    width: 90%;
-    table-layout: fixed;
+#sensoresSectionDiv {
+  margin-top: 2%;
 }
 
-td, th {
-    margin: 0px auto;
-    text-align: left;
-    padding: 8px;
-    width: 25%;
-    border: 1px solid #000000;
-    background-color: #00000000;
+#comboBoxPiso {
+  width: 10%;
+  margin: 20px;
 }
 
-#instanciaRow:hover {
-    background-color: #619257;
+#comboBoxLugar {
+  width: 10%;
+  margin: 20px;
 }
 
+#btnBuscar {
+  background: #1b9752;
+  color: white;
+  border-style: none;
+  border-radius: 2px;
+  width: 10%;
+  margin: 20px;
+}
+
+#btnBuscar:hover {
+  background: #044a23;
+  color: white;
+}
 </style>

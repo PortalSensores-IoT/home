@@ -1,0 +1,3079 @@
+[
+    {
+      "id": 1,
+      "nombre": "Aula 1",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 1,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 2,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 3,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 4,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 5,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 6,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nombre": "Aula 2",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 7,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 8,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 9,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 10,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 11,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 12,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nombre": "Aula 3",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 13,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 14,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 15,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 16,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 17,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 18,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "nombre": "Aula 4",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 19,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 20,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 21,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 22,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 23,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 24,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "nombre": "Aula 5",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 25,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 26,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 27,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 28,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 29,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 30,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "nombre": "Aula 6",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 31,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 32,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 33,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 34,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 35,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 36,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "nombre": "Aula 7",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 37,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 38,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 39,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 40,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 41,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 42,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "nombre": "Aula 8",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 43,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 44,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 45,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 46,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 47,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 48,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "nombre": "Aula 9",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 49,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 50,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 51,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 52,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 53,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 54,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "nombre": "Aula 10",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 55,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 56,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 57,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 58,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 59,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 60,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "nombre": "Aula 11",
+      "piso": 2,
+      "sensores": [
+        {
+          "id": 61,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 62,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 63,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 64,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 65,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 66,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "nombre": "Aula 12",
+      "piso": 2,
+      "sensores": [
+        {
+          "id": 67,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 68,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 69,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 70,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 71,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 72,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "nombre": "Aula 13",
+      "piso": 2,
+      "sensores": [
+        {
+          "id": 73,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 74,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 75,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 76,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 77,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 78,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "nombre": "Aula 14",
+      "piso": 2,
+      "sensores": [
+        {
+          "id": 79,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 80,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 81,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 82,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 83,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 84,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "nombre": "Aula 15",
+      "piso": 2,
+      "sensores": [
+        {
+          "id": 85,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 86,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 87,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 88,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 89,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 90,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "nombre": "Aula 16",
+      "piso": 2,
+      "sensores": [
+        {
+          "id": 91,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 92,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 93,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 94,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 95,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 96,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "nombre": "Aula 17",
+      "piso": 2,
+      "sensores": [
+        {
+          "id": 97,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 98,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 99,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 100,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 101,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 102,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "nombre": "Aula 18",
+      "piso": 2,
+      "sensores": [
+        {
+          "id": 103,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 104,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 105,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 106,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 107,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 108,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "nombre": "Aula 19",
+      "piso": 2,
+      "sensores": [
+        {
+          "id": 109,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 110,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 111,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 112,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 113,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 114,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "nombre": "Aula 20",
+      "piso": 2,
+      "sensores": [
+        {
+          "id": 115,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 116,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 117,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 118,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 119,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 120,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "nombre": "Aula 21",
+      "piso": 3,
+      "sensores": [
+        {
+          "id": 121,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 122,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 123,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 124,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 125,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 126,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "nombre": "Aula 22",
+      "piso": 3,
+      "sensores": [
+        {
+          "id": 127,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 128,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 129,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 130,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 131,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 132,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "nombre": "Aula 23",
+      "piso": 3,
+      "sensores": [
+        {
+          "id": 133,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 134,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 135,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 136,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 137,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 138,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "nombre": "Aula 24",
+      "piso": 3,
+      "sensores": [
+        {
+          "id": 139,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 140,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 141,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 142,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 143,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 144,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "nombre": "Aula 25",
+      "piso": 3,
+      "sensores": [
+        {
+          "id": 145,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 146,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 147,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 148,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 149,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 150,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "nombre": "Aula 26",
+      "piso": 3,
+      "sensores": [
+        {
+          "id": 151,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 152,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 153,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 154,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 155,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 156,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "nombre": "Oficina 1",
+      "piso": 0,
+      "sensores": [
+        {
+          "id": 157,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 158,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 159,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 160,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 161,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 162,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "nombre": "Oficina 2",
+      "piso": 0,
+      "sensores": [
+        {
+          "id": 163,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 164,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 165,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 166,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 167,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 168,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "nombre": "Oficina 3",
+      "piso": 0,
+      "sensores": [
+        {
+          "id": 169,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 170,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 171,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 172,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 173,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 174,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "nombre": "Oficina 4",
+      "piso": 0,
+      "sensores": [
+        {
+          "id": 175,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 176,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 177,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 178,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 179,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 180,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "nombre": "Oficina 5",
+      "piso": 0,
+      "sensores": [
+        {
+          "id": 181,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 182,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 183,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 184,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 185,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 186,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "nombre": "Oficina 6",
+      "piso": 0,
+      "sensores": [
+        {
+          "id": 187,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 188,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 189,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 190,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 191,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 192,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "nombre": "Oficina 7",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 193,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 194,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 195,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 196,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 197,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 198,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "nombre": "Oficina 8",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 199,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 200,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 201,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 202,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 203,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 204,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "nombre": "Oficina 9",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 205,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 206,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 207,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 208,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 209,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 210,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "nombre": "Oficina 10",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 211,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 212,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 213,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 214,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 215,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 216,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "nombre": "Oficina 11",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 217,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 218,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 219,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 220,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 221,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 222,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "nombre": "Oficina 12",
+      "piso": 3,
+      "sensores": [
+        {
+          "id": 223,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 224,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 225,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 226,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 227,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 228,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "nombre": "Patio 1",
+      "piso": 0,
+      "sensores": [
+        {
+          "id": 229,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 230,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "nombre": "Patio 2",
+      "piso": 0,
+      "sensores": [
+        {
+          "id": 231,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 232,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "nombre": "Patio 3",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 233,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 234,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "nombre": "Patio 4",
+      "piso": 3,
+      "sensores": [
+        {
+          "id": 235,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 236,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "nombre": "Gym 1",
+      "piso": 0,
+      "sensores": [
+        {
+          "id": 237,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 238,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 239,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "nombre": "Gym 2",
+      "piso": 3,
+      "sensores": [
+        {
+          "id": 240,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 241,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 242,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "nombre": "Pasillo 1",
+      "piso": 0,
+      "sensores": []
+    },
+    {
+      "id": 46,
+      "nombre": "Pasillo 2",
+      "piso": 0,
+      "sensores": []
+    },
+    {
+      "id": 47,
+      "nombre": "Pasillo 3",
+      "piso": 0,
+      "sensores": []
+    },
+    {
+      "id": 48,
+      "nombre": "Pasillo 1",
+      "piso": 1,
+      "sensores": []
+    },
+    {
+      "id": 49,
+      "nombre": "Pasillo 2",
+      "piso": 1,
+      "sensores": []
+    },
+    {
+      "id": 50,
+      "nombre": "Pasillo 3",
+      "piso": 1,
+      "sensores": []
+    },
+    {
+      "id": 51,
+      "nombre": "Pasillo 1",
+      "piso": 2,
+      "sensores": []
+    },
+    {
+      "id": 52,
+      "nombre": "Pasillo 2",
+      "piso": 2,
+      "sensores": []
+    },
+    {
+      "id": 53,
+      "nombre": "Pasillo 3",
+      "piso": 2,
+      "sensores": []
+    },
+    {
+      "id": 54,
+      "nombre": "Pasillo 1",
+      "piso": 3,
+      "sensores": []
+    },
+    {
+      "id": 55,
+      "nombre": "Pasillo 2",
+      "piso": 3,
+      "sensores": []
+    },
+    {
+      "id": 56,
+      "nombre": "Pasillo 3",
+      "piso": 3,
+      "sensores": []
+    },
+    {
+      "id": 57,
+      "nombre": "Laboratorio Fisica 1",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 243,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 244,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 245,
+          "unidadDeMedida": "ppm",
+          "tipo": "GAS",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 246,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 247,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 248,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "nombre": "Laboratorio Biologia 2",
+      "piso": 2,
+      "sensores": [
+        {
+          "id": 249,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 250,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 251,
+          "unidadDeMedida": "ppm",
+          "tipo": "GAS",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 252,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 253,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 254,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "nombre": "Laboratorio Biologia 1",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 255,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 256,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 257,
+          "unidadDeMedida": "ppm",
+          "tipo": "GAS",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 258,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 259,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 260,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "nombre": "Laboratorio Fisica 2",
+      "piso": 2,
+      "sensores": [
+        {
+          "id": 261,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 262,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 263,
+          "unidadDeMedida": "ppm",
+          "tipo": "GAS",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 264,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 265,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 266,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "nombre": "Laboratorio Quimica 1",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 267,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 268,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 269,
+          "unidadDeMedida": "ppm",
+          "tipo": "GAS",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 270,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 271,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 272,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "nombre": "Laboratorio Quimica 2",
+      "piso": 2,
+      "sensores": [
+        {
+          "id": 273,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 274,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 275,
+          "unidadDeMedida": "ppm",
+          "tipo": "GAS",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 276,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 277,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 278,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "nombre": "Aula virtual 1",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 279,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 280,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 281,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 282,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 283,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "nombre": "Aula virtual 2",
+      "piso": 2,
+      "sensores": [
+        {
+          "id": 284,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 285,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 286,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 287,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 288,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "nombre": "Aula virtual 3",
+      "piso": 3,
+      "sensores": [
+        {
+          "id": 289,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 290,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 291,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 292,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 293,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "nombre": "Baño 1",
+      "piso": 0,
+      "sensores": [
+        {
+          "id": 294,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 295,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "nombre": "Baño 2",
+      "piso": 0,
+      "sensores": [
+        {
+          "id": 296,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 297,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "nombre": "Baño 3",
+      "piso": 0,
+      "sensores": [
+        {
+          "id": 298,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 299,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "nombre": "Baño 4",
+      "piso": 0,
+      "sensores": [
+        {
+          "id": 300,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 301,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "nombre": "Baño 5",
+      "piso": 0,
+      "sensores": [
+        {
+          "id": 302,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 303,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "nombre": "Baño 6",
+      "piso": 0,
+      "sensores": [
+        {
+          "id": 304,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 305,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "nombre": "Baño 7",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 306,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 307,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "nombre": "Baño 8",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 308,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 309,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "nombre": "Baño 9",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 310,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 311,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "nombre": "Baño 10",
+      "piso": 2,
+      "sensores": [
+        {
+          "id": 312,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 313,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "nombre": "Baño 11",
+      "piso": 2,
+      "sensores": [
+        {
+          "id": 314,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 315,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 77,
+      "nombre": "Baño 12",
+      "piso": 2,
+      "sensores": [
+        {
+          "id": 316,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 317,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "nombre": "Baño 13",
+      "piso": 2,
+      "sensores": [
+        {
+          "id": 318,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 319,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 79,
+      "nombre": "Baño 14",
+      "piso": 3,
+      "sensores": [
+        {
+          "id": 320,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 321,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "nombre": "Baño 15",
+      "piso": 3,
+      "sensores": [
+        {
+          "id": 322,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 323,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 81,
+      "nombre": "Baño 16",
+      "piso": 3,
+      "sensores": [
+        {
+          "id": 324,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 325,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "nombre": "Cocina",
+      "piso": 0,
+      "sensores": [
+        {
+          "id": 326,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 327,
+          "unidadDeMedida": "ppm",
+          "tipo": "GAS",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 328,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "nombre": "Comedor 1",
+      "piso": 0,
+      "sensores": [
+        {
+          "id": 329,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 330,
+          "unidadDeMedida": "ppm",
+          "tipo": "GAS",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 331,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "nombre": "Comedor 2",
+      "piso": 3,
+      "sensores": [
+        {
+          "id": 332,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 333,
+          "unidadDeMedida": "ppm",
+          "tipo": "GAS",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 334,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 85,
+      "nombre": "Biblioteca",
+      "piso": 0,
+      "sensores": [
+        {
+          "id": 335,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 336,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": [
+            {
+              "id": 3,
+              "fecha": "17/10/2022 01:03:12",
+              "unidad": "Celcius",
+              "valor": 40.3,
+              "frecuencia": 60
+            }
+          ]
+        },
+        {
+          "id": 337,
+          "unidadDeMedida": "Decibeles",
+          "tipo": "NIVEL_DE_RUIDO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 338,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 339,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": [
+            {
+              "id": 1,
+              "fecha": "17/10/2022 01:03:12",
+              "unidad": "Boolean",
+              "valor": 1,
+              "frecuencia": 30
+            },
+            {
+              "id": 2,
+              "fecha": "17/10/2022 01:03:12",
+              "unidad": "Boolean",
+              "valor": 0,
+              "frecuencia": 30
+            },
+            {
+              "id": 4,
+              "fecha": "17/10/2022 01:03:12",
+              "unidad": "Boolean",
+              "valor": 1,
+              "frecuencia": 30
+            }
+          ]
+        },
+        {
+          "id": 340,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "nombre": "Salon de actos 1",
+      "piso": 0,
+      "sensores": [
+        {
+          "id": 341,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 342,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 343,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 344,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 345,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "nombre": "Salon de actos 2",
+      "piso": 1,
+      "sensores": [
+        {
+          "id": 346,
+          "unidadDeMedida": "Porcentaje",
+          "tipo": "HUMEDAD",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 347,
+          "unidadDeMedida": "Celcius",
+          "tipo": "TEMPERATURA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 348,
+          "unidadDeMedida": "ppm",
+          "tipo": "CALIDAD_DE_AIRE",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 349,
+          "unidadDeMedida": "Boolean",
+          "tipo": "PUERTA",
+          "estado": "DISPONIBLE",
+          "registros": []
+        },
+        {
+          "id": 350,
+          "unidadDeMedida": "ppm",
+          "tipo": "HUMO",
+          "estado": "DISPONIBLE",
+          "registros": []
+        }
+      ]
+    }
+  ]
