@@ -5,7 +5,7 @@
 <style>
 img {
   margin: 10px;
-  height: 75vh;
+  height: 70vh;
   align-content: center;
   border-image-width: 0;
   background: none;

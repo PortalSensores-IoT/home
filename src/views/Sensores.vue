@@ -1,25 +1,26 @@
 <template>
   <div id="sensoresSectionDiv">
-    <div id="barraBusquedaId">
+    <div id="barraBusquedaDiv">
       <div id="selectorGroupPiso">
         <h4>Piso</h4>
-        <select id="comboBoxPiso">
-          <option v-for="piso in pisos" :key="piso.id" value="{{piso}}">
-            {{ piso }}
+        <select @change="filtrarLugaresPorPiso(pisoSeleccionado);" v-model="pisoSeleccionado" id="comboBoxPiso">
+          <option v-for="piso in pisos" :key="piso.id" :value="piso">
+            {{ piso == 0 ? 'Planta baja' : piso }}
           </option>
         </select>
       </div>
       <div id="selectorGroupLugar">
         <h4>Lugar</h4>
         <select id="comboBoxLugar">
-          <option v-for="lugar in lugares" :key="lugar.id" value="{{lugar}}">
+          <option v-for="lugar in lugares" :key="lugar.id" :value="lugar">
             {{ lugar }}
           </option>
         </select>
       </div>
-      <button id="btnBuscar">Buscar</button>
+      <button @click="buscar();" id="btnBuscar">Buscar</button>
+      <button id="btnAgregar">Agregar</button>
     </div>
-    <registroTable />
+    <registroTable/>
   </div>
 </template>
 
@@ -35,6 +36,7 @@ export default {
       areas,
       pisos: [],
       lugares: [],
+      pisoSeleccionado:-1
     };
   },
   beforeMount() {
@@ -46,46 +48,90 @@ export default {
         if (!this.pisos.includes(area.piso)) {
           this.pisos.push(area.piso);
         }
-        if (!this.lugares.includes(area.nombre)) {
-          this.lugares.push(area.nombre);
+      });
+      this.pisos.sort(); 
+    },
+    filtrarLugaresPorPiso(pisoSeleccionado) {
+      this.lugares = [];
+      this.areas.forEach((area) => {
+        if(area.piso == pisoSeleccionado){
+          if(!this.lugares.includes(area.nombre)){
+            this.lugares.push(area.nombre);
+          }
         }
       });
-      this.pisos.sort();
       this.lugares.sort();
     },
-  },
+    buscar() {
+
+    }
+  }
 };
 </script>
 
 <style scoped>
-* {
-  background: #963535;
-}
-
 #sensoresSectionDiv {
   margin-top: 2%;
 }
 
-#comboBoxPiso {
-  width: 10%;
-  margin: 20px;
+#barraBusquedaDiv {
+  display: flex;
+  justify-content: left;
+  margin: 0 4%;
+}
+
+#selectorGroupPiso {
+  margin: 0 10px;
+}
+
+#selectorGroupPiso h4 {
+  background: none;
+  margin: 0 10px;
+  font: 1.5em "Segoe UI", "Century Gothic";
+}
+
+#selectorGroupLugar {
+  margin: 0 10px;
+}
+
+#selectorGroupLugar h4 {
+  background: none;
+  margin: 0 10px;
+  font: 1.5em "Segoe UI", "Century Gothic";
+}
+
+#comboBoxPiso,
+#comboBoxLugar {
+  width: 100px;
+  height: 30px;
+  margin: 10px;
+  background: #1b9752;
+  color: #ffffff;
+  border: none;
+  border-radius: 2px;
+  box-sizing: border-box !important;
+  box-shadow: none !important;
+  outline: none !important;
+  font-size: 15px !important;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
 #comboBoxLugar {
-  width: 10%;
-  margin: 20px;
+  width: 200px;
 }
 
-#btnBuscar {
+#btnBuscar, #btnAgregar {
   background: #1b9752;
   color: white;
   border-style: none;
   border-radius: 2px;
-  width: 10%;
-  margin: 20px;
+  width: 100px;
+  height: 40px;
+  margin: 32px 20px 10px 10px;
 }
 
-#btnBuscar:hover {
+#btnBuscar:hover,
+#btnAgregar:hover {
   background: #044a23;
   color: white;
 }

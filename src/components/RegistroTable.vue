@@ -35,20 +35,19 @@ export default {
   justify-content: center;
   flex-direction: row;
   padding: 10px 0;
-  background: none;
 }
 
 table {
   font-family: sans-serif;
   width: 90%;
-  table-layout: fixed;
-  background: none;
 }
 
 
-tr {
-  background: none;
-}
+td, th {
+  border-color: black;
+  border-style: groove;
+  border-width: 1px;
+  }
 
 th {
   font-family: sans-serif;
@@ -56,7 +55,9 @@ th {
   padding: 10px;
   text-align: left;
   width: 33%;
-  background: none;
+  background:#1b9752;
+  color:white;
+  font-weight: 400;
 }
 
 td {
@@ -69,11 +70,11 @@ td {
   text-align: left;
   width: 33%;
   font-family: consolas;
-  border-style: groove;
-  background: none;
+  font-weight: 400;
 }
 
 #registroRow:hover {
-  background: #619257;
+  background:#1b9752;
+  color: white;
 }
 </style>
