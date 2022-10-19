@@ -1,13 +1,13 @@
 <template>
   <div id="home">
     <div id="headBox">
-      <h1>Portal de sensores y areas</h1>
+      <h1>Portal sensores - IOT</h1>
       <h4>Instituto La Manzana de Isaac</h4>
     </div>
     <div id="navBox">
       <router-link id="inicioLink" to="/">Inicio</router-link>
-      <router-link id="gestionSensoresLink" to="/sensores">Gestion de sensores</router-link>
-      <router-link id="mapaLink" to="/mapa">Mapa del instituto</router-link>
+      <router-link id="gestionSensoresLink" to="/sensores">Sensores</router-link>
+      <router-link id="mapaLink" to="/mapa">Sugerencias</router-link>
       <router-view />
     </div>
   </div>
@@ -46,12 +46,14 @@ export default {
 text-align: left;
 width: 50%;
 background: none;
+color: black;
 }
 
 #headBox h4 {
 text-align: right;
 width: 50%;
 background: none;
+color: black;
 }
 
 #navBox {
@@ -68,6 +70,10 @@ background: none;
   font-weight: bold;
   border-radius: 0 0 3px 3px;
   background: #1b9752;
+
+ -webkit-box-shadow: inset 0px 22px 7px -19px rgba(0,0,0,0.36);
+-moz-box-shadow: inset 0px 22px 7px -19px rgba(0,0,0,0.36);
+box-shadow: inset 0px 22px 7px -19px rgba(0,0,0,0.36);
 }
 
 #gestionSensoresLink:hover, #mapaLink:hover, #inicioLink:hover {
@@ -84,6 +90,10 @@ background: none;
 #navBox a.router-link-exact-active {
 	color:white;
   border-top: none;
+  background: #1b9752;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 </style>

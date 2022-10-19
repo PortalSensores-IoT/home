@@ -1,30 +1,30 @@
 [
   {
     "id": 1,
-    "fecha": "16/10/2022 23:30:55",
-    "unidad": "Boolean",
-    "valor": 1,
-    "frecuencia": 30
+    "fecha": "50",
+    "unidad": "C°",
+    "valor": "Temperatura",
+    "frecuencia": "C°"
   },
   {
     "id": 2,
-    "fecha": "16/10/2022 23:30:55",
+    "fecha": "70",
     "unidad": "Boolean",
-    "valor": 0,
-    "frecuencia": 30
+    "valor": "Humedad",
+    "frecuencia": "%"
   },
   {
     "id": 3,
-    "fecha": "16/10/2022 23:30:55",
+    "fecha": "1235",
     "unidad": "Celcius",
-    "valor": 40.3,
-    "frecuencia": 60
+    "valor": "Calidad de aire",
+    "frecuencia": "PPM"
   },
   {
     "id": 4,
     "fecha": "16/10/2022 23:30:55",
     "unidad": "Boolean",
-    "valor": 1,
+    "valor": "Humedad",
     "frecuencia": 30
   }
 ]

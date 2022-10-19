@@ -2,9 +2,9 @@
   <div id="instanciasTableDiv">
     <table>
       <tr>
+        <th>Sensor</th>
         <th>Valor</th>
-        <th>Registro</th>
-        <th>Frecuencia de registro (en seg.)</th>
+        <th>Unidad de medida</th>
       </tr>
       <tr id="registroRow" v-for="registro in registros" :key="registro.id">
         <td>{{ registro.valor }}</td>
