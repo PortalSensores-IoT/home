@@ -3,9 +3,9 @@
     <div id="barraBusquedaDiv">
       <div id="selectorGroupPiso">
         <h4>Piso</h4>
-        <select @change="filtrarLugaresPorPiso(pisoSeleccionado);" v-model="pisoSeleccionado" id="comboBoxPiso">
+        <select @change="filtrarLugaresPorPiso(pisoSeleccionado)" v-model="pisoSeleccionado" id="comboBoxPiso">
           <option v-for="piso in pisos" :key="piso.id" :value="piso">
-            {{ piso == 0 ? 'Planta baja' : piso }}
+            {{ piso == 0 ? "Planta baja" : piso }}
           </option>
         </select>
       </div>
@@ -17,11 +17,15 @@
           </option>
         </select>
       </div>
-      <button @click="buscar();" id="btnBuscar">Buscar</button>
+      <div id="btnBusquedaContainer">
+        <button @click="buscar()" id="btnBuscar">Buscar</button>
+      </div>
+    </div>
+    <div id="btnAltaContainer">
       <button id="btnAgregar">Agregar</button>
     </div>
-    <registroTable/>
   </div>
+  <registroTable :pisoSeleccionado="pisoSeleccionado" :lugarSeleccionado="lugarSeleccionado"/>
 </template>
 
 <script>
@@ -36,7 +40,7 @@ export default {
       areas,
       pisos: [],
       lugares: [],
-      pisoSeleccionado:-1
+      pisoSeleccionado: -1,
     };
   },
   beforeMount() {
@@ -49,28 +53,27 @@ export default {
           this.pisos.push(area.piso);
         }
       });
-      this.pisos.sort(); 
+      this.pisos.sort();
     },
     filtrarLugaresPorPiso(pisoSeleccionado) {
       this.lugares = [];
       this.areas.forEach((area) => {
-        if(area.piso == pisoSeleccionado){
-          if(!this.lugares.includes(area.nombre)){
+        if (area.piso == pisoSeleccionado) {
+          if (!this.lugares.includes(area.nombre)) {
             this.lugares.push(area.nombre);
           }
         }
       });
       this.lugares.sort();
     },
-    buscar() {
-
-    }
-  }
+    buscar() {},
+  },
 };
 </script>
 
 <style scoped>
 #sensoresSectionDiv {
+  display: flex;
   margin-top: 2%;
 }
 
@@ -120,7 +123,8 @@ export default {
   width: 200px;
 }
 
-#btnBuscar, #btnAgregar {
+#btnBuscar,
+#btnAgregar {
   background: #1b9752;
   color: white;
   border-style: none;
@@ -135,4 +139,5 @@ export default {
   background: #044a23;
   color: white;
 }
+
 </style>

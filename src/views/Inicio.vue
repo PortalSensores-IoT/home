@@ -8,25 +8,18 @@
       portal es brindar a la institucion facilidad adminitrativa y mejorar la
       experiencia de los estudiantes por el paso en la institución.
     </p>
-    <div id="imageContainer">
-      <img @click="showModal = !showModal" src="../assets/imgBienvenida.png" /><img />
-    </div>
-    <h1 v-if="showModal">IOT TEAM EL MEJOR GRUPO!</h1>
   </div>
+  <div id="footerBox"></div>
 </template>
 
 <script>
 export default {
-  name: "Inicio",
-  data() {
-    return {
-      showModal:false
-    };
-  },
+  name: "Inicio"
 };
 </script>
 
 <style scoped>
+
 #inicioBox {
   margin-top: 2%;
   padding: 2% 20%;
@@ -44,18 +37,12 @@ p {
   text-align: center;
 }
 
-img {
-  height: 5vh;
-  align-content: center;
-  border-image-width: 0;
-  background: none;
-}
-
-#imageContainer {
+#home #footerBox{
   display: flex;
-  justify-content: center;
+  margin-top: 8px;
+  background: #1b9752;
   width: 100%;
-  background: none;
+  height: 50px;
 }
 
 </style>

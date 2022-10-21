@@ -31,7 +31,7 @@ export default {
   text-align: center;
 }
 
-#headBox{
+#headBox {
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -40,20 +40,25 @@ export default {
   font: 3em "Segoe UI", "Century Gothic";
   font-weight: 400;
   background: #1b9752;
+  width: 100%;
 }
 
 #headBox h1 {
-text-align: left;
-width: 50%;
-background: none;
-color: black;
+  justify-content: left;
+  padding: 0;
+  text-align: left;
+  width: 50%;
+  background: none;
+  color: black;
 }
 
 #headBox h4 {
-text-align: right;
-width: 50%;
-background: none;
-color: black;
+  position: relative;
+  top: 10px;
+  text-align: right;
+  width: 50%;
+  background: none;
+  color: black;
 }
 
 #navBox {
@@ -70,25 +75,26 @@ color: black;
   font-weight: bold;
   border-radius: 0 0 3px 3px;
   background: #1b9752;
-
- -webkit-box-shadow: inset 0px 22px 7px -19px rgba(0,0,0,0.36);
--moz-box-shadow: inset 0px 22px 7px -19px rgba(0,0,0,0.36);
-box-shadow: inset 0px 22px 7px -19px rgba(0,0,0,0.36);
+  -webkit-box-shadow: inset 0px 22px 7px -19px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: inset 0px 22px 7px -19px rgba(0, 0, 0, 0.36);
+  box-shadow: inset 0px 22px 7px -19px rgba(0, 0, 0, 0.36);
 }
 
-#gestionSensoresLink:hover, #mapaLink:hover, #inicioLink:hover {
+#gestionSensoresLink:hover,
+#mapaLink:hover,
+#inicioLink:hover {
   font: 1.5em "Segoe UI", "Century Gothic";
   font-style: italic;
   color: #000000;
   text-decoration: none;
   font-weight: bold;
-  background:#044a23;
-	color:white;
+  background: #044a23;
+  color: white;
   transition: all 0.5s;
 }
 
 #navBox a.router-link-exact-active {
-	color:white;
+  color: white;
   border-top: none;
   background: #1b9752;
   -webkit-box-shadow: none;
