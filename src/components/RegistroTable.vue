@@ -1,19 +1,33 @@
 <template>
   <div id="instanciasTableDiv">
     <table>
-      <tr id="headTable"><th>{{lugarSeleccionado}} - Piso {{pisoSeleccionado}}</th></tr>
-      <tr>
-        <th>Sensor</th>
-        <th>Valor</th>
-        <th>Unidad de medida</th>
-      </tr>
-      <tr id="registroRow" v-for="registro in registros" :key="registro.id">
-        <td>{{ registro.valor }}</td>
-        <td>{{ registro.fecha }}</td>
-        <td>{{ registro.frecuencia }}</td>
-        <td id="imgModificar"><img src="../assets/modificar.png" /></td>
-        <td id="imgTacho"><img src="../assets/tacho.png" /></td>
-      </tr>
+      <thead>
+        <th id="headTable" colspan="5">{{lugarSeleccionado}} - Piso {{pisoSeleccionado}}</th>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Sensor</th>
+          <th>Valor</th>
+          <th>Unidad de medida</th>
+          <th colspan="2"></th>
+        </tr>
+        <tr id="registroRow" v-for="registro in registros" :key="registro.id">
+          <td>{{ registro.valor }}</td>
+          <td>{{ registro.fecha }}</td>
+          <td>{{ registro.frecuencia }}</td>
+          <td id="imgModificar">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <img src="../assets/modificar.png" />
+            </button>
+            
+          </td>
+          <td id="imgTacho">
+            <button>
+              <img src="../assets/tacho.png" />
+            </button>
+          </td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </template>
@@ -61,7 +75,7 @@ th {
   margin: 0px auto;
   padding: 10px;
   text-align: left;
-  width: 33%;
+  width: 30%;
   background: #1b9752;
   color: white;
   font-weight: 400;
@@ -69,12 +83,11 @@ th {
 
 td {
   background: none;
-  padding: 5px 10px;
+  padding-left: 10px;
 }
 
 #headTable {
-  width: 100%;
-  background: #1b9752;
+  text-align: center;
 }
 
 #registroRow {
@@ -92,22 +105,21 @@ td {
 }
 
 img {
-  margin: 10px;
   width: 32px;
   height: 32px;
   align-content: center;
-  border-image-width: 0;
-  background: none;
 }
 
+#imgTacho,
 #imgModificar {
-  height: 3vh;
-  margin-top: 2%;
-  background: none;
+  width: 5%;
+  align-items: center;
 }
 
-#imgTacho {
-  margin-top: 2%;
-  background: none;
+#imgTacho button,
+#imgModificar button{
+  border: none;
+  background: transparent;
 }
+
 </style>

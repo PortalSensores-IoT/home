@@ -2,16 +2,16 @@
   <div id="sensoresSectionDiv">
     <div id="barraBusquedaDiv">
       <div id="selectorGroupPiso">
-        <h4>Piso</h4>
         <select @change="filtrarLugaresPorPiso(pisoSeleccionado)" v-model="pisoSeleccionado" id="comboBoxPiso">
+          <option disabled hidden selected>Piso</option>
           <option v-for="piso in pisos" :key="piso.id" :value="piso">
             {{ piso == 0 ? "Planta baja" : piso }}
           </option>
         </select>
       </div>
       <div id="selectorGroupLugar">
-        <h4>Lugar</h4>
         <select id="comboBoxLugar">
+          <option hidden selected>Área</option>
           <option v-for="lugar in lugares" :key="lugar.id" :value="lugar">
             {{ lugar }}
           </option>
@@ -22,7 +22,7 @@
       </div>
     </div>
     <div id="btnAltaContainer">
-      <button id="btnAgregar">Agregar</button>
+      <button id="btnAgregar">Solicitar alta sensor</button>
     </div>
   </div>
   <registroTable :pisoSeleccionado="pisoSeleccionado" :lugarSeleccionado="lugarSeleccionado"/>
@@ -74,53 +74,32 @@ export default {
 <style scoped>
 #sensoresSectionDiv {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
   margin-top: 2%;
+  width: 90%;
 }
 
 #barraBusquedaDiv {
   display: flex;
-  justify-content: left;
-  margin: 0 4%;
-}
-
-#selectorGroupPiso {
-  margin: 0 10px;
-}
-
-#selectorGroupPiso h4 {
-  background: none;
-  margin: 0 10px;
-  font: 1.5em "Segoe UI", "Century Gothic";
-}
-
-#selectorGroupLugar {
-  margin: 0 10px;
-}
-
-#selectorGroupLugar h4 {
-  background: none;
-  margin: 0 10px;
-  font: 1.5em "Segoe UI", "Century Gothic";
+  width: 500px;
+  text-align: center;
+  justify-content: space-between;
 }
 
 #comboBoxPiso,
 #comboBoxLugar {
-  width: 100px;
-  height: 30px;
-  margin: 10px;
+  width: 160px;
+  height: 35px;
+  text-align: center;
   background: #1b9752;
   color: #ffffff;
   border: none;
   border-radius: 2px;
-  box-sizing: border-box !important;
-  box-shadow: none !important;
   outline: none !important;
   font-size: 15px !important;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
-}
-
-#comboBoxLugar {
-  width: 200px;
 }
 
 #btnBuscar,
@@ -129,9 +108,9 @@ export default {
   color: white;
   border-style: none;
   border-radius: 2px;
-  width: 100px;
-  height: 40px;
-  margin: 32px 20px 10px 10px;
+  width: auto;
+  min-width: 160px;
+  height: 35px;
 }
 
 #btnBuscar:hover,
