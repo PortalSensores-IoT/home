@@ -44,6 +44,8 @@ export default {
 }
 
 #headBox h1 {
+  font: 50px 'Segoe UI','Century Gothic';
+	font-weight: 400;
   justify-content: left;
   padding: 0;
   text-align: left;
@@ -53,6 +55,7 @@ export default {
 }
 
 #headBox h4 {
+  font: 30px 'Segoe UI','Century Gothic';
   position: relative;
   top: 10px;
   text-align: right;

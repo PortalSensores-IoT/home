@@ -23,7 +23,7 @@
           </td>
           <td id="imgTacho">
             <button>
-              <img src="../assets/tacho.png" />
+              <img src="../assets/logo.png" />
             </button>
           </td>
         </tr>
