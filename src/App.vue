@@ -55,10 +55,12 @@ export default {
 }
 
 #headBox h4 {
+  display: flex;
   font: 30px 'Segoe UI','Century Gothic';
   position: relative;
-  top: 10px;
   text-align: right;
+  justify-content: right;
+  align-items: center;
   width: 50%;
   background: none;
   color: black;

@@ -17,13 +17,13 @@
           <td>{{ registro.frecuencia }}</td>
           <td id="imgModificar">
             <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              <img src="../assets/modificar.png" />
+              <img v-bind:src="require('../assets/modificar.png')" alt="">
             </button>
             
           </td>
           <td id="imgTacho">
             <button>
-              <img src="../assets/logo.png" />
+              <img v-bind:src="require('../assets/tacho.png')" alt="">
             </button>
           </td>
         </tr>
@@ -115,12 +115,17 @@ img {
 #imgModificar {
   width: 5%;
   align-items: center;
+  padding-left: 0;
 }
 
 #imgTacho button,
 #imgModificar button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   background: transparent;
+  width: 100%;
 }
 
 </style>
