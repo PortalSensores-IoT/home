@@ -23,7 +23,11 @@
           </td>
           <td id="imgTacho">
             <button>
+<<<<<<< Updated upstream
               <img v-bind:src="require('../assets/tacho.png')" alt="">
+=======
+              <img src="../assets/tacho.png" />
+>>>>>>> Stashed changes
             </button>
           </td>
         </tr>

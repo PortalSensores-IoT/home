@@ -3,17 +3,12 @@
     <div id="barraBusquedaDiv">
       <div id="selectorGroupPiso">
         <select @change="filtrarLugaresPorPiso(pisoSeleccionado)" v-model="pisoSeleccionado" id="comboBoxPiso">
-          <option v-for="piso in pisos" :key="piso.piso" :value="piso" :selected="piso=='0'">
-            {{ piso == 0 ? "Planta baja" : piso }}
-          </option>
+          <option v-for="piso in pisos" :key="piso.piso" :value="piso" :selected="piso=='0'"> {{ piso == 0 ? "Planta baja" : piso }} </option>
         </select>
       </div>
       <div id="selectorGroupLugar">
         <select v-model="lugarSeleccionado" id="comboBoxLugar">
-          <option hidden selected>{{this.lugares[0]}}</option>
-          <option v-for="lugar in lugares" :key="lugar.id" :value="lugar">
-            {{ lugar }}
-          </option>
+          <option v-for="lugar in lugares" :key="lugar.id" :value="lugar"> {{ lugar }} </option>
         </select>
       </div>
       <div id="btnBusquedaContainer">
@@ -21,9 +16,9 @@
       </div>
     </div>
     <div id="btnAltaContainer">
-      <button id="btnAgregar">Solicitar alta sensor</button>
+      <button id="btnAgregar" @click="showModalAltaSensor = true">Solicitar alta sensor</button>
     </div>
-    <!--<FormAltaSensor/>-->
+    <FormAltaSensor v-show="showModalAltaSensor" @ocultarForm="ocultarFormAltaSensor($event)"/>
   </div>
   <registroTable :tituloTabla="tituloTabla" />
 </template>
@@ -70,7 +65,6 @@ export default {
       });
       this.lugares.sort();
       this.lugarSeleccionado = "";
-      setTituloTabla();
     },
     buscarSensores() {
       this.setTituloTabla();
@@ -82,6 +76,9 @@ export default {
         this.tituloTabla = "Tabla de sensores  " + this.lugarSeleccionado + " - Piso: " + (this.pisoSeleccionado == 0 ? "Planta baja" : this.pisoSeleccionado);
       }
     },
+    ocultarFormAltaSensor(ocultarFormAltaSensor) {
+      this.showModalAltaSensor = ocultarFormAltaSensor;
+    }
   },
 };
 </script>

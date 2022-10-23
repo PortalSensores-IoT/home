@@ -2,7 +2,7 @@
   <div id="inicioBox">
     <h1>Bienvenido</h1>
 
-    <p class="blockquote">
+    <p>
       Este es el portal del area de IOT para la gestion de sensores. Aquí podrá
       gestionar los sensores, ver el mapa de la institucion. El objetivo de este
       portal es brindar a la institucion facilidad adminitrativa y mejorar la
@@ -33,6 +33,8 @@ export default {
 }
 
 p {
+  font: 16px 'Segoe UI','Century Gothic';
+	font-weight: 400;
   color: #000000;
   text-align: center;
 }
