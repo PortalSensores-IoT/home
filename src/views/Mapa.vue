@@ -1,5 +1,5 @@
 <template>
-  <div id="imageContainer"><img src="../assets/planoIsaac.png" /><img /></div>
+  <div id="imageContainer"><img v-bind:src="require('../assets/planoIsaac.png')" alt=""></div>
 </template>
 
 <style>
