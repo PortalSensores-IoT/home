@@ -2,7 +2,7 @@
   <div id="instanciasTableDiv">
     <table>
       <thead>
-        <th id="headTable" colspan="5">{{lugarSeleccionado}} - Piso {{pisoSeleccionado}}</th>
+        <th id="headTable" colspan="5">{{tituloTabla}}</th>
       </thead>
       <tbody>
         <tr>
@@ -38,14 +38,15 @@ import registros from "@/registros.json";
 export default {
   name: "RegistroTable",
   props: {
-    lugarSeleccionado:String,
-    pisoSeleccionado:Number
+    tituloTabla:String
   },
   data() {
     return {
       registros
     };
   },
+  methods: {
+  }
 };
 </script>
 
@@ -61,10 +62,10 @@ export default {
 table {
   font-family: sans-serif;
   width: 90%;
+  border-spacing: 0 !important ;
 }
 
-td,
-th {
+td, th {
   border-color: black;
   border-style: groove;
   border-width: 1px;

@@ -3,44 +3,48 @@
     <div id="barraBusquedaDiv">
       <div id="selectorGroupPiso">
         <select @change="filtrarLugaresPorPiso(pisoSeleccionado)" v-model="pisoSeleccionado" id="comboBoxPiso">
-          <option disabled hidden selected>Piso</option>
-          <option v-for="piso in pisos" :key="piso.id" :value="piso">
+          <option v-for="piso in pisos" :key="piso.piso" :value="piso" :selected="piso=='0'">
             {{ piso == 0 ? "Planta baja" : piso }}
           </option>
         </select>
       </div>
       <div id="selectorGroupLugar">
-        <select id="comboBoxLugar">
-          <option hidden selected>Área</option>
+        <select v-model="lugarSeleccionado" id="comboBoxLugar">
+          <option hidden selected>{{this.lugares[0]}}</option>
           <option v-for="lugar in lugares" :key="lugar.id" :value="lugar">
             {{ lugar }}
           </option>
         </select>
       </div>
       <div id="btnBusquedaContainer">
-        <button @click="buscar()" id="btnBuscar">Buscar</button>
+        <button id="btnBuscar" @click="buscarSensores()">Buscar</button>
       </div>
     </div>
     <div id="btnAltaContainer">
       <button id="btnAgregar">Solicitar alta sensor</button>
     </div>
+    <!--<FormAltaSensor/>-->
   </div>
-  <registroTable :pisoSeleccionado="pisoSeleccionado" :lugarSeleccionado="lugarSeleccionado"/>
+  <registroTable :tituloTabla="tituloTabla" />
 </template>
 
 <script>
 import RegistroTable from "@/components/RegistroTable.vue";
+import FormAltaSensor from "@/components/FormAltaSensor.vue";
 import areas from "@/areas.json";
 
 export default {
   name: "Sensores",
-  components: { RegistroTable },
+  components: { RegistroTable, FormAltaSensor },
   data() {
     return {
       areas,
       pisos: [],
       lugares: [],
       pisoSeleccionado: -1,
+      lugarSeleccionado: "",
+      tituloTabla: "Tabla de sensores ",
+      showModalAltaSensor: false,
     };
   },
   beforeMount() {
@@ -65,8 +69,19 @@ export default {
         }
       });
       this.lugares.sort();
+      this.lugarSeleccionado = "";
+      setTituloTabla();
     },
-    buscar() {},
+    buscarSensores() {
+      this.setTituloTabla();
+      console.log(this.lugarSeleccionado);
+      console.log(this.pisoSeleccionado);
+    },
+    setTituloTabla() {
+      if (this.lugarSeleccionado != "" && this.pisoSeleccionado != -1) {
+        this.tituloTabla = "Tabla de sensores  " + this.lugarSeleccionado + " - Piso: " + (this.pisoSeleccionado == 0 ? "Planta baja" : this.pisoSeleccionado);
+      }
+    },
   },
 };
 </script>
@@ -118,5 +133,4 @@ export default {
   background: #044a23;
   color: white;
 }
-
 </style>
