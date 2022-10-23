@@ -36,7 +36,7 @@ export default {
   justify-content: center;
   flex-direction: row;
   align-content: center;
-  padding: 30px 20px;
+  padding: 15px 20px;
   font: 3em "Segoe UI", "Century Gothic";
   font-weight: 400;
   background: #1b9752;

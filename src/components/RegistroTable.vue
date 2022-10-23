@@ -16,18 +16,14 @@
           <td>{{ registro.fecha }}</td>
           <td>{{ registro.frecuencia }}</td>
           <td id="imgModificar">
-            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              <img v-bind:src="require('../assets/modificar.png')" alt="">
+            <button type="button">
+              <img v-bind:src="require('../assets/modificar.png')" alt="algo">
             </button>
             
           </td>
           <td id="imgTacho">
             <button>
-<<<<<<< Updated upstream
               <img v-bind:src="require('../assets/tacho.png')" alt="">
-=======
-              <img src="../assets/tacho.png" />
->>>>>>> Stashed changes
             </button>
           </td>
         </tr>
@@ -118,6 +114,7 @@ img {
 #imgTacho,
 #imgModificar {
   width: 5%;
+  max-width: 5%;
   align-items: center;
   padding-left: 0;
 }
