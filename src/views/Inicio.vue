@@ -1,6 +1,6 @@
 <template>
   <div id="inicioBox">
-    <h1>Bienvenido {{ usuario }}</h1>
+    <h1>Bienvenido {{ this.user.userName }}</h1>
 
     <p>
       Este es el portal del area de IOT para la gestion de sensores. Aquí podrá
@@ -32,14 +32,13 @@ export default {
     autenticarUser() {
       if (this.user.autorizado === false) {
         let user = {
-          username: this.$route.query.usuario,
+          userName: this.$route.query.usuario,
           email: this.$route.query.email,
           rol: this.$route.query.categoria,
           ultimoAnio: this.$route.query.ultimoanio,
           autorizado: false
         }
-        user.autorizado = Auth.validarUsuario(user.rol, user.ultimoanio, user.email, user.username);
-        user.autorizado = true;
+        user.autorizado = Auth.validarUsuario(user.rol, user.ultimoAnio, user.email, user.userName);
         if (!user.autorizado) {
           window.location.href = "https://www.inkdesign.com.ar";
         }

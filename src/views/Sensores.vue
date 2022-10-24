@@ -61,7 +61,6 @@ export default {
     };
   },
   beforeMount() {
-    console.log("USUARIO AUTORIZADO EN SENSORES? "+this.user.autorizado);
     this.filtrarPisosYLugares();
     this.autenticarUser();
   },

@@ -19,7 +19,7 @@ export default {
   data() {
     return {
       user:{
-          usename: "",
+          userName: "",
           email: "",
           rol: "",
           ultimoAnio: "",
@@ -30,7 +30,6 @@ export default {
   methods:{
     setUser(dataUser) {
       this.user = dataUser;
-      console.log(this.user);
     }
   }
 };
