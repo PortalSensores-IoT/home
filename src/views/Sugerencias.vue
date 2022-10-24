@@ -1,18 +1,19 @@
 <template>
-  <div class="container col-12 mx-10 mt-5">
-    <form class="mx-30">
+  <div id="contenedorSugerencias" class="bg-light container card border-success col-8 py-20 mt-5 shadow rounded">
+    <div class="card-header">¡Envianos tus sugerencias!</div>
+    <form class="bg-light mx-30">
       
-        <div class="mb-3 col-3">
-          <label for="exampleFormControlInput1" class="form-label">Asunto</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <div class="bg-light mb-4 col-4">
+          <label align="left" for="asuntoForm" class="bg-light form-label">Asunto</label>
+          <input type="email" class="bg-light form-control" id="asuntoForm" placeholder="p. ej.: Nuevo tipo de sensor">
         </div>
-        <div class="mb-3 col-8">
-          <label for="exampleFormControlTextarea1" class="form-label">Sugerencia</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <div class="bg-light mb-5 col-12">
+          <label for="sugerenciaForm" class="bg-light form-label">Sugerencia</label>
+          <textarea class="h-100 bg-light form-control" id="sugerenciaForm" rows="7"></textarea>
         </div>
         
-      <div class="col-auto">
-        <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+      <div class="bg-light col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Enviar sugerencia</button>
       </div>
       
     </form>
@@ -40,20 +41,15 @@ export default {
 </script>
 
 
-<style>
-img {
-  margin: 10px;
-  height: 70vh;
-  align-content: center;
-  border-image-width: 0;
-  background: none;
-}
+<style scoped>
+  #contenedorSugerencias {
+    padding: 0;
+  }
 
-#imageContainer{
-    margin-top: 2%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background: none;
-}
+  form {
+    padding: 20px;
+  }
+
+  form div label{
+  }
 </style>
