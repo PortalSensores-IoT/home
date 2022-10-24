@@ -2,13 +2,26 @@
   <div id="sensoresSectionDiv">
     <div id="barraBusquedaDiv">
       <div id="selectorGroupPiso">
-        <select @change="filtrarLugaresPorPiso(pisoSeleccionado)" v-model="pisoSeleccionado" id="comboBoxPiso">
-          <option v-for="piso in pisos" :key="piso.piso" :value="piso" :selected="piso=='0'"> {{ piso == 0 ? "Planta baja" : piso }} </option>
+        <select
+          @change="filtrarLugaresPorPiso(pisoSeleccionado)"
+          v-model="pisoSeleccionado"
+          id="comboBoxPiso"
+        >
+          <option
+            v-for="piso in pisos"
+            :key="piso.piso"
+            :value="piso"
+            :selected="piso == '0'"
+          >
+            {{ piso == 0 ? "Planta baja" : piso }}
+          </option>
         </select>
       </div>
       <div id="selectorGroupLugar">
         <select v-model="lugarSeleccionado" id="comboBoxLugar">
-          <option v-for="lugar in lugares" :key="lugar.id" :value="lugar"> {{ lugar }} </option>
+          <option v-for="lugar in lugares" :key="lugar.id" :value="lugar">
+            {{ lugar }}
+          </option>
         </select>
       </div>
       <div id="btnBusquedaContainer">
@@ -16,7 +29,9 @@
       </div>
     </div>
     <div id="btnAltaContainer">
-      <button id="btnAgregar" @click="showModalAltaSensor = true">Solicitar alta sensor</button>
+      <button id="btnAgregar" @click="showModalAltaSensor = true">
+        Solicitar alta sensor
+      </button>
     </div>
     <FormAltaSensor v-show="showModalAltaSensor" @ocultarForm="ocultarFormAltaSensor($event)"/>
   </div>
@@ -31,6 +46,9 @@ import areas from "@/areas.json";
 export default {
   name: "Sensores",
   components: { RegistroTable, FormAltaSensor },
+  props:{
+    user:Object
+  },
   data() {
     return {
       areas,
@@ -43,9 +61,16 @@ export default {
     };
   },
   beforeMount() {
+    console.log("USUARIO AUTORIZADO EN SENSORES? "+this.user.autorizado);
     this.filtrarPisosYLugares();
+    this.autenticarUser();
   },
   methods: {
+    autenticarUser() {
+      if(!this.user.autorizado) {
+        window.location.href = "https://www.inkdesign.com.ar";
+      }
+    },
     filtrarPisosYLugares() {
       this.areas.forEach((area) => {
         if (!this.pisos.includes(area.piso)) {
@@ -68,8 +93,6 @@ export default {
     },
     buscarSensores() {
       this.setTituloTabla();
-      console.log(this.lugarSeleccionado);
-      console.log(this.pisoSeleccionado);
     },
     setTituloTabla() {
       if (this.lugarSeleccionado != "" && this.pisoSeleccionado != -1) {

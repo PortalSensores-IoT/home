@@ -5,10 +5,10 @@
       <h4>Instituto La Manzana de Isaac</h4>
     </div>
     <div id="navBox">
-      <router-link id="inicioLink" to="/">Inicio</router-link>
+      <router-link id="inicioLink" to="/" >Inicio</router-link>
       <router-link id="gestionSensoresLink" to="/sensores">Sensores</router-link>
-      <router-link id="mapaLink" to="/mapa">Sugerencias</router-link>
-      <router-view />
+      <router-link id="mapaLink" to="/sugerencias">Sugerencias</router-link>
+      <router-view @validacionUsuario="setUser($event)" :user="user"/>
     </div>
   </div>
 </template>
@@ -16,6 +16,23 @@
 <script>
 export default {
   name: "App",
+  data() {
+    return {
+      user:{
+          usename: "",
+          email: "",
+          rol: "",
+          ultimoAnio: "",
+          autorizado: false,
+        }
+    };
+  },
+  methods:{
+    setUser(dataUser) {
+      this.user = dataUser;
+      console.log(this.user);
+    }
+  }
 };
 </script>
 
@@ -51,7 +68,7 @@ export default {
   text-align: left;
   width: 50%;
   background: none;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 #headBox h4 {
@@ -63,7 +80,7 @@ export default {
   align-items: center;
   width: 50%;
   background: none;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 #navBox {

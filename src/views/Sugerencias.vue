@@ -19,6 +19,27 @@
   </div>
 </template>
 
+<script>
+
+export default {
+  name:"Sugerencias",
+  props:{
+    user:Object
+  },
+  beforeMount() {
+    this.autenticarUser();
+  },
+  methods:{
+    autenticarUser() {
+      if(!this.user.autorizado) {
+        window.location.href = "https://www.inkdesign.com.ar";
+      }
+  }
+  }
+}
+</script>
+
+
 <style>
 img {
   margin: 10px;
