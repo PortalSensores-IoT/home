@@ -96,8 +96,5 @@ export default {
     margin-right: 15px;
   }
 
-  #btnCancelarSolicitud{
-  }
-
   
 </style>

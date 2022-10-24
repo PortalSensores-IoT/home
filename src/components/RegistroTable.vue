@@ -1,6 +1,55 @@
 <template>
   <div id="instanciasTableDiv">
-    <table>
+    <table class="table table-striped">
+      <thead>
+        <tr >
+          <th id="headTable" scope="col" colspan="5"><b>{{tituloTabla}}</b></th>
+        </tr>
+        <tr>
+          <th scope="col"><b>Sensor</b></th>
+          <th scope="col"><b>Valor</b></th>
+          <th scope="col"><b>Unidad de medida</b></th>
+          <th scope="col" colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="registroRow" v-for="registro in registros" :key="registro.id">
+          <td>{{ registro.valor }}</td>
+          <td>{{ registro.fecha }}</td>
+          <td>{{ registro.frecuencia }}</td>
+          <td id="imgModificar">
+            <button type="button">
+              <img v-bind:src="require('../assets/modificar.png')" alt="algo">
+            </button>
+            
+          </td>
+          <td id="imgTacho">
+            <button>
+              <img v-bind:src="require('../assets/tacho.png')" alt="">
+            </button>
+          </td>
+        </tr>
+        <tr id="registroRow" v-for="registro in registros" :key="registro.id">
+          <td>{{ registro.valor }}</td>
+          <td>{{ registro.fecha }}</td>
+          <td>{{ registro.frecuencia }}</td>
+          <td id="imgModificar">
+            <button type="button">
+              <img v-bind:src="require('../assets/modificar.png')" alt="algo">
+            </button>
+            
+          </td>
+          <td id="imgTacho">
+            <button>
+              <img v-bind:src="require('../assets/tacho.png')" alt="">
+            </button>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+
+    <!--<table>
       <thead>
         <th id="headTable" colspan="5">{{tituloTabla}}</th>
       </thead>
@@ -28,7 +77,7 @@
           </td>
         </tr>
       </tbody>
-    </table>
+    </table>-->
   </div>
 </template>
 
@@ -52,11 +101,13 @@ export default {
 
 <style scoped>
 #instanciasTableDiv {
-  margin-top: 10px;
+  width: 100%;
+  margin-top: 1em;
+  height: auto;
+  max-height: 50%;
   display: flex;
   justify-content: center;
   flex-direction: row;
-  padding: 10px 0;
 }
 
 table {
@@ -65,21 +116,19 @@ table {
   border-spacing: 0 !important ;
 }
 
-td, th {
-  border-color: black;
-  border-style: groove;
-  border-width: 1px;
-}
-
 th {
   font-family: sans-serif;
   margin: 0px auto;
   padding: 10px;
   text-align: left;
   width: 30%;
-  background: #1b9752;
-  color: white;
   font-weight: 400;
+}
+
+table body{
+  display: flex;
+  overflow: auto;
+  max-height: 90vh !important;
 }
 
 td {
@@ -88,7 +137,10 @@ td {
 }
 
 #headTable {
-  text-align: center;
+  font-size: 1.5em;
+  width: 100%;
+  align-content: center;
+  align-items: ;
 }
 
 #registroRow {
@@ -101,7 +153,7 @@ td {
 }
 
 #registroRow:hover {
-  background: #1b9752;
+  background: #6fa363;
   color: white;
 }
 

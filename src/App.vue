@@ -1,15 +1,30 @@
 <template>
   <div id="home">
-    <div id="headBox">
-      <h1>Portal sensores - IOT</h1>
-      <h4>Instituto La Manzana de Isaac</h4>
-    </div>
-    <div id="navBox">
-      <router-link id="inicioLink" to="/" >Inicio</router-link>
-      <router-link id="gestionSensoresLink" to="/sensores">Sensores</router-link>
-      <router-link id="mapaLink" to="/sugerencias">Sugerencias</router-link>
-      <router-view @validacionUsuario="setUser($event)" :user="user"/>
-    </div>
+    <ul id="header" class="nav nav-tabs bg-light">
+      <div id="navItemsContainer">
+        <li class="nav-item">
+          <router-link id="headerItem" to="/" class="nav-link active" aria-current="page">Inicio</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link id="headerItem" to="/sensores" class="nav-link active" aria-current="page">Sensores</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link id="headerItem" to="/sugerencias" class="nav-link active" aria-current="page">Sugerencias</router-link>
+        </li>
+      </div>
+     
+      <!--<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+        </ul>
+      </li>-->
+      <li id="headerTitle" class="rigth-0">IoT</li>
+      
+    </ul>
+    
+    <router-view @validacionUsuario="setUser($event)" :user="user"/>
   </div>
 </template>
 
@@ -37,26 +52,16 @@ export default {
 
 <style>
 * {
-  background-color: #6fa363;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 #home {
-  text-align: center;
-}
-
-#headBox {
   display: flex;
-  justify-content: center;
-  flex-direction: row;
-  align-content: center;
-  padding: 15px 20px;
-  font: 3em "Segoe UI", "Century Gothic";
-  font-weight: 400;
-  background: #1b9752;
-  width: 100%;
+  flex-direction: column;
+  background-color: #6fa363;
+  text-align: center;
+  height: 100vh;
 }
 
 #headBox h1 {
@@ -70,7 +75,34 @@ export default {
   color: rgb(255, 255, 255);
 }
 
-#headBox h4 {
+#header{
+  display: flex;
+  align-content: flex-end;
+  justify-content: space-between;
+  background-color: #fff;
+  margin-bottom: 1em !important;
+  max-height: 70px;
+  min-height: 70px;
+}
+
+#navItemsContainer{
+  height: 100%;
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0;
+}
+
+#headerTitle{
+  font-size: 40px;
+  margin-right: 1em;
+}
+
+#headerItem:hover{
+  background-color: #DADED3;
+}
+
+/*#headBox h4 {
   display: flex;
   font: 30px 'Segoe UI','Century Gothic';
   position: relative;
@@ -121,6 +153,6 @@ export default {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-}
+}*/
 
 </style>

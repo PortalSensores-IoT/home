@@ -1,15 +1,24 @@
 <template>
-  <div id="inicioBox">
-    <h1>Bienvenido {{ this.user.userName }}</h1>
+  
+    <div id="cardInicio" class="card col-11 col-md-8 mx-auto shadow">
 
-    <p>
-      Este es el portal del area de IOT para la gestion de sensores. Aquí podrá
-      gestionar los sensores, ver el mapa de la institucion. El objetivo de este
-      portal es brindar a la institucion facilidad adminitrativa y mejorar la
-      experiencia de los estudiantes por el paso en la institución.
-    </p>
-  </div>
-  <div id="footerBox"></div>
+      <h3 class="card-header card-title">¡Bienvenido, {{ this.user.userName }}!</h3>
+      <div class="card-body text-dark mx-5 mt-4">
+        <p class="card-text">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. At optio voluptas omnis possimus cum! Id eum est ipsa quam, eveniet explicabo aperiam, quas libero dolore voluptates cum dolores assumenda quidem consectetur veritatis eaque neque consequatur eligendi corrupti. Pariatur molestias laboriosam maiores aspernatur, doloribus explicabo laudantium officiis ipsum quos doloremque eius officia voluptatibus obcaecati, quisquam labore ab dolorem culpa quia iusto similique ducimus autem asperiores. Illo, blanditiis laborum. Velit quas saepe sunt ex tempora laudantium iure. Maiores sunt eligendi dolorum vel possimus magni, voluptatibus voluptate atque iure autem vitae dolores laboriosam eveniet facilis corrupti aperiam quidem. Accusantium labore adipisci similique iste incidunt nihil natus porro eveniet corrupti pariatur molestias omnis officia laborum, esse obcaecati iure tempore velit? Quia alias excepturi facilis?
+        </p>
+      </div>
+    </div>
+
+  
+  <!-- Footer -->
+  <footer id="footerBox" class="col-12 text-center text-lg-start bg-light text-muted">
+    <!-- Copyright -->
+    <div class="col-12 p-3" style="background-color: #fff;">
+      © 2022 Copyright: IoTeam
+    </div>
+    <!-- Copyright -->
+  </footer>
 </template>
 
 <script>
@@ -50,10 +59,19 @@ export default {
 </script>
 
 <style scoped>
-#inicioBox {
-  margin-top: 2%;
-  padding: 2% 20%;
-  background: none;
+
+#cardInicioContainer {
+  height: calc(90% - 70px);
+}
+
+#cardInicio {
+  background-color: #DADED3;
+  display: flex;
+  height: calc(90% - 80px);
+  border-radius: 2%;
+}
+/*#inicioBox {
+  background: #6fa363;
 }
 
 #inicioBox h1 {
@@ -67,13 +85,13 @@ p {
   font-weight: 400;
   color: #000000;
   text-align: center;
-}
+}*/
 
 #home #footerBox {
   display: flex;
-  margin-top: 8px;
-  background: #1b9752;
-  width: 100%;
-  height: 50px;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  max-height: 70px !important;
 }
 </style>
