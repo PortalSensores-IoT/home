@@ -1,5 +1,5 @@
 <template>
-  <div id="home">
+  <div id="home" v-show="this.user.autorizado">
     <ul id="header" class="nav nav-tabs bg-light">
       <div id="navItemsContainer">
         <li class="nav-item">
@@ -26,11 +26,16 @@
     
     <router-view @validacionUsuario="setUser($event)" :user="user"/>
   </div>
+  <div id="accessDenied" class="center-0" v-show="!this.user.autorizado">
+    <PaginaNoEncontrada/>
+  </div>
 </template>
 
 <script>
+import PaginaNoEncontrada from '../src/views/PaginaNoEncontrada.vue';
 export default {
   name: "App",
+  components:{PaginaNoEncontrada},
   data() {
     return {
       user:{

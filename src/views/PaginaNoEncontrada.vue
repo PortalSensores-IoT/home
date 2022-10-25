@@ -1,17 +1,10 @@
 <template>
-    <div>
-        <h1>La pagina no se ha encontrado</h1>
-        <h4>
-            <router-link to="/">Ir al inicio</router-link>
-        </h4>
-    </div>
+  <div class="lock"></div>
+  <div class="message">
+    <h1>403</h1>
+    <h2>El acceso a esta pagina está restringido</h2>
+    <p>
+      Consulte con el administrador del sitio si cree que se trata de un error.
+    </p>
+  </div>
 </template>
-
-<style scoped>
-h1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 50px 0px;
-}
-</style>

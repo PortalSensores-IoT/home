@@ -21,9 +21,9 @@
           </select>
         </div>
         <div id="selectorGroupLugar">
-          <select v-model="lugarSeleccionado" id="comboBoxLugar" class="btn btn-success">
-            <option v-for="lugar in lugares" :key="lugar.id" :value="lugar">
-              {{ lugar }}
+          <select v-model="areaSeleccionada" id="comboBoxLugar" class="btn btn-success">
+            <option v-for="area in areasCombox" :key="area.id" :value="area">
+              {{ area.nombre }}
             </option>
           </select>
         </div>
@@ -32,13 +32,13 @@
         </div>
       </div>
       <div id="btnAltaContainer">
-        <button id="btnAgregar" class="btn btn-success" @click="showModalAltaSensor = true">
+        <button id="btnAgregar" class="btn btn-success" @click="showModalAltaSensor = true" v-if="this.user.rol === 'directivo'">
           Solicitar alta sensor
         </button>
       </div>
       <FormAltaSensor v-show="showModalAltaSensor" @ocultarForm="ocultarFormAltaSensor($event)"/>
     </div>
-    <registroTable :tituloTabla="tituloTabla" />
+    <registroTable :tituloTabla="tituloTabla" :user="user" :dataTable="dataTable"/>
   </div>
   <!-- Footer -->
   <footer id="footerBox" class="col-12 text-center text-lg-start bg-light text-muted">
@@ -54,7 +54,7 @@
 <script>
 import RegistroTable from "@/components/RegistroTable.vue";
 import FormAltaSensor from "@/components/FormAltaSensor.vue";
-import areas from "@/areas.json";
+import iotController from "@/middleware/iotController.js";
 
 export default {
   name: "Sensores",
@@ -64,51 +64,44 @@ export default {
   },
   data() {
     return {
-      areas,
       pisos: [],
-      lugares: [],
+      areas: [],
+      areasCombox: [],
       pisoSeleccionado: -1,
-      lugarSeleccionado: "",
+      areaSeleccionada: null,
+      dataTable:null,
       tituloTabla: "Tabla de sensores ",
-      showModalAltaSensor: false,
+      showModalAltaSensor: false
     };
   },
   beforeMount() {
-    this.filtrarPisosYLugares();
-    this.autenticarUser();
+    this.cargarDatos();
   },
   methods: {
-    autenticarUser() {
-      if(!this.user.autorizado) {
-        window.location.href = "https://www.inkdesign.com.ar";
-      }
-    },
-    filtrarPisosYLugares() {
-      this.areas.forEach((area) => {
-        if (!this.pisos.includes(area.piso)) {
-          this.pisos.push(area.piso);
-        }
-      });
-      this.pisos.sort();
-    },
     filtrarLugaresPorPiso(pisoSeleccionado) {
-      this.lugares = [];
-      this.areas.forEach((area) => {
+      this.areasCombox = [];
+      for(let i = 0 ; i < this.areas.length ; i++){
+        let area = this.areas[i];
         if (area.piso == pisoSeleccionado) {
-          if (!this.lugares.includes(area.nombre)) {
-            this.lugares.push(area.nombre);
+          if (!this.areasCombox.includes(area.nombre)) {
+            this.areasCombox.push(area);
           }
         }
-      });
-      this.lugares.sort();
-      this.lugarSeleccionado = "";
+      }
+      this.areasCombox.sort();
+      this.areaSeleccionada = null;
     },
-    buscarSensores() {
+    async cargarDatos(){
+      this.areas = await iotController.getAreas();
+      this.pisos = await iotController.getCantidadPisos();
+    },
+    async buscarSensores() {
       this.setTituloTabla();
+      this.dataTable = await iotController.getAreaById(this.areaSeleccionada.id);
     },
     setTituloTabla() {
-      if (this.lugarSeleccionado != "" && this.pisoSeleccionado != -1) {
-        this.tituloTabla = "Tabla de sensores  " + this.lugarSeleccionado + " - Piso: " + (this.pisoSeleccionado == 0 ? "Planta baja" : this.pisoSeleccionado);
+      if (this.areaSeleccionada != null && this.pisoSeleccionado != -1) {
+        this.tituloTabla = "Tabla de sensores  " + this.areaSeleccionada.nombre + " - Piso: " + (this.pisoSeleccionado == 0 ? "Planta baja" : this.pisoSeleccionado);
       }
     },
     ocultarFormAltaSensor(ocultarFormAltaSensor) {

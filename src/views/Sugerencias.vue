@@ -53,14 +53,8 @@ export default {
     user:Object
   },
   beforeMount() {
-    this.autenticarUser();
   },
   methods:{
-    autenticarUser() {
-      if(!this.user.autorizado) {
-        window.location.href = "https://www.inkdesign.com.ar";
-      }
-    },
     enviarSugerencia: function (event) {
       if (event) {
         event.preventDefault()

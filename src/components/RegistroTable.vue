@@ -9,38 +9,41 @@
           <th scope="col"><b>Sensor</b></th>
           <th scope="col"><b>Valor</b></th>
           <th scope="col"><b>Unidad de medida</b></th>
+          <th scope="col"><b>Fecha</b></th>
           <th scope="col" colspan="2"></th>
         </tr>
       </thead>
       <tbody>
-        <tr id="registroRow" v-for="registro in registros" :key="registro.id">
-          <td>{{ registro.valor }}</td>
-          <td>{{ registro.fecha }}</td>
-          <td>{{ registro.frecuencia }}</td>
+        <tr id="registroRow" v-for="sensor in this.dataTable" :key="sensor.id">
+          <td>{{ sensor.tipo }}</td>
+          <td>{{ (sensor.registros[sensor.registroslength] != undefined ? sensor.registros[sensor.registroslength].valor : 0) }}</td>
+          <td>{{ sensor.unidadDeMedida }}</td>
+          <td>{{ (sensor.registros[sensor.registroslength] != undefined ? sensor.registros[sensor.registroslength].fecha : 0) }}</td>
           <td id="imgModificar">
-            <button type="button">
+            <button type="button" v-if="this.user.rol === 'directivo'">
               <img v-bind:src="require('../assets/modificar.png')" alt="algo">
             </button>
             
           </td>
           <td id="imgTacho">
-            <button>
+            <button v-if="this.user.rol === 'directivo'">
               <img v-bind:src="require('../assets/tacho.png')" alt="">
             </button>
           </td>
         </tr>
-        <tr id="registroRow" v-for="registro in registros" :key="registro.id">
-          <td>{{ registro.valor }}</td>
-          <td>{{ registro.fecha }}</td>
-          <td>{{ registro.frecuencia }}</td>
+        <tr id="registroRow" v-for="sensor in this.dataTable" :key="sensor.id">
+           <td>{{ sensor.tipo }}</td>
+          <td>{{ (sensor.registros[sensor.registroslength] != undefined ? sensor.registros[sensor.registroslength].valor : 0) }}</td>
+          <td>{{ sensor.unidadDeMedida }}</td>
+          <td>{{ (sensor.registros[sensor.registroslength] != undefined ? sensor.registros[sensor.registroslength].fecha : 0) }}</td>
           <td id="imgModificar">
-            <button type="button">
+            <button type="button" v-if="this.user.rol === 'directivo'">
               <img v-bind:src="require('../assets/modificar.png')" alt="algo">
             </button>
             
           </td>
           <td id="imgTacho">
-            <button>
+            <button v-if="this.user.rol === 'directivo'">
               <img v-bind:src="require('../assets/tacho.png')" alt="">
             </button>
           </td>
@@ -82,19 +85,22 @@
 </template>
 
 <script>
-import registros from "@/registros.json";
 
 export default {
   name: "RegistroTable",
   props: {
-    tituloTabla:String
+    tituloTabla:String,
+    user:Object,
+    dataTable:Object
   },
   data() {
     return {
-      registros
     };
   },
   methods: {
+    getUltimoRegistroSensor(sensor){
+      console.log("SENSOR "+sensor);
+    }
   }
 };
 </script>
@@ -140,7 +146,7 @@ td {
   font-size: 1.5em;
   width: 100%;
   align-content: center;
-  align-items: ;
+  align-items: left;
 }
 
 #registroRow {

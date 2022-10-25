@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import Auth from "../auth.js";
-
+import Auth from "../middleware/auth.js";
+import IotController from "../middleware/iotController.js";
 export default {
   name: "Inicio",
   props: {
@@ -48,9 +48,7 @@ export default {
           autorizado: false
         }
         user.autorizado = Auth.validarUsuario(user.rol, user.ultimoAnio, user.email, user.userName);
-        if (!user.autorizado) {
-          window.location.href = "https://www.inkdesign.com.ar";
-        }
+        //user.autorizado = true;
         this.$emit("validacionUsuario", user);
       }
     }
