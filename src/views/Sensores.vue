@@ -1,6 +1,6 @@
 <template>
-  <div id="sensoresContainer" class="shadow rounded">
-    <div id="barraBusquedaContainer" class="rounded">
+  <div id="sensoresContainer" class="shadow col-11 col-md-9">
+    <div id="barraBusquedaContainer">
       <div id="barraBusquedaDiv">
         <div id="selectorGroupPiso">
           <select
@@ -30,9 +30,12 @@
         <div id="btnBusquedaContainer">
           <button id="btnBuscar" class="btn btn-success" @click="buscarSensores()">Buscar</button>
         </div>
+        <div id="btnBusquedaContainer">
+          <button id="btnBuscar" class="btn btn-success" @click="redireccionarSensoresEnTiempoReal()">Ver en tiempo real</button>
+        </div>
       </div>
       <div id="btnAltaContainer">
-        <button id="btnAgregar" class="btn btn-success" @click="showModalAltaSensor = true">
+        <button id="btnAgregar" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAltaSensor">
           Solicitar alta sensor
         </button>
       </div>
@@ -113,6 +116,9 @@ export default {
     },
     ocultarFormAltaSensor(ocultarFormAltaSensor) {
       this.showModalAltaSensor = ocultarFormAltaSensor;
+    },
+    redireccionarSensoresEnTiempoReal(){
+      window.location.href = "http://54.90.72.88:1880/ui/#!/0?area=aula_1"
     }
   },
 };
@@ -122,28 +128,26 @@ export default {
 #sensoresContainer{
   display: flex;
   flex-direction: column;
-  width: 90%;
   background-color: #DADED3;
   margin: 0 auto;
   height: calc(90% - 80px);
-
+  border-radius: 2% !important;
 }
 
 #barraBusquedaContainer{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: auto;
   padding: 10px 20px;
   width: 100%;
   height: auto;
-  background-color: #DADED3;
+  background-color: transparent;
   margin: 0;
 }
 
 #barraBusquedaDiv {
   display: flex;
-  width: 500px;
+  width: auto;
   text-align: center;
   justify-content: space-between;
 }
@@ -154,6 +158,11 @@ export default {
   height: 38px;
   font-size: 15px !important;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  margin-right: 0.5em;
+}
+
+#btnBuscar{
+  margin-right: .5em;
 }
 
 #btnBuscar,

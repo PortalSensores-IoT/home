@@ -45,7 +45,22 @@
             </button>
           </td>
         </tr>
-        
+        <tr id="registroRow" v-for="registro in registros" :key="registro.id">
+          <td>{{ registro.valor }}</td>
+          <td>{{ registro.fecha }}</td>
+          <td>{{ registro.frecuencia }}</td>
+          <td id="imgModificar">
+            <button type="button">
+              <img v-bind:src="require('../assets/modificar.png')" alt="algo">
+            </button>
+            
+          </td>
+          <td id="imgTacho">
+            <button>
+              <img v-bind:src="require('../assets/tacho.png')" alt="">
+            </button>
+          </td>
+        </tr>
       </tbody>
     </table>
 
@@ -103,11 +118,12 @@ export default {
 #instanciasTableDiv {
   width: 100%;
   margin-top: 1em;
+  margin-bottom: 1em;
   height: auto;
-  max-height: 50%;
   display: flex;
   justify-content: center;
   flex-direction: row;
+  overflow: auto;
 }
 
 table {
@@ -179,6 +195,12 @@ img {
   border: none;
   background: transparent;
   width: 100%;
+}
+
+#instanciasTableDiv::-webkit-scrollbar {
+    width: 8px;     /* Tamaño del scroll en vertical */
+    height: 8px;    /* Tamaño del scroll en horizontal */
+    display: none;  /* Ocultar scroll */
 }
 
 </style>
