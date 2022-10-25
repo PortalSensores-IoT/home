@@ -26,7 +26,7 @@
             
           </td>
           <td id="imgTacho">
-            <button v-if="this.user.rol === 'directivo'">
+            <button v-if="this.user.rol === 'directivo'" data-bs-toggle="modal" data-bs-target="#modalBajaSensor">
               <img v-bind:src="require('../assets/tacho.png')" alt="">
             </button>
           </td>
@@ -43,7 +43,7 @@
             
           </td>
           <td id="imgTacho">
-            <button v-if="this.user.rol === 'directivo'">
+            <button v-if="this.user.rol === 'directivo'" data-bs-toggle="modal" data-bs-target="#modalBajaSensor">
               <img v-bind:src="require('../assets/tacho.png')" alt="">
             </button>
           </td>
@@ -59,7 +59,7 @@
             
           </td>
           <td id="imgTacho">
-            <button>
+            <button  data-bs-toggle="modal" data-bs-target="#modalBajaSensor">
               <img v-bind:src="require('../assets/tacho.png')" alt="">
             </button>
           </td>
@@ -96,6 +96,24 @@
         </tr>
       </tbody>
     </table>-->
+  </div>
+  <!-- Modal solicitud de baja de sensor-->
+  <div class="modal fade" id="modalBajaSensor" tabindex="-1" aria-labelledby="modalBajaSensor" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Solicitud de baja de sensor</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ¿Estás seguro de solicitar la baja del sensor?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal">Confirmar</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
