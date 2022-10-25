@@ -1,5 +1,5 @@
 <template>
-  <div id="cardSugerencias" class=" container card border-success col-8 py-20  shadow" style="border-radius: 2%;">
+  <div id="cardSugerencias" class=" container card border-success col-11 col-md-9  py-20  shadow" style="border-radius: 2%;">
     <h3 class="card-header card-title">¡Envianos tus sugerencias!</h3>
     <form class="mx-30">
       

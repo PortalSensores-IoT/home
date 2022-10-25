@@ -1,6 +1,6 @@
 <template>
   
-    <div id="cardInicio" class="card col-11 col-md-8 mx-auto shadow">
+    <div id="cardInicio" class="card col-11 col-md-9 mx-auto shadow">
 
       <h3 class="card-header card-title">¡Bienvenido, {{ this.user.userName }}!</h3>
       <div class="card-body text-dark mx-5 mt-4">
@@ -12,9 +12,9 @@
 
   
   <!-- Footer -->
-  <footer id="footerBox" class="col-12 text-center text-lg-start bg-light text-muted">
+  <footer id="footerBox" class="col-12 text-center text-lg-start text-muted">
     <!-- Copyright -->
-    <div class="col-12 p-3" style="background-color: #fff;">
+    <div class="col-12 p-3">
       © 2022 Copyright: IoTeam
     </div>
     <!-- Copyright -->
@@ -59,7 +59,7 @@ export default {
 <style scoped>
 
 #cardInicioContainer {
-  height: calc(90% - 70px);
+  height: calc(90% - 80px);
 }
 
 #cardInicio {
@@ -91,5 +91,6 @@ p {
   position: absolute;
   bottom: 0;
   max-height: 70px !important;
+  background-color: #DADED3;
 }
 </style>
