@@ -7,18 +7,18 @@
         </tr>
         <tr>
           <th scope="col"><b>Sensor</b></th>
-          <th scope="col"><b>Valor</b></th>
           <th scope="col"><b>Unidad de medida</b></th>
+          <th scope="col"><b>Último valor registrado</b></th>
           <th scope="col"><b>Fecha</b></th>
           <th scope="col" colspan="2"></th>
         </tr>
       </thead>
       <tbody>
-        <tr id="registroRow" v-for="sensor in this.dataTable" :key="sensor.id">
+        <tr id="registroRow" v-for="sensor in this.sensoresInArea" :key="sensor.id">
           <td>{{ sensor.tipo }}</td>
-          <td>{{ (sensor.registros[sensor.registroslength] != undefined ? sensor.registros[sensor.registroslength].valor : 0) }}</td>
           <td>{{ sensor.unidadDeMedida }}</td>
-          <td>{{ (sensor.registros[sensor.registroslength] != undefined ? sensor.registros[sensor.registroslength].fecha : 0) }}</td>
+          <td>{{ this.getUltimoRegistroValor(sensor) }}</td>
+          <td>{{ this.getUltimoRegistroFecha(sensor) }}</td>
           <td id="imgModificar">
             <button type="button" v-if="this.user.rol === 'directivo'">
               <img v-bind:src="require('../assets/modificar.png')" alt="algo">
@@ -31,11 +31,11 @@
             </button>
           </td>
         </tr>
-        <tr id="registroRow" v-for="sensor in this.dataTable" :key="sensor.id">
+        <tr id="registroRow" v-for="sensor in this.sensoresInArea" :key="sensor.id">
            <td>{{ sensor.tipo }}</td>
-          <td>{{ (sensor.registros[sensor.registroslength] != undefined ? sensor.registros[sensor.registroslength].valor : 0) }}</td>
           <td>{{ sensor.unidadDeMedida }}</td>
-          <td>{{ (sensor.registros[sensor.registroslength] != undefined ? sensor.registros[sensor.registroslength].fecha : 0) }}</td>
+          <td>{{ this.getUltimoRegistroValor(sensor) }}</td>
+          <td>{{ this.getUltimoRegistroFecha(sensor) }}</td>
           <td id="imgModificar">
             <button type="button" v-if="this.user.rol === 'directivo'">
               <img v-bind:src="require('../assets/modificar.png')" alt="algo">
@@ -48,7 +48,7 @@
             </button>
           </td>
         </tr>
-        <tr id="registroRow" v-for="registro in registros" :key="registro.id">
+        <!--<tr id="registroRow" v-for="registro in registros" :key="registro.id">
           <td>{{ registro.valor }}</td>
           <td>{{ registro.fecha }}</td>
           <td>{{ registro.frecuencia }}</td>
@@ -63,7 +63,7 @@
               <img v-bind:src="require('../assets/tacho.png')" alt="">
             </button>
           </td>
-        </tr>
+        </tr>-->
       </tbody>
     </table>
 
@@ -106,15 +106,41 @@ export default {
   props: {
     tituloTabla:String,
     user:Object,
-    dataTable:Object
+    sensoresInArea:Object
   },
-  data() {
-    return {
-    };
-  },
-  methods: {
-    getUltimoRegistroSensor(sensor){
-      console.log("SENSOR "+sensor);
+  methods:{
+    getUltimoRegistroValor(sensor) {
+      if(sensor.registros != undefined && sensor.registros != null) {
+        let ultimoRegistro = sensor.registros[sensor.registros.length-1];
+        return ultimoRegistro === undefined ? '-' : this.getSignoUnidadDeMedida(sensor, ultimoRegistro.valor);
+      } else {
+        return '-';
+      }
+    },
+    getUltimoRegistroFecha(sensor){
+      if(sensor.registros != undefined && sensor.registros != null) {
+        let ultimoRegistro = sensor.registros[sensor.registros.length-1];
+        return ultimoRegistro === undefined ? '-' : ultimoRegistro.fecha;
+      } else {
+        return '-';
+      }
+    },
+    getSignoUnidadDeMedida(sensor, valor) {
+      console.log(valor);
+      switch(sensor.unidadDeMedida) {
+        case 'Porcentaje':
+          return valor + '%';
+        case 'Celcius':
+          return valor + '°C';
+        case 'Decibeles':
+          return valor + 'dB';
+        case 'ppm':
+          return valor + 'ppm';
+        case 'Boolean':
+          return (valor == 1 ? ' Abierta' : ' Cerrada');
+        case undefined:
+          return '-';
+      }
     }
   }
 };
@@ -180,8 +206,8 @@ td {
 }
 
 img {
-  width: 32px;
-  height: 32px;
+  width: 25px;
+  height: 25px;
   align-content: center;
 }
 

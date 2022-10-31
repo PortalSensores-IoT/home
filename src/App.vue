@@ -33,6 +33,8 @@
 
 <script>
 import PaginaNoEncontrada from '../src/views/PaginaNoEncontrada.vue';
+import Auth from "../src/middleware/auth.js";
+
 export default {
   name: "App",
   components:{PaginaNoEncontrada},
@@ -46,6 +48,17 @@ export default {
           autorizado: false,
         }
     };
+  },
+  beforeMount() {
+    let userLocalStorage = Auth.getUserLocalStorage();
+    this.user.userName = this.$route.query.usuario === '' || this.$route.query.usuario === null || this.$route.query.usuario == undefined ? userLocalStorage.userName : this.$route.query.usuario;
+    console.log(this.$route.query.usuario)
+    this.user.email = this.$route.query.email === '' || this.$route.query.email === null || this.$route.query.email == undefined ? userLocalStorage.email : this.$route.query.email;
+    this.user.rol = this.$route.query.categoria === '' || this.$route.query.categoria === null || this.$route.query.categoria == undefined ? userLocalStorage.rol : this.$route.query.categoria;
+    this.user.ultimoAnio = this.$route.query.ultimoanio === '' || this.$route.query.ultimoanio === null || this.$route.query.ultimoanio == undefined ? userLocalStorage.ultimoAnio : this.$route.query.ultimoanio;
+    this.user.autorizado = Auth.validarUsuario(this.user);
+    Auth.guardarCredencialesInLocalStorage(this.user);
+    this.setUser(this.user);
   },
   methods:{
     setUser(dataUser) {

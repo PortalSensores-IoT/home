@@ -41,7 +41,7 @@
       </div>
       <FormAltaSensor v-show="showModalAltaSensor" @ocultarForm="ocultarFormAltaSensor($event)"/>
     </div>
-    <registroTable :tituloTabla="tituloTabla" :user="user" :dataTable="dataTable"/>
+    <registroTable :tituloTabla="tituloTabla" :user="user" :sensoresInArea="sensoresInArea"/>
   </div>
   <!-- Footer -->
   <footer id="footerBox" class="col-12 text-center text-lg-start bg-light text-muted">
@@ -72,7 +72,7 @@ export default {
       areasCombox: [],
       pisoSeleccionado: -1,
       areaSeleccionada: null,
-      dataTable:null,
+      sensoresInArea:null,
       tituloTabla: "Tabla de sensores ",
       showModalAltaSensor: false
     };
@@ -100,7 +100,8 @@ export default {
     },
     async buscarSensores() {
       this.setTituloTabla();
-      this.dataTable = await iotController.getAreaById(this.areaSeleccionada.id);
+      let resultAreas = await iotController.getAreaById(this.areaSeleccionada.id);
+      this.sensoresInArea = resultAreas.sensores;
     },
     setTituloTabla() {
       if (this.areaSeleccionada != null && this.pisoSeleccionado != -1) {
