@@ -10,6 +10,7 @@
             class="btn btn-success form select"
             placeholder="Seleccionar Piso"
           >
+            <option id="selectPisoPlaceholder" selected hidden>{{pisoSeleccionado}}</option>
             <option
               v-for="piso in pisos"
               :key="piso.piso"
@@ -22,16 +23,31 @@
         </div>
         <div id="selectorGroupLugar">
           <select v-model="areaSeleccionada" id="comboBoxLugar" class="btn btn-success">
+            <option id="selectLugarPlaceholder" selected hidden>{{areaSeleccionada}}</option>
             <option v-for="area in areasCombox" :key="area.id" :value="area">
               {{ area.nombre }}
             </option>
           </select>
         </div>
         <div id="btnBusquedaContainer">
-          <button id="btnBuscar" class="btn btn-success" @click="buscarSensores()">Buscar</button>
+          <button 
+            id="btnBuscar" 
+            :disabled="this.areaSeleccionada === 'Área...' || this.areaSeleccionada === null" 
+            class="btn btn-success" 
+            @click="buscarSensores()"
+          >
+            Buscar
+          </button>
         </div>
         <div id="btnBusquedaContainer">
-          <button id="btnBuscar" class="btn btn-success" @click="redireccionarSensoresEnTiempoReal()">Ver en tiempo real</button>
+          <button 
+            id="btnBuscar"
+            :disabled="this.areaSeleccionada === 'Área...' || this.areaSeleccionada === null" 
+            class="btn btn-success" 
+            @click="redireccionarSensoresEnTiempoReal()"
+          >
+            Ver en tiempo real
+          </button>
         </div>
       </div>
       <div id="btnAltaContainer">
@@ -43,6 +59,7 @@
     </div>
     <registroTable :tituloTabla="tituloTabla" :user="user" :sensoresInArea="sensoresInArea"/>
   </div>
+
   <!-- Footer -->
   <footer id="footerBox" class="col-12 text-center text-lg-start bg-light text-muted">
     <!-- Copyright -->
@@ -70,9 +87,9 @@ export default {
       pisos: [],
       areas: [],
       areasCombox: [],
-      pisoSeleccionado: -1,
-      areaSeleccionada: null,
-      sensoresInArea:null,
+      pisoSeleccionado: "Piso...",
+      areaSeleccionada: "Área...",
+      sensoresInArea: null,
       tituloTabla: "Tabla de sensores ",
       showModalAltaSensor: false
     };
@@ -92,7 +109,7 @@ export default {
         }
       }
       this.areasCombox.sort();
-      this.areaSeleccionada = null;
+      this.areaSeleccionada = "Área...";
     },
     async cargarDatos(){
       this.areas = await iotController.getAreas();
@@ -104,7 +121,7 @@ export default {
       this.sensoresInArea = resultAreas.sensores;
     },
     setTituloTabla() {
-      if (this.areaSeleccionada != null && this.pisoSeleccionado != -1) {
+      if (this.areaSeleccionada != "Área..." && this.pisoSeleccionado != "Piso...") {
         this.tituloTabla = "Tabla de sensores  " + this.areaSeleccionada.nombre + " - Piso: " + (this.pisoSeleccionado == 0 ? "Planta baja" : this.pisoSeleccionado);
       }
     },
