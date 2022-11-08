@@ -51,13 +51,13 @@
         </div>
       </div>
       <div id="btnAltaContainer">
-        <button id="btnAgregar" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAltaSensor" @click="showModalAltaSensor = true" v-if="autorizaciones !== undefined">
+        <button id="btnAgregar" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAltaSensor" @click="showModalAltaSensor = true" v-if="this.user.rol === 'directivo'">
           Solicitar alta sensor
         </button>
       </div>
       <FormAltaSensor v-show="showModalAltaSensor" @ocultarForm="ocultarFormAltaSensor($event)"/>
     </div>
-    <registroTable :tituloTabla="tituloTabla" :autorizaciones="autorizaciones" :sensoresInArea="sensoresInArea"/>
+    <registroTable :tituloTabla="tituloTabla" :user="user" :sensoresInArea="sensoresInArea"/>
   </div>
 
   <!-- Footer -->
@@ -80,7 +80,7 @@ export default {
   name: "Sensores",
   components: { RegistroTable, FormAltaSensor},
   props:{
-    autorizaciones:Object
+    user:Object
   },
   data() {
     return {
