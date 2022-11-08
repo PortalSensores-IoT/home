@@ -20,111 +20,42 @@
           <td>{{ this.getUltimoRegistroValor(sensor) }}</td>
           <td>{{ this.getUltimoRegistroFecha(sensor) }}</td>
           <td id="imgModificar">
-            <button type="button" v-if="this.user.rol === 'directivo'">
+            <button type="button" v-if="autorizaciones !== undefined" data-bs-toggle="modal" data-bs-target="#modalModificaSensor" @click="modificarSensor(sensor)">
               <img v-bind:src="require('../assets/modificar.png')" alt="algo">
             </button>
             
           </td>
           <td id="imgTacho">
-            <button v-if="this.user.rol === 'directivo'" data-bs-toggle="modal" data-bs-target="#modalBajaSensor">
+            <button v-if="autorizaciones !== undefined"  data-bs-toggle="modal" data-bs-target="#modalBajaSensor" @click="eliminarSensor(sensor) ">
               <img v-bind:src="require('../assets/tacho.png')" alt="">
             </button>
           </td>
         </tr>
-        <tr id="registroRow" v-for="sensor in this.sensoresInArea" :key="sensor.id">
-           <td>{{ sensor.tipo }}</td>
-          <td>{{ sensor.unidadDeMedida }}</td>
-          <td>{{ this.getUltimoRegistroValor(sensor) }}</td>
-          <td>{{ this.getUltimoRegistroFecha(sensor) }}</td>
-          <td id="imgModificar">
-            <button type="button" v-if="this.user.rol === 'directivo'">
-              <img v-bind:src="require('../assets/modificar.png')" alt="algo">
-            </button>
-            
-          </td>
-          <td id="imgTacho">
-            <button v-if="this.user.rol === 'directivo'" data-bs-toggle="modal" data-bs-target="#modalBajaSensor">
-              <img v-bind:src="require('../assets/tacho.png')" alt="">
-            </button>
-          </td>
-        </tr>
-        <!--<tr id="registroRow" v-for="registro in registros" :key="registro.id">
-          <td>{{ registro.valor }}</td>
-          <td>{{ registro.fecha }}</td>
-          <td>{{ registro.frecuencia }}</td>
-          <td id="imgModificar">
-            <button type="button">
-              <img v-bind:src="require('../assets/modificar.png')" alt="algo">
-            </button>
-            
-          </td>
-          <td id="imgTacho">
-            <button  data-bs-toggle="modal" data-bs-target="#modalBajaSensor">
-              <img v-bind:src="require('../assets/tacho.png')" alt="">
-            </button>
-          </td>
-        </tr>-->
       </tbody>
     </table>
-
-    <!--<table>
-      <thead>
-        <th id="headTable" colspan="5">{{tituloTabla}}</th>
-      </thead>
-      <tbody>
-        <tr>
-          <th>Sensor</th>
-          <th>Valor</th>
-          <th>Unidad de medida</th>
-          <th colspan="2"></th>
-        </tr>
-        <tr id="registroRow" v-for="registro in registros" :key="registro.id">
-          <td>{{ registro.valor }}</td>
-          <td>{{ registro.fecha }}</td>
-          <td>{{ registro.frecuencia }}</td>
-          <td id="imgModificar">
-            <button type="button">
-              <img v-bind:src="require('../assets/modificar.png')" alt="algo">
-            </button>
-            
-          </td>
-          <td id="imgTacho">
-            <button>
-              <img v-bind:src="require('../assets/tacho.png')" alt="">
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>-->
   </div>
-  <!-- Modal solicitud de baja de sensor-->
-  <div class="modal fade" id="modalBajaSensor" tabindex="-1" aria-labelledby="modalBajaSensor" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Solicitud de baja de sensor</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ¿Estás seguro de solicitar la baja del sensor?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-success" data-bs-dismiss="modal">Confirmar</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <ConfirmarBajaSensor :bajaSensor="this.bajaSensor"/>
+  <ConfirmarModificacionSensor :modificaSensor="this.modificaSensor"/>
 </template>
 
 <script>
+import ConfirmarBajaSensor from "@/components/ConfirmarBajaSensor.vue";
+import ConfirmarModificacionSensor from "@/components/ConfirmarModificacionSensor.vue";
 
 export default {
+
   name: "RegistroTable",
+  components:{ConfirmarBajaSensor, ConfirmarModificacionSensor},
   props: {
     tituloTabla:String,
-    user:Object,
+    autorizaciones:Object,
     sensoresInArea:Object
+  },
+  data(){
+    return{
+      bajaSensor:null,
+      modificaSensor:null
+  }
   },
   methods:{
     getUltimoRegistroValor(sensor) {
@@ -144,7 +75,6 @@ export default {
       }
     },
     getSignoUnidadDeMedida(sensor, valor) {
-      console.log(valor);
       switch(sensor.unidadDeMedida) {
         case 'Porcentaje':
           return valor + '%';
@@ -159,6 +89,26 @@ export default {
         case undefined:
           return '-';
       }
+    },
+    eliminarSensor(sensor) {
+      let tipo = 'BAJA_SENSOR';
+      let tipoSensor = sensor.tipo;
+      let area = this.areaSeleccionada
+      let id = sensor.id;
+      this.bajaSensor = {tipo:tipo, tipoSensor:tipoSensor, area:area, id:id};
+    },
+    clearSensorBaja(){ 
+      this.bajaSensor = null;
+    },
+    modificarSensor(sensor){
+      let tipo = 'MODIFICAR_SENSOR';
+      let tipoSensor = sensor.tipo;
+      let area = this.areaSeleccionada
+      let id = sensor.id;
+      this.modificaSensor = {tipo:tipo, tipoSensor:tipoSensor, area:area, id:id};
+    },
+    clearSensorModificacion(){ 
+      this.modificaSensor = null;
     }
   }
 };
