@@ -51,13 +51,13 @@
         </div>
       </div>
       <div id="btnAltaContainer">
-        <button id="btnAgregar" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAltaSensor" @click="showModalAltaSensor = true" v-if="this.user.rol === 'directivo'">
+        <button id="btnAgregar" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAltaSensor" @click="showModalAltaSensor = true" v-if="autorizaciones !== undefined">
           Solicitar alta sensor
         </button>
       </div>
       <FormAltaSensor v-show="showModalAltaSensor" @ocultarForm="ocultarFormAltaSensor($event)"/>
     </div>
-    <registroTable :tituloTabla="tituloTabla" :user="user" :sensoresInArea="sensoresInArea"/>
+    <registroTable :tituloTabla="tituloTabla" :autorizaciones="autorizaciones" :sensoresInArea="sensoresInArea"/>
   </div>
 
   <!-- Footer -->
@@ -78,9 +78,9 @@ import iotController from "@/middleware/iotController.js";
 
 export default {
   name: "Sensores",
-  components: { RegistroTable, FormAltaSensor },
+  components: { RegistroTable, FormAltaSensor},
   props:{
-    user:Object
+    autorizaciones:Object
   },
   data() {
     return {
@@ -129,7 +129,7 @@ export default {
       this.showModalAltaSensor = ocultarFormAltaSensor;
     },
     redireccionarSensoresEnTiempoReal(){
-      window.location.href = "http://54.90.72.88:1880/ui/#!/0?area=aula_1"
+      window.open( 'http://54.90.72.88:1880/ui/#!/0?area='+this.areaSeleccionada.nombre.replaceAll(' ','_'), '_blank');
     }
   },
 };
