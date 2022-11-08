@@ -8,18 +8,19 @@
         <li class="nav-item">
           <router-link id="headerItem" to="/sensores" class="nav-link active" aria-current="page">Sensores</router-link>
         </li>
-        <li class="nav-item">
+         <!--<li class="nav-item">
           <router-link id="headerItem" to="/sugerencias" class="nav-link active" aria-current="page">Sugerencias</router-link>
+        </li>-->
+        
+        <li class="nav-item dropdown">
+          <a id="headerItem" class="nav-link dropdown-toggle nav-link active" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Sugerencias</a>
+          <ul class="dropdown-menu" id="navbarDropdown">
+            <li><router-link class="dropdown-item" to="/" >Ver sugerencias</router-link></li>
+            <li><router-link class="dropdown-item" to="/sugerencias" >Realizar sugerencia</router-link></li>
+          </ul>
         </li>
       </div>
      
-      <!--<li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-        </ul>
-      </li>-->
       <li id="headerTitle" class="rigth-0">IoT</li>
       
     </ul>
@@ -118,6 +119,11 @@ export default {
 
 #headerItem:hover{
   background-color: #DADED3;
+}
+
+
+#navbarDropdown {
+  margin-top: -2.1px !important;
 }
 
 /*#headBox h4 {

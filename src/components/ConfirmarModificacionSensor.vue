@@ -1,7 +1,7 @@
 <template>
   <div class="modal fade" id="modalModificaSensor" tabindex="-1" aria-labelledby="modalModificaSensor" aria-hidden="false">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content p-2">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">
             Modificar sensor de {{ this.modificaSensor !== null ? this.modificaSensor.tipoSensor : '' }}

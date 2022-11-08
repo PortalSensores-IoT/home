@@ -7,6 +7,39 @@
         <label for="asuntoForm" class="text-left  form-label">Asunto</label>
         <input type="text" class="form-control" id="asuntoForm" placeholder="p. ej.: Nuevo tipo de sensor" required>
       </div>
+
+
+      <div id="detalleSensor">
+        <div class="mb-3 col-3">
+          <label for="validationDefault05" class="form-label">Piso</label>
+          <select 
+            @change="obtenerAreasPorPiso()" 
+            v-model="pisoSeleccionado" 
+            class="form-select" 
+            id="validationDefault04" 
+            required
+          >
+            <option selected value="">Seleccionar...</option>
+            <option v-for="piso in pisos" :key="piso" :value="piso">{{piso}}</option>
+          </select>
+        </div>
+        <div class="mb-3 col-3">
+          <label for="validationDefault05" class="form-label">Área</label>
+          <select class="form-select" id="validationDefault04" required>
+            <option selected value="">Seleccionar...</option>
+            <option v-for="area in areas" :key="area" :value="area">{{area}}</option>
+          </select>
+        </div>
+        <div class="mb-3 col-3">
+          <label for="validationDefault04" class="form-label">Tipo de sensor</label>
+          <select v-model="tipoSensorSeleccionado" class="form-select" id="validationDefault04" required>
+            <option selected value="">Seleccionar...</option>
+            <option v-for="tipo in tiposSensores" :key="tipo" :value="tipo"> {{ tipo }} </option>
+          </select>
+        </div>
+      </div>
+      
+
       <div class="mb-5 col-12">
         <label for="sugerenciaForm" class=" form-label">Descripción</label>
         <textarea class="h-100 form-control" id="sugerenciaForm" rows="7" required></textarea>
@@ -46,19 +79,43 @@
 </template>
 
 <script>
+import iotController from "@/middleware/iotController.js";
 
 export default {
   name:"Sugerencias",
   props:{
     user:Object
   },
+  created(){
+    window.onbeforeunload = function(event) {
+        this.$router.push("/");
+        event.preventDefault()
+      }
+      
+  },
+  data() {
+    return {
+      pisos: [],
+      areas: [],
+      pisoSeleccionado: "",
+      areaSeleccionada: "",
+      tiposSensores: ['Temperatura','Puerta','Humedad','Calidad de Aire','Proximidad','Humo','Gas','Nivel de ruido']
+    }
+  },
   beforeMount() {
+    this.cargarDatos();
   },
   methods:{
     enviarSugerencia: function (event) {
       if (event) {
         event.preventDefault()
       }
+    },
+    async cargarDatos(){
+      this.pisos = await iotController.getCantidadPisos();
+    },
+    async obtenerAreasPorPiso(){
+      this.areas = await iotController.getAreasByPiso(this.pisoSeleccionado)
     }
   }
 }
@@ -94,5 +151,16 @@ export default {
     position: absolute;
     bottom: 0;
     max-height: 70px !important;
+  }
+
+  input:focus, select:focus{
+    border-color: #1b9752;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #1b9752;
+  }
+
+  #detalleSensor{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 </style>

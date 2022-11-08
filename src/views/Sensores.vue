@@ -189,4 +189,24 @@ export default {
   bottom: 0;
   max-height: 70px !important;
 }
+
+@media screen and (max-width: 1200px) {
+  #barraBusquedaContainer{
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: normal;
+  }
+
+  #btnAltaContainer{
+    display: flex;
+    width: 100%;
+    margin-top: .5em;
+  }
+  
+  #btnAgregar{
+    margin: auto 0.5em auto auto;
+    
+  }
+}
+
 </style>

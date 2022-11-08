@@ -20,13 +20,13 @@
           <td>{{ this.getUltimoRegistroValor(sensor) }}</td>
           <td>{{ this.getUltimoRegistroFecha(sensor) }}</td>
           <td id="imgModificar">
-            <button type="button" v-if="autorizaciones !== undefined" data-bs-toggle="modal" data-bs-target="#modalModificaSensor" @click="modificarSensor(sensor)">
+            <button type="button" v-if="this.user.rol === 'directivo'" data-bs-toggle="modal" data-bs-target="#modalModificaSensor" @click="modificarSensor(sensor)">
               <img v-bind:src="require('../assets/modificar.png')" alt="algo">
             </button>
             
           </td>
           <td id="imgTacho">
-            <button v-if="autorizaciones !== undefined"  data-bs-toggle="modal" data-bs-target="#modalBajaSensor" @click="eliminarSensor(sensor) ">
+            <button v-if="this.user.rol === 'directivo'"  data-bs-toggle="modal" data-bs-target="#modalBajaSensor" @click="eliminarSensor(sensor) ">
               <img v-bind:src="require('../assets/tacho.png')" alt="">
             </button>
           </td>
@@ -48,7 +48,7 @@ export default {
   components:{ConfirmarBajaSensor, ConfirmarModificacionSensor},
   props: {
     tituloTabla:String,
-    autorizaciones:Object,
+    user:Object,
     sensoresInArea:Object
   },
   data(){

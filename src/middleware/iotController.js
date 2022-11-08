@@ -11,6 +11,7 @@ const SERVICE_GET_CANT_PISOS = 'api/areas/pisos'
 const SERVICE_CREATE_TICKET = 'api/tickets/'
 const SERVICE_GET_TOKEN_USER = 'api/usuarios/user/token'
 const SERVICE_GET_AUTH_USER = 'api/usuarios/user/auth'
+const SERVICE_GET_AREAS_BY_PISO = 'api/areas/nombres/'
 
 const PREFIJO_PISOS = 'piso '
 
@@ -118,5 +119,16 @@ export default {
       console.log(err);
     });
   return result;
-  }
+  },
+
+  async getAreasByPiso(piso) {
+    let result = axios.get(URL_API_IOT + SERVICE_GET_AREAS_BY_PISO + piso)
+      .then(async (response) => {
+          return response.data[PREFIJO_PISOS + piso];
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    return result;
+  },
 }
