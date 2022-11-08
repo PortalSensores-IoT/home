@@ -6,7 +6,7 @@
           <h5 class="modal-title" id="exampleModalLabel">Solicitud de alta de sensor</h5>
         </div>
         <div class="modal-body p-0 pt-2">
-        <form class="column">
+        <form class="column" @submit.prevent="limpiarForm()">
           <div class="form-group mb-3 col-8">
             <label for="validationDefault03" class="form-label">Unidad de medida</label>
             <input type="text" class="col-8 form-control" id="validationDefault03" required>
@@ -33,8 +33,8 @@
             </select>
           </div>
           <div id="buttonsForms" class="col-12 modal-footer">
-            <button id="btnEnviarSolicitud" class="btn btn-success  btn-sm" type="submit">Enviar solicitud</button>
-            <button id="btnCancelarSolicitud" @click="limpiarForm()" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal">Cancelar</button>
+            <button id="btnEnviarSolicitud"  class="btn btn-success  btn-sm" data-bs-dismiss="modal">Enviar solicitud</button>
+            <button id="btnCancelarSolicitud" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal">Cancelar</button>
           </div>
         </form>
         </div>
@@ -59,7 +59,6 @@ export default {
   },
   methods:{
     cerrarForm(){
-      this.limpiarForm();
     },
     limpiarForm(){
       this.$emit('ocultarForm', false);
