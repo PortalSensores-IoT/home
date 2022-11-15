@@ -9,13 +9,6 @@
       experiencia de los estudiantes por el paso en la institución.
     </p>
   </div>
-
-  <!-- Footer -->
-  <footer id="footerBox" class="col-12 text-center text-lg-start text-muted">
-    <!-- Copyright -->
-    <div class="col-12 p-3">© 2022 Copyright: IoTeam</div>
-    <!-- Copyright -->
-  </footer>
 </template>
 
 <script>

@@ -7,4 +7,17 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
 import VueCryptojs from 'vue-cryptojs'
 
-createApp(App).use(router, axios, vueAxios, VueCryptojs).mount('#app');
+/* import the fontawesome core */
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+/* import font awesome icon component */
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+import { faTowerBroadcast, faTableList, faHouse } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faTowerBroadcast, faTableList, faHouse)
+
+createApp(App)
+    .use(router, axios, vueAxios, VueCryptojs)
+    .component('font-awesome-icon', FontAwesomeIcon)
+    .mount('#app');

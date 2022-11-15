@@ -1,33 +1,73 @@
 <template>
-  <div class="spinner-border text-success" role="status" v-if="!comienzaApp">
-            <span class="sr-only"> iot</span>
-          </div>
-  <div id="home" v-else-if="this.autorizaciones !== undefined && this.autorizaciones !== '' && this.autorizaciones.code !== 'ERR_BAD_REQUEST' && this.comienzaApp && !this.mostrarAccesoDenegado">
-    <ul id="header" class="nav nav-tabs bg-light">
-      <div id="navItemsContainer">
-        <li class="nav-item">
-          <router-link id="headerItem" to="/" class="nav-link active" aria-current="page">Inicio</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link id="headerItem" to="/sensores" class="nav-link active" aria-current="page">Sensores</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link id="headerItem" to="/sugerencias" class="nav-link active" aria-current="page">Sugerencias</router-link>
-        </li>
-        <!--<li class="nav-item dropdown">
-          <a id="headerItem" class="nav-link dropdown-toggle nav-link active" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Sugerencias</a>
-          <ul class="dropdown-menu" id="navbarDropdown">
-            <li><router-link class="dropdown-item" to="/" >Ver sugerencias</router-link></li>
-            <li><router-link class="dropdown-item" to="/sugerencias" >Realizar sugerencia</router-link></li>
-          </ul>
-        </li>-->
-      </div>
-      <li id="headerTitle" class="rigth-0">IoT</li>
-    </ul>
-    <router-view :autorizaciones="autorizaciones"/>
+  <div id="loaderContainer" class="w-100" v-if="!comienzaApp">
+    <div id="loader" class="spinner-border text-success" role="status" >
+      <span class="fs-1"> IoT</span>
+    </div>
   </div>
+  
+
+
+
+  <div class="container-fluid" v-else-if="this.autorizaciones !== undefined && this.autorizaciones !== '' && this.autorizaciones.code !== 'ERR_BAD_REQUEST' && this.comienzaApp && !this.mostrarAccesoDenegado">
+    <div class="row flex-nowrap">
+      <div id="sidebarMenu" class="col-auto col-md-2 col-xl-2 px-sm-2 px-0">
+        <div class="d-flex flex-column align-items-center align-items-sm-start px-2 pt-2 text-white min-vh-100">
+          <router-link to="/" class="d-flex align-items-center pt-3 pb-26 mb-md-0 me-md-auto text-white text-decoration-none">
+            <span class="fs-3 d-none d-sm-inline">IoT</span>
+          </router-link>
+
+          <br/>
+          <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100" id="menu">
+            <li class="nav-item w-100">
+              <router-link to="/" id="menuItem" class="nav-link align-middle px-0">
+                <font-awesome-icon icon="fa-solid fa-house" /> <span class="ms-1 d-none d-sm-inline">Inicio</span>
+              </router-link>
+            </li>
+            <li class="nav-item w-100">
+              <router-link to="/sensores" id="menuItem" class="nav-link align-middle px-0">
+                <font-awesome-icon icon="fa-solid fa-tower-broadcast" /> <span class="ms-1 d-none d-sm-inline">Sensores</span>
+              </router-link>
+            </li>
+            <li class="nav-item w-100">
+              <router-link to="/sugerencias" id="menuItem" class="nav-link align-middle px-0">
+                <font-awesome-icon icon="fa-solid fa-table-list" /> <span class="ms-1 d-none d-sm-inline">Sugerencias</span>
+              </router-link>
+            </li>
+          </ul>
+          <!--
+            <hr>
+          <div class="dropdown pb-4">
+            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+              id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+              <span class="d-none d-sm-inline mx-1">loser</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+              <li><a class="dropdown-item" href="#">New project...</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Sign out</a></li>
+            </ul>
+          </div>-->
+        </div>
+      </div>
+      <div class="col px-0" id="contenedorVistas">
+        <nav class="navbar shadow-sm px-4" id="headerVistas">
+          <a class="navbar-brand" href="#">Vista</a>
+        </nav>
+        <div class="px-4 pt-4 h-100 w-100" >
+          <router-view :autorizaciones="autorizaciones"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <div id="accessDenied" class="center-0" v-else-if="this.mostrarAccesoDenegado">
-    <PaginaNoEncontrada/>
+    <PaginaNoEncontrada />
   </div>
 </template>
 
@@ -35,6 +75,8 @@
 import PaginaNoEncontrada from '../src/views/PaginaNoEncontrada.vue';
 import iotController from "../src/middleware/iotController.js";
 import auth from "../src/middleware/auth.js";
+
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 export default {
   name: "App",
@@ -44,7 +86,7 @@ export default {
       autorizaciones:'',
       comienzaApp:false,
       mostrarAccesoDenegado:false,
-      pantallaDeCarga:5000
+      pantallaDeCarga:2000
     };
   },
   methods:{
@@ -73,55 +115,49 @@ export default {
   padding: 0;
 }
 
-#home {
+#loaderContainer{
   display: flex;
-  flex-direction: column;
-  background-color: #6fa363;
-  text-align: center;
+  justify-content: center;
+  align-content: center;
   height: 100vh;
 }
+#loader{
+  
+  margin: auto;
+  width: 70px;
+  height: 70px;
+}
 
-#headBox h1 {
-  font: 50px 'Segoe UI','Century Gothic';
-	font-weight: 400;
-  justify-content: left;
-  padding: 0;
-  text-align: left;
-  width: 50%;
-  background: none;
+
+
+#sidebarMenu{
+  background-color: #6fa363;
+  max-width: 220px;
+}
+
+#menuItem{
+  width: 100%;
+  font-size: 1.2rem;
+  padding: .6rem 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  border-top: 1px solid rgba(255, 255, 255, 0.207);
+  border-radius: 0;
+}
+
+#menuItem:hover{
   color: rgb(255, 255, 255);
 }
 
-#header{
-  display: flex;
-  align-content: flex-end;
-  justify-content: space-between;
-  background-color: #fff;
-  margin-bottom: 1em !important;
-  max-height: 70px;
-  min-height: 70px;
+#menuItem span{
+  margin: 0 !important;
 }
 
-#navItemsContainer{
-  height: 100%;
-  align-items: flex-end;
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 0;
-}
-
-#headerTitle{
-  font-size: 40px;
-  margin-right: 1em;
-}
-
-#headerItem:hover{
+#contenedorVistas{
   background-color: #DADED3;
 }
 
-
-#navbarDropdown {
-  margin-top: -2.1px !important;
+#headerVistas{
+  background-color: #fff;
 }
 
 </style>
