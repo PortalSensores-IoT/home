@@ -9,7 +9,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
          <div class="mb-5 col-12">
-        <textarea class="h-100 form-control" id="sugerenciaForm" rows="7" placeholder="Describa su modificacion" required></textarea>
+        <textarea class="h-100 form-control" id="sugerenciaForm" rows="7" placeholder="Describa su modificacion" v-model="descripcion" required></textarea>
       </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
@@ -52,12 +52,19 @@ export default {
     data(){
         return {
             muestraSpinner:true,
-            textoConfirmacionBaja:'modificacionSolicitada'
+            textoConfirmacionBaja:'modificacionSolicitada',
+            descripcion:''
         };
     },
     methods:{
-        enviarSolicitudModificacionSensor(){
-            
+        async enviarSolicitudModificacionSensor() {
+          let result = await iotController.crearTicketSensor(this.modificaSensor);
+          this.muestraSpinner = false;
+          if(result !== undefined && result !== '') {
+            this.textoConfirmacionBaja = "Solicitud de modificacion de sensor enviado con exito!";
+          } else {
+            this.textoConfirmacionBaja = "Falló el envio de la solicitud";
+          }
         }
     }
 }

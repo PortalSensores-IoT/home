@@ -12,12 +12,14 @@ const SERVICE_CREATE_TICKET = 'api/tickets/'
 const SERVICE_GET_TOKEN_USER = 'api/usuarios/user/token'
 const SERVICE_GET_AUTH_USER = 'api/usuarios/user/auth'
 const SERVICE_GET_AREAS_BY_PISO = 'api/areas/nombres/'
+const SERVICE_GET_TIPO_SENSORES = 'api/sensores/tipos/'
 
 const PREFIJO_PISOS = 'piso '
 
 export default {
   async getAreas() {
-    let result = axios.get(URL_API_IOT + SERVICE_GET_AREAS)
+    console.log("getAreas")
+    let result = await axios.get(URL_API_IOT + SERVICE_GET_AREAS)
       .then(async (response) => {
         let pisos = await this.getCantidadPisos();
         let areas = [];
@@ -47,7 +49,7 @@ export default {
   },
 
   async getCantidadPisos() {
-    let result = axios.get(URL_API_IOT + SERVICE_GET_CANT_PISOS)
+    let result = await axios.get(URL_API_IOT + SERVICE_GET_CANT_PISOS)
       .then(async (response) => {
         return response.data;
       })
@@ -58,7 +60,20 @@ export default {
   },
 
   async crearTicketSensor(solicitud){
-    let result = axios.get(URL_API_IOT + SERVICE_CREATE_TICKET)
+    let config = {
+      headers:{
+        Authorization: PREFIJO_TOKEN + window.localStorage.token
+      }
+    };
+    let body = {
+      "tipo": solicitud.tipo,
+      "tipoSensor": solicitud.tipoSensor,
+      "nombreArea": solicitud.area,
+      "descripcion": solicitud.descripcion,
+      "idSensor": solicitud.idSensor,
+      "urls": solicitud.urls
+    }
+    let result = await axios.get(URL_API_IOT + SERVICE_CREATE_TICKET, body, config)
       .then(async (response) => {
         return response.data;
       })
@@ -69,8 +84,8 @@ export default {
   },
 
   async validarUsuario(user) {
-    let esUltimoAnio = user.ultimoAnio === 'si' ? true : false;
-    let esTecnico = user.esTecnico === 'si' ? true : false;
+    let esUltimoAnio = user.ultimoanio === 'si' ? true : false;
+    let esTecnico = user.estecnico === 'si' ? true : false;
     if(user.rol === "directivo") {
       if(esTecnico) {
         user.rol = "TECNICO";
@@ -90,9 +105,9 @@ export default {
     }
     let config = {
       headers:{
-        'email':user.email,
-        'usuario':user.username,
-        'rol':user.rol
+        email:user.email,
+        usuario:user.username,
+        rol:user.rol
       }
     };
     let result = await axios.get(URL_API_IOT + SERVICE_GET_TOKEN_USER, config)
@@ -122,7 +137,7 @@ export default {
   },
 
   async getAreasByPiso(piso) {
-    let result = axios.get(URL_API_IOT + SERVICE_GET_AREAS_BY_PISO + piso)
+    let result = await axios.get(URL_API_IOT + SERVICE_GET_AREAS_BY_PISO + piso)
       .then(async (response) => {
           return response.data[PREFIJO_PISOS + piso];
       })
@@ -131,4 +146,27 @@ export default {
       });
     return result;
   },
+
+  async getTiposDeSensores() {
+    let result = await axios.get(URL_API_IOT + SERVICE_GET_TIPO_SENSORES)
+      .then(async (response) => {
+          return response.data;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    return result;
+  },
+
+  async formatearTiposDeSensores(arr){
+    let arrTiposDeSensores = [];
+    for(let i = 0 ; i < arr.length ; i++){
+      let palabra = arr[i];
+      let original = palabra;
+      palabra = palabra.replaceAll('_',' ');
+      palabra = palabra.charAt(0).toUpperCase() + palabra.slice(1).toLowerCase();
+      arrTiposDeSensores.push({id:original, descripcion:palabra})
+    }
+    return arrTiposDeSensores;
+  }
 }

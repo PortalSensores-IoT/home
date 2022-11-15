@@ -9,7 +9,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ¿Estás seguro de solicitar la baja del sensor de {{ this.bajaSensor !== null ? this.bajaSensor.tipoSensor : '' }}?
+          ¿Estás seguro que desea solicitar la baja del sensor de {{ this.bajaSensor !== null ? this.bajaSensor.tipoSensor : '' }}?
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
@@ -57,16 +57,16 @@ export default {
     };
   },
   methods: {
-    enviarSolicitudBajaSensor() {
-      //await iotController.crearTicketSensor(this.bajaSensor);
-      let bandera = true;
-      if(bandera) {
+    async enviarSolicitudBajaSensor() {
+      let result = await iotController.crearTicketSensor(this.bajaSensor);
+      console.log(result);
+      this.muestraSpinner = false;
+      if(result !== undefined && result !== '') {
         this.textoConfirmacionBaja = "Solicitud de baja de sensor enviado con exito!";
       } else {
         this.textoConfirmacionBaja = "Falló el envio de la solicitud";
       }
-      
-    },
+    }
   },
 };
 </script>

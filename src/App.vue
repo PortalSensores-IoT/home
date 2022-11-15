@@ -1,5 +1,8 @@
 <template>
-  <div id="home" v-show="this.user.autorizado">
+  <div class="spinner-border text-success" role="status" v-if="!comienzaApp">
+            <span class="sr-only"> iot</span>
+          </div>
+  <div id="home" v-else-if="this.autorizaciones !== undefined && this.autorizaciones !== '' && this.autorizaciones.code !== 'ERR_BAD_REQUEST' && this.comienzaApp && !this.mostrarAccesoDenegado">
     <ul id="header" class="nav nav-tabs bg-light">
       <div id="navItemsContainer">
         <li class="nav-item">
@@ -8,63 +11,58 @@
         <li class="nav-item">
           <router-link id="headerItem" to="/sensores" class="nav-link active" aria-current="page">Sensores</router-link>
         </li>
-         <!--<li class="nav-item">
+        <li class="nav-item">
           <router-link id="headerItem" to="/sugerencias" class="nav-link active" aria-current="page">Sugerencias</router-link>
-        </li>-->
-        
-        <li class="nav-item dropdown">
+        </li>
+        <!--<li class="nav-item dropdown">
           <a id="headerItem" class="nav-link dropdown-toggle nav-link active" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Sugerencias</a>
           <ul class="dropdown-menu" id="navbarDropdown">
             <li><router-link class="dropdown-item" to="/" >Ver sugerencias</router-link></li>
             <li><router-link class="dropdown-item" to="/sugerencias" >Realizar sugerencia</router-link></li>
           </ul>
-        </li>
+        </li>-->
       </div>
-     
       <li id="headerTitle" class="rigth-0">IoT</li>
-      
     </ul>
-    
-    <router-view @validacionUsuario="setUser($event)" :user="user"/>
+    <router-view :autorizaciones="autorizaciones"/>
   </div>
-  <div id="accessDenied" class="center-0" v-show="!this.user.autorizado">
+  <div id="accessDenied" class="center-0" v-else-if="this.mostrarAccesoDenegado">
     <PaginaNoEncontrada/>
   </div>
 </template>
 
 <script>
 import PaginaNoEncontrada from '../src/views/PaginaNoEncontrada.vue';
-import Auth from "../src/middleware/auth.js";
+import iotController from "../src/middleware/iotController.js";
+import auth from "../src/middleware/auth.js";
 
 export default {
   name: "App",
   components:{PaginaNoEncontrada},
   data() {
     return {
-      user:{
-          userName: "",
-          email: "",
-          rol: "",
-          ultimoAnio: "",
-          autorizado: false,
-        }
+      autorizaciones:'',
+      comienzaApp:false,
+      mostrarAccesoDenegado:false,
+      pantallaDeCarga:5000
     };
   },
-  beforeMount() {
-    let userLocalStorage = Auth.getUserLocalStorage();
-    this.user.userName = this.$route.query.usuario === '' || this.$route.query.usuario === null || this.$route.query.usuario == undefined ? userLocalStorage.userName : this.$route.query.usuario;
-    console.log(this.$route.query.usuario)
-    this.user.email = this.$route.query.email === '' || this.$route.query.email === null || this.$route.query.email == undefined ? userLocalStorage.email : this.$route.query.email;
-    this.user.rol = this.$route.query.categoria === '' || this.$route.query.categoria === null || this.$route.query.categoria == undefined ? userLocalStorage.rol : this.$route.query.categoria;
-    this.user.ultimoAnio = this.$route.query.ultimoanio === '' || this.$route.query.ultimoanio === null || this.$route.query.ultimoanio == undefined ? userLocalStorage.ultimoAnio : this.$route.query.ultimoanio;
-    this.user.autorizado = Auth.validarUsuario(this.user);
-    Auth.guardarCredencialesInLocalStorage(this.user);
-    this.setUser(this.user);
-  },
   methods:{
-    setUser(dataUser) {
-      this.user = dataUser;
-    }
+  },
+  beforeMount(){
+    setTimeout(() => {
+      if(localStorage.autorizaciones !== 'undefined' && localStorage.autorizaciones !== undefined) {
+        this.autorizaciones = JSON.parse(localStorage.autorizaciones);
+        this.comienzaApp = true;
+        this.mostrarAccesoDenegado = false;
+      } else {
+        this.mostrarAccesoDenegado = true;
+        this.comienzaApp = true;
+      }
+    }, this.pantallaDeCarga);
+  },
+  beforeUnmount(){
+    //Auth.clearLocalStorage();
   }
 };
 </script>
@@ -125,58 +123,5 @@ export default {
 #navbarDropdown {
   margin-top: -2.1px !important;
 }
-
-/*#headBox h4 {
-  display: flex;
-  font: 30px 'Segoe UI','Century Gothic';
-  position: relative;
-  text-align: right;
-  justify-content: right;
-  align-items: center;
-  width: 50%;
-  background: none;
-  color: rgb(255, 255, 255);
-}
-
-#navBox {
-  margin-top: 10px;
-}
-
-#navBox a {
-  margin: 0 10px;
-  font: 1.5em "Segoe UI", "Century Gothic";
-  font-style: italic;
-  color: #000000;
-  padding: 10px 20px;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 0 0 3px 3px;
-  background: #1b9752;
-  -webkit-box-shadow: inset 0px 22px 7px -19px rgba(0, 0, 0, 0.36);
-  -moz-box-shadow: inset 0px 22px 7px -19px rgba(0, 0, 0, 0.36);
-  box-shadow: inset 0px 22px 7px -19px rgba(0, 0, 0, 0.36);
-}
-
-#gestionSensoresLink:hover,
-#mapaLink:hover,
-#inicioLink:hover {
-  font: 1.5em "Segoe UI", "Century Gothic";
-  font-style: italic;
-  color: #000000;
-  text-decoration: none;
-  font-weight: bold;
-  background: #044a23;
-  color: white;
-  transition: all 0.5s;
-}
-
-#navBox a.router-link-exact-active {
-  color: white;
-  border-top: none;
-  background: #1b9752;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}*/
 
 </style>

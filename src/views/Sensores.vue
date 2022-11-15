@@ -51,13 +51,13 @@
         </div>
       </div>
       <div id="btnAltaContainer">
-        <button id="btnAgregar" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAltaSensor" @click="showModalAltaSensor = true" v-if="this.user.rol === 'directivo'">
+        <button id="btnAgregar" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAltaSensor" @click="obtenerTiposDeSensores()" v-show="this.autorizaciones['Alta sensor']">
           Solicitar alta sensor
         </button>
       </div>
-      <FormAltaSensor v-show="showModalAltaSensor" @ocultarForm="ocultarFormAltaSensor($event)"/>
+      <FormAltaSensor :tiposSensores="tiposSensores" :pisos="pisos"/>
     </div>
-    <registroTable :tituloTabla="tituloTabla" :user="user" :sensoresInArea="sensoresInArea"/>
+    <registroTable :tituloTabla="tituloTabla" :sensoresInArea="sensoresInArea" :autorizaciones="autorizaciones"/>
   </div>
 
   <!-- Footer -->
@@ -80,22 +80,22 @@ export default {
   name: "Sensores",
   components: { RegistroTable, FormAltaSensor},
   props:{
-    user:Object
+    autorizaciones:Object
   },
   data() {
     return {
       pisos: [],
       areas: [],
       areasCombox: [],
+      tiposSensores:[],
       pisoSeleccionado: "Piso...",
       areaSeleccionada: "Área...",
       sensoresInArea: null,
-      tituloTabla: "Tabla de sensores ",
-      showModalAltaSensor: false
+      tituloTabla: "Tabla de sensores "
     };
   },
-  beforeMount() {
-    this.cargarDatos();
+  async beforeMount() {
+    await this.cargarDatos();
   },
   methods: {
     filtrarLugaresPorPiso(pisoSeleccionado) {
@@ -113,7 +113,9 @@ export default {
     },
     async cargarDatos(){
       this.areas = await iotController.getAreas();
+      console.log(this.areas)
       this.pisos = await iotController.getCantidadPisos();
+      console.log(this.pisos)
     },
     async buscarSensores() {
       this.setTituloTabla();
@@ -125,11 +127,11 @@ export default {
         this.tituloTabla = "Tabla de sensores  " + this.areaSeleccionada.nombre + " - Piso: " + (this.pisoSeleccionado == 0 ? "Planta baja" : this.pisoSeleccionado);
       }
     },
-    ocultarFormAltaSensor(ocultarFormAltaSensor) {
-      this.showModalAltaSensor = ocultarFormAltaSensor;
-    },
     redireccionarSensoresEnTiempoReal(){
-      window.open( 'http://54.90.72.88:1880/ui/#!/0?area='+this.areaSeleccionada.nombre.replaceAll(' ','_'), '_blank');
+      window.open( 'https://www.iot-pp1.click/ui/#!/0?area='+this.areaSeleccionada.nombre.replaceAll(' ','_'), '_blank');
+    },
+    async obtenerTiposDeSensores(){
+      this.tiposSensores = await iotController.formatearTiposDeSensores(await iotController.getTiposDeSensores());
     }
   },
 };

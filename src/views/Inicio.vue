@@ -1,26 +1,13 @@
 <template>
-  <div id="cardInicio" class="card col-11 col-md-9 mx-auto shadow">
-    <h3 class="card-header card-title">
-      ¡Bienvenido, {{ this.user.userName }}!
-    </h3>
-    <div class="card-body text-dark mx-5 mt-4">
-      <p class="card-text">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At optio
-        voluptas omnis possimus cum! Id eum est ipsa quam, eveniet explicabo
-        aperiam, quas libero dolore voluptates cum dolores assumenda quidem
-        consectetur veritatis eaque neque consequatur eligendi corrupti.
-        Pariatur molestias laboriosam maiores aspernatur, doloribus explicabo
-        laudantium officiis ipsum quos doloremque eius officia voluptatibus
-        obcaecati, quisquam labore ab dolorem culpa quia iusto similique ducimus
-        autem asperiores. Illo, blanditiis laborum. Velit quas saepe sunt ex
-        tempora laudantium iure. Maiores sunt eligendi dolorum vel possimus
-        magni, voluptatibus voluptate atque iure autem vitae dolores laboriosam
-        eveniet facilis corrupti aperiam quidem. Accusantium labore adipisci
-        similique iste incidunt nihil natus porro eveniet corrupti pariatur
-        molestias omnis officia laborum, esse obcaecati iure tempore velit? Quia
-        alias excepturi facilis?
-      </p>
-    </div>
+  <div id="inicioBox">
+    <h1>Bienvenido</h1>
+
+    <p>
+      Este es el portal del area de IOT para la gestion de sensores. Aquí podrá
+      gestionar los sensores, ver el mapa de la institucion. El objetivo de este
+      portal es brindar a la institucion facilidad adminitrativa y mejorar la
+      experiencia de los estudiantes por el paso en la institución.
+    </p>
   </div>
 
   <!-- Footer -->
@@ -37,24 +24,11 @@ import IotController from "../middleware/iotController.js";
 export default {
   name: "Inicio",
   props: {
-    user: Object,
+    autorizaciones: Object
   },
   data() {
     return {
-      usuario: "",
     };
-  },
-  beforeMount() {
-    let userValidar = Auth.getObjectUser();
-    let userLocalStorage = Auth.getUserLocalStorage();
-    userValidar.userName = this.$route.query.usuario === '' || this.$route.query.usuario === null || this.$route.query.usuario == undefined ? userLocalStorage.userName : this.$route.query.usuario;
-    console.log(this.$route.query.usuario)
-    userValidar.email = this.$route.query.email === '' || this.$route.query.email === null || this.$route.query.email == undefined ? userLocalStorage.email : this.$route.query.email;
-    userValidar.rol = this.$route.query.categoria === '' || this.$route.query.categoria === null || this.$route.query.categoria == undefined ? userLocalStorage.rol : this.$route.query.categoria;
-    userValidar.ultimoAnio = this.$route.query.ultimoanio === '' || this.$route.query.ultimoanio === null || this.$route.query.ultimoanio == undefined ? userLocalStorage.ultimoAnio : this.$route.query.ultimoanio;
-    userValidar.autorizado = Auth.validarUsuario(userValidar);
-    Auth.guardarCredencialesInLocalStorage(userValidar);
-    this.$emit("validacionUsuario",userValidar)
   }
 };
 </script>
