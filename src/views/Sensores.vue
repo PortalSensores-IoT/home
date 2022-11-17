@@ -1,5 +1,5 @@
 <template>
-  <div id="sensoresContainer" class="shadow col-11 col-md-9">
+  <div id="sensoresContainer" class="shadow col-11 col-md-11">
     <div id="barraBusquedaContainer">
       <div id="barraBusquedaDiv">
         <div id="selectorGroupPiso">
@@ -60,14 +60,6 @@
     <registroTable :tituloTabla="tituloTabla" :sensoresInArea="sensoresInArea" :autorizaciones="autorizaciones" :areaSeleccionada="areaSeleccionada"/>
   </div>
 
-  <!-- Footer -->
-  <footer id="footerBox" class="col-12 text-center text-lg-start bg-light text-muted">
-    <!-- Copyright -->
-    <div class="col-12 p-3" style="background-color: #DADED3;">
-      © 2022 Copyright: IoTeam
-    </div>
-    <!-- Copyright -->
-  </footer>
 </template>
 
 
@@ -139,7 +131,7 @@ export default {
 #sensoresContainer{
   display: flex;
   flex-direction: column;
-  background-color: #DADED3;
+  background-color: #fff;
   margin: 0 auto;
   height: calc(90% - 80px);
   border-radius: 2% !important;
