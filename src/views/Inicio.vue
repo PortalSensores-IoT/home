@@ -1,14 +1,25 @@
 <template>
-  <div id="inicioBox">
-    <h1>Bienvenido</h1>
+  <div id="inicioBox" class="d-flex flex-row align-items-center h-100" >
+    <div class="d-flex flex-column h-75 mt-15 w-50">
+      <h1>¡Bienvenido!</h1>
 
-    <p>
-      Este es el portal del area de IOT para la gestion de sensores. Aquí podrá
-      gestionar los sensores, ver el mapa de la institucion. El objetivo de este
-      portal es brindar a la institucion facilidad adminitrativa y mejorar la
-      experiencia de los estudiantes por el paso en la institución.
-    </p>
-  </div>
+      <p class="blockquote">
+        El Internet de las cosas describe objetos físicos con sensores, capacidad de procesamiento, 
+        software y otras tecnologías que se conectan e intercambian datos con otros dispositivos y 
+        sistemas a través de internet u otras redes de comunicación.
+        <br><br>
+        Este es el portal del area de IOT para la gestion de sensores. Aquí podrá
+        gestionar los sensores. El objetivo de este
+        portal es brindar a la institucion facilidad adminitrativa y mejorar la
+        experiencia de los estudiantes por el paso en la institución.
+      </p>
+    </div>
+    
+
+    <div class="w-75 overflow-hidden">
+      <img src="../assets/inicio2.png" >
+    </div>
+    </div>
 </template>
 
 <script>

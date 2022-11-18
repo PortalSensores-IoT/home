@@ -19,7 +19,7 @@
     </li>
   </ul>
 
-  <div class="tab-content" id="myTabContent">
+  <div class="tab-content overflow-auto" id="myTabContent" style="max-height: calc(90vh - 80px);">
     <div id="cardSugerenciasPendientes" class="card tab-pane fade show active" role="tabpanel" aria-labelledby="cardSugerenciasPendientes-tab">
       <div id="cardSugerenciasPendientesHeader" class="card-header py-3">
         <b>Sugerencias pendientes</b>
@@ -357,4 +357,10 @@ export default {
   .modal-dialog{
     max-width: 600px !important;
   }
+
+  #myTabContent::-webkit-scrollbar {
+    width: 8px;     /* Tamaño del scroll en vertical */
+    height: 8px;    /* Tamaño del scroll en horizontal */
+    display: none;  /* Ocultar scroll */
+}
 </style>
