@@ -41,7 +41,7 @@ const router = createRouter({
 router.beforeResolve(async(to, from) => {
   window.onbeforeunload = function(event) {
     
-    //window.localStorage.clear()
+    //window.localStorage.clear()sdad
     //window.localStorage.clear()
     }
   window.localStorage.username = to.query.usuario;
