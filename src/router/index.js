@@ -33,8 +33,13 @@ const router = createRouter({
 })
 
 router.beforeResolve(async(to, from) => {
-  window.localStorage.username = to.query.usuario;
-  window.localStorage.email = to.query.email;
+  window.onbeforeunload = function(event) {
+    
+    //window.localStorage.clear()
+    //window.localStorage.clear()
+    }
+  //window.localStorage.username = to.query.usuario;
+  //window.localStorage.email = to.query.email;
   let user = {
     username:to.query.usuario,
     email:to.query.email,
@@ -43,17 +48,23 @@ router.beforeResolve(async(to, from) => {
     estecnico:to.query.estecnico,
     instituto:to.query.instituto
   };
-  let result = await iotController.validarUsuario(user)
-  .then(async (response) => {
-    return response;
-  });
-  if(result !== undefined){
-    if(window.localStorage.token === undefined || window.localStorage.token === ''){
-      window.localStorage.token = result;
+  if(window.localStorage.getItem('token') == null) {
+    let result = await iotController.validarUsuario(user)
+    .then(async (response) => {
+      return response;
+    });
+    if(result !== undefined){
+      if(window.localStorage.getItem('token') == null || window.localStorage.getItem('token') == ''){
+        window.localStorage.token = result;
+        window.localStorage.autorizaciones = JSON.stringify(await iotController.getAutorizaciones(window.localStorage.token));
+      }
+    }
+    to.fullPath='';
+  } else {
+    if(window.localStorage.getItem('autorizaciones') == null){
       window.localStorage.autorizaciones = JSON.stringify(await iotController.getAutorizaciones(window.localStorage.token));
     }
   }
-  to.fullPath='';
 })
 
 export default router

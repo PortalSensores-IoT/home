@@ -104,7 +104,14 @@ export default {
     }, this.pantallaDeCarga);
   },
   beforeUnmount(){
-    //Auth.clearLocalStorage();
+  },
+  created(){
+    /*window.onbeforeunload = function(event) {
+      
+      window.localStorage.setItem("keyBoard",this.KeyboardEvent.prototype.code)
+      window.localStorage.clear()
+      }*/
+      
   }
 };
 </script>
