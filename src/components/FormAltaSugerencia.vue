@@ -7,15 +7,20 @@
     aria-hidden="true"
   >
     <div class="modal-dialog">
-      <div class="modal-content">
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-        <h3 class="card-header card-title">Complete los datos</h3>
-        <p>Todos los datos son obligatorios, debe indicar el lugar y el tipo de sensor sobre el que quiere realizar una sugerencia</p>
+      <div class="modal-header"></div>
+      <div class="modal-content p-3">
+        <div class="d-flex flex-row justify-content-between mb-2">
+          
+          <h3 class="card-header card-title">Complete los datos</h3>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        
+        <p class="" >Todos los datos son obligatorios, debe indicar el lugar y el tipo de sensor sobre el que quiere realizar una sugerencia</p>
         <form class="mx-30 needs-validation" @submit.prevent="">
           <div id="detalleSugerencia">
             <div class="mb-3 col-12">
@@ -85,11 +90,12 @@
           <div class="col-auto" id="btnAltaSugerencia">
             <button
               id="btnSiguienteFormAltaSugerencia"
-              class="btn btn-success mb-3"
+              class="float-right btn btn-success "
               data-bs-toggle="modal"
               data-bs-target="#ConfiguracionIFrameForm"
               @click="cargarIdArea()"
               :disabled="formValido"
+              style="float: right !important;"
             >
               Siguiente
             </button>

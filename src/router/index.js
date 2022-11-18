@@ -44,8 +44,8 @@ router.beforeResolve(async(to, from) => {
     //window.localStorage.clear()
     //window.localStorage.clear()
     }
-  //window.localStorage.username = to.query.usuario;
-  //window.localStorage.email = to.query.email;
+  window.localStorage.username = to.query.usuario;
+  window.localStorage.email = to.query.email;
   let user = {
     username:to.query.usuario,
     email:to.query.email,
@@ -54,11 +54,16 @@ router.beforeResolve(async(to, from) => {
     estecnico:to.query.estecnico,
     instituto:to.query.instituto
   };
+
+  if(user.estecnico === "si"){
+    window.localStorage.rol = 'TECNICO'
+  }else {
+    window.localStorage.rol = to.query.categoria
+  }
+
   if(window.localStorage.getItem('token') == null) {
     let result = await iotController.validarUsuario(user)
-    .then(async (response) => {
-      return response;
-    });
+    
     if(result !== undefined){
       if(window.localStorage.getItem('token') == null || window.localStorage.getItem('token') == ''){
         window.localStorage.token = result;

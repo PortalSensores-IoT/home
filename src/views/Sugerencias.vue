@@ -1,11 +1,10 @@
 <template>
-  <!--<div>
-    <button id="btnEnviarSugerencia" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAltaSugerencia" v-show="this.autorizaciones['Alta sugerencia']">
-      Enviar sugerencia
-    </button>
-  </div>-->
+  
+  <button id="btnEnviarSugerencia" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAltaSugerencia" v-show="this.autorizaciones['Alta sugerencia']">
+    Realizar sugerencia
+  </button>
 
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <ul class="nav nav-tabs mt-2" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <button class="nav-link active" id="cardSugerenciasPendientes-tab" data-bs-toggle="tab" data-bs-target="#cardSugerenciasPendientes" type="button" role="tab" aria-controls="cardSugerenciasPendientes" aria-selected="true">Pendientes</button>
     </li>
@@ -43,7 +42,15 @@
                   <td> {{ sugerencia.nombreArea }} </td>
                   <td> {{ sugerencia.fecha }} </td>
                   <td align="center">
-                      <button type="button" class="btn btn-outline-success">Ver detalle</button>
+                    <button 
+                      @click="verDetalleSugerencia(sugerencia)"
+                      type="button" 
+                      class="btn btn-outline-success" 
+                      data-bs-toggle="modal" 
+                      data-bs-target="#modalDetalleSugerencia"
+                    >
+                      Ver detalle
+                    </button>
                   </td>
                   <td id="sugerenciaButtons" align="right" v-show="esDirectivo">
                       <button @click="aprobarSugerencia(sugerencia.id)"><font-awesome-icon id="btnAprobar" icon="fa-solid fa-check"/></button>
@@ -146,8 +153,38 @@
 
   </div>
 
+  
+
+
   <FormAltaSugerencia/>
 
+  <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalDetalleSugerencia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Detalle sugerencia</h5>
+          </div>
+          <div class="modal-body">
+            Descripcion: {{ sugerenciaSeleccionada.descripcion }}
+
+            <iframe
+              height="400"
+              width="568"
+              :src="sugerenciaSeleccionada.urls[0]"
+            >
+
+            </iframe>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </template>
 
 <script>
@@ -171,10 +208,16 @@ export default {
       sugerenciasCerradas: [],
       sugerenciasAprobadas: [],
       sugerenciasRechazadas: [],
+      sugerenciaSeleccionada: { urls: [ "" ]},
+      esDirectivo: false,
     }
   },
   async beforeMount() {
     this.cargarDatos();
+
+    if(window.localStorage.rol == 'directivo'){
+            this.esDirectivo = true;
+        }
   },
   methods:{
     enviarSugerencia: function (event) {
@@ -200,6 +243,11 @@ export default {
     async rechazarSugerencia(id){
         iotController.rechazarTicket(id)
         await this.cargarDatos
+    },
+    verDetalleSugerencia(sugerencia){
+      this.sugerenciaSeleccionada = sugerencia
+      setTimeout(function() {
+    }, 1000)
     }
   }
 }
@@ -231,10 +279,9 @@ export default {
     font-weight: bold;
   }
 
-
-
-
-
+  tr th, tr td{
+    vertical-align: middle;
+  }
 
 
 
@@ -279,6 +326,10 @@ export default {
     justify-content: space-between;
   }
 
+  #btnEnviarSugerencia{
+    float: right;
+  }
+
 
 
   #sugerenciaButtons button {
@@ -301,5 +352,9 @@ export default {
 
   #btnRechazar{
     color: #a22a2a;
+  }
+
+  .modal-dialog{
+    max-width: 600px !important;
   }
 </style>

@@ -221,8 +221,7 @@ export default {
   async aprobarTicket(id){
     let config = {
       headers:{
-        Authorization: PREFIJO_TOKEN + window.localStorage.token,
-        'Access-Control-Allow-Origin': '*'
+        Authorization: PREFIJO_TOKEN + window.localStorage.token
       }
     };
 
@@ -240,8 +239,7 @@ export default {
   async rechazarTicket(id){
     let config = {
       headers:{
-        'Authorization': PREFIJO_TOKEN + window.localStorage.token,
-        'Access-Control-Allow-Origin': '*'
+        'Authorization': PREFIJO_TOKEN + window.localStorage.token
       }
     };
 

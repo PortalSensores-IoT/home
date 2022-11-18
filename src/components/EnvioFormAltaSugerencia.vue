@@ -7,18 +7,24 @@
     aria-hidden="true"
   >
     <div class="modal-dialog">
-      <div class="modal-content">
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-        <h3 class="card-header card-title">Solicitud de sugerencia</h3>
-        <p>Escriba su sugerencia para mejorar el entorno de la institucion</p>
-        <form class="mx-30" @submit.prevent="">
-          <div class="mb-4 col-7 col-md-4">
-            <div class="mb-5 col-12">
+      <div class="modal-content p-3">
+        <div class="d-flex flex-row justify-content-between mb-2">
+          
+          <h3 class="card-header card-title">Solicitud de sugerencia</h3>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        
+        <p>Escriba su sugerencia para seguir mejorando la institución</p>
+        <form class="" @submit.prevent="">
+          <div class="col-12">
+            <iframe class="col-12 mb-2" height="300" width="400" :src="this.url"></iframe>
+
+            <div class="col-12 mb-2">
               <textarea
                 class="h-100 form-control"
                 id="sugerenciaForm"
@@ -28,23 +34,17 @@
                 required
               ></textarea>
             </div>
-            <div class="row-auto">
-              <button
-                @click="enviarSugerencia()"
-                class="btn btn-success mb-3"
-                data-bs-toggle="modal"
-                data-bs-target="#modalEnviarAltaSugerencia"
-                :disabled="descripcion==''"
-              >
-                Enviar sugerencia
-              </button>
-              <button
-                @click="nuevaPestañaGrafico()"
-                class="btn btn-success mb-3"
-              >
-                Ver grafico
-              </button>
-            </div>
+
+            <button
+              @click="enviarSugerencia()"
+              class="btn btn-success"
+              data-bs-toggle="modal"
+              data-bs-target="#modalEnviarAltaSugerencia"
+              :disabled="descripcion==''"
+            >
+              Enviar sugerencia
+            </button>
+              
           </div>
         </form>
       </div>
