@@ -39,13 +39,6 @@ const router = createRouter({
 })
 
 router.beforeResolve(async(to, from) => {
-  window.onbeforeunload = function(event) {
-    
-    //window.localStorage.clear()sdad
-    //window.localStorage.clear()
-    }
-  window.localStorage.username = to.query.usuario;
-  window.localStorage.email = to.query.email;
   let user = {
     username:to.query.usuario,
     email:to.query.email,
@@ -55,18 +48,19 @@ router.beforeResolve(async(to, from) => {
     instituto:to.query.instituto
   };
 
-  if(user.estecnico === "si"){
+  /*if(user.estecnico === "si"){
     window.localStorage.rol = 'TECNICO'
   }else {
     window.localStorage.rol = to.query.categoria
-  }
+  }*/
 
-  if(window.localStorage.getItem('token') == null) {
+  if(window.sessionStorage.getItem('token') == null) {
     let result = await iotController.validarUsuario(user)
     
     if(result !== undefined){
       if(window.sessionStorage.getItem('token') == null || window.sessionStorage.getItem('token') == ''){
         window.sessionStorage.setItem('token',result);
+        window.sessionStorage.setItem('rol',to.query.categoria.toLocaleLowerCase());
         window.sessionStorage.setItem('autorizaciones', JSON.stringify(await iotController.getAutorizaciones(window.sessionStorage.token)));
       }
     }

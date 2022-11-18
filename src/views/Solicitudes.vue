@@ -187,7 +187,7 @@ export default{
     },
     async beforeMount() {
         await this.cargarDatos();
-        if(window.localStorage.rol == 'TECNICO'){
+        if(window.sessionStorage.getItem('rol') == 'directivo'){
             this.esTecnico = true;
         }
     },

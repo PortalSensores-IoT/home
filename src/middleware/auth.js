@@ -1,5 +1,3 @@
-/* globals localStorage */
-
 export default {
 
   getObjectUser() {

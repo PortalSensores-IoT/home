@@ -215,7 +215,7 @@ export default {
   async beforeMount() {
     this.cargarDatos();
 
-    if(window.localStorage.rol == 'directivo'){
+    if(window.sessionStorage.getItem('rol') == 'directivo'){
             this.esDirectivo = true;
         }
   },
