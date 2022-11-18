@@ -57,7 +57,7 @@
       </div>
       <FormAltaSensor :tiposSensores="tiposSensores" :pisos="pisos"/>
     </div>
-    <registroTable :tituloTabla="tituloTabla" :sensoresInArea="sensoresInArea" :autorizaciones="autorizaciones"/>
+    <registroTable :tituloTabla="tituloTabla" :sensoresInArea="sensoresInArea" :autorizaciones="autorizaciones" :areaSeleccionada="areaSeleccionada"/>
   </div>
 
 </template>
@@ -105,9 +105,7 @@ export default {
     },
     async cargarDatos(){
       this.areas = await iotController.getAreas();
-      console.log(this.areas)
       this.pisos = await iotController.getCantidadPisos();
-      console.log(this.pisos)
     },
     async buscarSensores() {
       this.setTituloTabla();

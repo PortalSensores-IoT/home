@@ -46,8 +46,10 @@
 
 <script>
 
+import iotController from "@/middleware/iotController.js";
 
 export default {
+
     props:{modificaSensor:Object, sensoreSeleccionado:Object},
     data(){
         return {
@@ -58,6 +60,8 @@ export default {
     },
     methods:{
         async enviarSolicitudModificacionSensor() {
+          let solicitudDeModificacion = this.modificaSensor;
+          solicitudDeModificacion.descripcion = this.descripcion;
           let result = await iotController.crearTicketSensor(this.modificaSensor);
           this.muestraSpinner = false;
           if(result !== undefined && result !== '') {
