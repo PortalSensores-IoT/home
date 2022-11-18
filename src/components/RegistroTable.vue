@@ -48,7 +48,8 @@ export default {
   props: {
     tituloTabla:String,
     sensoresInArea:Object,
-    autorizaciones:Object
+    autorizaciones:Object,
+    areaSeleccionada:Object
   },
   data(){
     return{
@@ -96,7 +97,7 @@ export default {
     eliminarSensor(sensor) {
       let tipo = 'BAJA_SENSOR';
       let tipoSensor = sensor.tipo;
-      let area = this.areaSeleccionada
+      let area = this.areaSeleccionada.nombre;
       let id = sensor.id;
       this.bajaSensor = {tipo:tipo, tipoSensor:tipoSensor, area:area, descripcion:'', idSensor:id, urls:[]};
     },
@@ -106,7 +107,7 @@ export default {
     modificarSensor(sensor){
       let tipo = 'MODIFICAR_SENSOR';
       let tipoSensor = sensor.tipo;
-      let area = this.areaSeleccionada
+      let area = this.areaSeleccionada.nombre;
       let id = sensor.id;
       this.modificaSensor = {tipo:tipo, tipoSensor:tipoSensor, area:area, descripcion:'', idSensor:id, urls:[]};
     },

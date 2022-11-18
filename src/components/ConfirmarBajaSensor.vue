@@ -59,7 +59,6 @@ export default {
   methods: {
     async enviarSolicitudBajaSensor() {
       let result = await iotController.crearTicketSensor(this.bajaSensor);
-      console.log(result);
       this.muestraSpinner = false;
       if(result !== undefined && result !== '') {
         this.textoConfirmacionBaja = "Solicitud de baja de sensor enviado con exito!";

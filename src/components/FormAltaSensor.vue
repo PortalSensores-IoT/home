@@ -102,17 +102,14 @@ export default {
       this.tipoSeleccionado = "Seleccionar tipo...";
       this.unidadSeleccionada = ""
     },
-    /*async cargarDatos(){
-      this.pisos = await iotController.getCantidadPisos();
-    },*/
     async obtenerAreasPorPiso(){
       this.areasCombobox = await iotController.getAreasByPiso(this.pisoSeleccionado)
     },
     async enviarSolicitudAltaSensor() {
       let tipo = 'ALTA_SENSOR';
-      let tipoSensor = this.tipoSeleccionado;
+      let tipoSensor = this.tipoSeleccionado.toUpperCase().replaceAll(' ','_');
       let area = this.areaSeleccionada
-      this.altaSensor = {tipo:tipo, tipoSensor:tipoSensor, area:area, descripcion:'', idSensor:'', urls:[]};
+      this.altaSensor = {tipo:tipo, tipoSensor:tipoSensor, area:area[1], descripcion:'', idSensor:'', urls:[]};
        let result = await iotController.crearTicketSensor(this.altaSensor);
       this.muestraSpinner = false;
       if(result !== undefined && result !== '') {

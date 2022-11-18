@@ -18,7 +18,6 @@ const PREFIJO_PISOS = 'piso '
 
 export default {
   async getAreas() {
-    console.log("getAreas")
     let result = await axios.get(URL_API_IOT + SERVICE_GET_AREAS)
       .then(async (response) => {
         let pisos = await this.getCantidadPisos();
@@ -73,7 +72,7 @@ export default {
       "idSensor": solicitud.idSensor,
       "urls": solicitud.urls
     }
-    let result = await axios.get(URL_API_IOT + SERVICE_CREATE_TICKET, body, config)
+    let result = await axios.post(URL_API_IOT + SERVICE_CREATE_TICKET, body, config)
       .then(async (response) => {
         return response.data;
       })
