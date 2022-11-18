@@ -33,6 +33,11 @@
                 <font-awesome-icon icon="fa-solid fa-table-list" /> <span class="ms-1 d-none d-sm-inline">Sugerencias</span>
               </router-link>
             </li>
+            <li class="nav-item w-100">
+              <router-link to="/solicitudes" id="menuItem" class="nav-link align-middle px-0">
+                <font-awesome-icon icon="fa-solid fa-pen" /> <span class="ms-1 d-none d-sm-inline">Solicitudes</span>
+              </router-link>
+            </li>
           </ul>
           <!--
             <hr>

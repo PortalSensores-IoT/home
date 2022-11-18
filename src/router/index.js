@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Sensores from '../views/Sensores.vue'
+import Solicitudes from '../views/Solicitudes.vue'
 import Sugerencias from '../views/Sugerencias.vue'
 import Inicio from '../views/Inicio.vue'
 import PaginaNoEncontrada from '../views/PaginaNoEncontrada.vue'
@@ -22,6 +23,11 @@ const routes = [
     component: Sugerencias
   },
   {
+    path: '/solicitudes',
+    name: 'solicitudes',
+    component: Solicitudes
+  },
+  {
     path: '/:paginaNoEncontrada(.*)*',
     component: PaginaNoEncontrada
   }
@@ -33,7 +39,13 @@ const router = createRouter({
 })
 
 router.beforeResolve(async(to, from) => {
-  console.log(to.query)
+  window.onbeforeunload = function(event) {
+    
+    //window.localStorage.clear()
+    //window.localStorage.clear()
+    }
+  window.localStorage.username = to.query.usuario;
+  window.localStorage.email = to.query.email;
   let user = {
     username:to.query.usuario,
     email:to.query.email,
@@ -42,11 +54,16 @@ router.beforeResolve(async(to, from) => {
     estecnico:to.query.estecnico,
     instituto:to.query.instituto
   };
-  if(window.sessionStorage.getItem('token') == null) {
+
+  if(user.estecnico === "si"){
+    window.localStorage.rol = 'TECNICO'
+  }else {
+    window.localStorage.rol = to.query.categoria
+  }
+
+  if(window.localStorage.getItem('token') == null) {
     let result = await iotController.validarUsuario(user)
-    .then(async (response) => {
-      return response;
-    });
+    
     if(result !== undefined){
       if(window.sessionStorage.getItem('token') == null || window.sessionStorage.getItem('token') == ''){
         window.sessionStorage.setItem('token',result);

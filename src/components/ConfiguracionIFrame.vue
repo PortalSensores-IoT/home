@@ -7,17 +7,21 @@
     aria-hidden="true"
   >
     <div class="modal-dialog">
-      <div class="modal-content">
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-        <h3 class="card-header card-title">Indique el periodo</h3>
+      <div class="modal-content p-3">
+        <div class="d-flex flex-row justify-content-between mb-2">
+          <h3 class="card-header card-title">Indique el periodo</h3>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        
+        
         <p>Todos los campos son obligatorios, debe elegir un periodo para realizar una sugerencia</p>
-        <form class="mx-30" @submit.prevent="">
-          <div class="mb-4 col-7 col-md-4">
+        <form class="" @submit.prevent="">
+          <div class="col-12">
             <div class="mb-3 col-12">
               <label for="validationDefault05" class="form-label">Año</label>
               <select
@@ -56,10 +60,11 @@
               <button
                 @click="armarURL()"
                 type="submit"
-                class="btn btn-success mb-3"
+                class="btn btn-success"
                 data-bs-toggle="modal"
                 data-bs-target="#modalEnvioSugerencia"
                 :disabled="formValido"
+                style="float: right !important;"
               >
                 Siguiente
               </button>

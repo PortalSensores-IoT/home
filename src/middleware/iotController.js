@@ -8,6 +8,9 @@ const SERVICE_GET_AREAS = 'api/areas'
 const SERVICE_GET_AREA_BY_ID = 'api/areas/ids/'
 const SERVICE_GET_CANT_PISOS = 'api/areas/pisos'
 const SERVICE_CREATE_TICKET = 'api/tickets/'
+const SERVICE_GET_TICKETS = 'api/tickets'
+const SERVICE_APROBAR_TICKETS = 'api/tickets/aprobar/'
+const SERVICE_RECHAZAR_TICKETS = 'api/tickets/desaprobar/'
 const SERVICE_GET_TOKEN_USER = 'api/usuarios/user/token'
 const SERVICE_GET_AUTH_USER = 'api/usuarios/user/auth'
 const SERVICE_GET_AREAS_BY_PISO = 'api/areas/nombres/'
@@ -168,5 +171,85 @@ export default {
       }
     }
     return arrTiposDeSensores;
+  },
+
+  async getTickets() {
+    let result = await axios.get(URL_API_IOT + SERVICE_GET_TICKETS)
+      .then(async (response) => {
+        
+        return response.data;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    return result;
+  },
+
+  async getSugerencias() {
+    let tickets = await this.getTickets();
+
+    const result = tickets.filter( ticket => ticket.tipo === 'SUGERENCIA');
+
+    return result
+  },
+
+  async getSugerenciasByEstado(estado) {
+    let tickets = await this.getSugerencias();
+
+    const result = tickets.filter( ticket => ticket.estado == estado);
+
+    return result
+  },
+
+  async getSolicitudes() {
+    let tickets = await this.getTickets();
+
+    const result = tickets.filter( ticket => ticket.tipo != 'SUGERENCIA');
+
+    return result
+  },
+
+  async getSolicitudesByEstado(estado) {
+    let tickets = await this.getSolicitudes();
+
+    const result = tickets.filter( ticket => ticket.estado == estado);
+
+    return result
+  },
+
+  async aprobarTicket(id){
+    let config = {
+      headers:{
+        Authorization: PREFIJO_TOKEN + window.localStorage.token
+      }
+    };
+
+    let result = await axios.put(URL_API_IOT + SERVICE_APROBAR_TICKETS + id, config)
+      .then(async (response) => {
+        return response.data
+    })
+      .catch(err => {
+        console.log(err);
+    });
+
+    return result;
+  },
+
+  async rechazarTicket(id){
+    let config = {
+      headers:{
+        'Authorization': PREFIJO_TOKEN + window.localStorage.token
+      }
+    };
+
+    let result = await axios.put(URL_API_IOT + SERVICE_RECHAZAR_TICKETS + id, config)
+      .then(async (response) => {
+        return response.data
+    })
+      .catch(err => {
+        console.log(err);
+    });
+
+    return result;
   }
 }
