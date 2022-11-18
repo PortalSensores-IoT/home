@@ -98,7 +98,7 @@ export default {
   },
   beforeMount(){
     setTimeout(() => {
-      if(window.sessionStorage.getItem('autorizaciones') != null && window.sessionStorage.getItem('autorizaciones') != '') {
+      if(window.sessionStorage.getItem('autorizaciones') != null && window.sessionStorage.getItem('autorizaciones') != '' && window.sessionStorage.getItem('autorizaciones') !== 'undefined' && window.sessionStorage.getItem('autorizaciones') !== undefined) {
         this.autorizaciones = JSON.parse(window.sessionStorage.getItem('autorizaciones'));
         this.comienzaApp = true;
         this.mostrarAccesoDenegado = false;
