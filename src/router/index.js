@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Sensores from '../views/Sensores.vue'
+import Solicitudes from '../views/Solicitudes.vue'
 import Sugerencias from '../views/Sugerencias.vue'
 import Inicio from '../views/Inicio.vue'
 import PaginaNoEncontrada from '../views/PaginaNoEncontrada.vue'
@@ -20,6 +21,11 @@ const routes = [
     path: '/sugerencias',
     name: 'sugerencias',
     component: Sugerencias
+  },
+  {
+    path: '/solicitudes',
+    name: 'solicitudes',
+    component: Solicitudes
   },
   {
     path: '/:paginaNoEncontrada(.*)*',

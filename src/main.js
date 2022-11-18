@@ -13,9 +13,9 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-import { faTowerBroadcast, faTableList, faHouse } from '@fortawesome/free-solid-svg-icons'
+import { faTowerBroadcast, faTableList, faHouse, faPen, faCheck, faSkullCrossbones } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faTowerBroadcast, faTableList, faHouse)
+library.add(faTowerBroadcast, faTableList, faHouse, faPen, faCheck, faSkullCrossbones)
 
 createApp(App)
     .use(router, axios, vueAxios, VueCryptojs)
