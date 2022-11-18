@@ -161,10 +161,12 @@ export default {
     let arrTiposDeSensores = [];
     for(let i = 0 ; i < arr.length ; i++){
       let palabra = arr[i];
-      let original = palabra;
-      palabra = palabra.replaceAll('_',' ');
-      palabra = palabra.charAt(0).toUpperCase() + palabra.slice(1).toLowerCase();
-      arrTiposDeSensores.push({id:original, descripcion:palabra})
+      if(palabra != 'NO_IDENTIFICADO'){
+        let original = palabra;
+        palabra = palabra.replaceAll('_',' ');
+        palabra = palabra.charAt(0).toUpperCase() + palabra.slice(1).toLowerCase();
+        arrTiposDeSensores.push({id:original, descripcion:palabra})
+      }
     }
     return arrTiposDeSensores;
   }

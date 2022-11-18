@@ -76,8 +76,8 @@
                     tipoSensorSeleccionado
                   }}
                 </option>
-                <option v-for="tipo in tiposSensores" :key="tipo" :value="tipo">
-                  {{ tipo }}
+                <option v-for="tipo in tiposSensores" :key="tipo.descripcion" :value="tipo.descripcion">
+                  {{ tipo.descripcion }}
                 </option>
               </select>
             </div>
@@ -126,12 +126,8 @@ export default {
   },
   async beforeMount() {
     this.pisos = await iotController.getCantidadPisos();
-    let tipoSensorList = await iotController.getTiposDeSensores();
-    for(let i = 0 ; i < tipoSensorList.length ; i++){
-      if(tipoSensorList[i] !== 'NO_IDENTIFICADO') {
-        this.tiposSensores.push(tipoSensorList[i].charAt(0).toUpperCase() + tipoSensorList[i].slice(1).toLowerCase().replaceAll('_',' '));
-      }
-    }
+    this.tiposSensores = await iotController.formatearTiposDeSensores(await iotController.getTiposDeSensores());
+    
   },
   methods: {
     async obtenerAreasPorPiso() {

@@ -86,7 +86,7 @@ export default {
       autorizaciones:'',
       comienzaApp:false,
       mostrarAccesoDenegado:false,
-      pantallaDeCarga:2000
+      pantallaDeCarga:5000
     };
   },
   methods:{
@@ -104,6 +104,7 @@ export default {
     }, this.pantallaDeCarga);
   },
   beforeUnmount(){
+    
   },
   created(){
     /*window.onbeforeunload = function(event) {
