@@ -65,17 +65,23 @@ router.beforeResolve(async(to, from) => {
     let result = await iotController.validarUsuario(user)
     
     if(result !== undefined){
-      if(window.localStorage.getItem('token') == null || window.localStorage.getItem('token') == ''){
-        window.localStorage.token = result;
-        window.localStorage.autorizaciones = JSON.stringify(await iotController.getAutorizaciones(window.localStorage.token));
+      if(window.sessionStorage.getItem('token') == null || window.sessionStorage.getItem('token') == ''){
+        window.sessionStorage.setItem('token',result);
+        window.sessionStorage.setItem('autorizaciones', JSON.stringify(await iotController.getAutorizaciones(window.sessionStorage.token)));
       }
     }
-    to.fullPath='';
   } else {
-    if(window.localStorage.getItem('autorizaciones') == null){
-      window.localStorage.autorizaciones = JSON.stringify(await iotController.getAutorizaciones(window.localStorage.token));
+    if(window.sessionStorage.getItem('autorizaciones') == null){
+      window.sessionStorage.setItem('autorizaciones', JSON.stringify(await iotController.getAutorizaciones(window.sessionStorage.token)));
     }
   }
+  to.fullPath = '';
+  to.query.usuario = '';
+  to.query.email = '';
+  to.query.categoria = '';
+  to.query.ultimoanio = '';
+  to.query.estecnico = '';
+  to.query.instituto = '';
 })
 
 export default router
