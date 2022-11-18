@@ -15,12 +15,15 @@
           aria-label="Close"
         ></button>
         <h3 class="card-header card-title">Complete los datos</h3>
-        <form class="mx-30">
+        <p>Todos los datos son obligatorios, debe indicar el lugar y el tipo de sensor sobre el que quiere realizar una sugerencia</p>
+        <form class="mx-30 needs-validation" @submit.prevent="">
           <div id="detalleSugerencia">
-            <div class="mb-3 col-3">
-              <label for="validationDefault05" class="form-label">Piso</label>
+            <div class="mb-3 col-12">
+              <label for="validationDefault05" class="form-label">
+                Piso*
+              </label>
               <select
-                @change="obtenerAreasPorPiso();placeHolderPiso()"
+                @change="obtenerAreasPorPiso()"
                 v-model="pisoSeleccionado"
                 class="form-select"
                 id="validationDefault04"
@@ -31,13 +34,15 @@
                     pisoSeleccionado
                   }}
                 </option>
-                <option v-for="piso in pisos" :key="piso" :value="piso">
+                <option v-for="piso in pisos" :key="piso" :value="piso" required>
                   {{ piso === 0 ? 'Planta baja' : piso }}
                 </option>
               </select>
             </div>
-            <div class="mb-3 col-3">
-              <label for="validationDefault05" class="form-label">Área</label>
+            <div class="mb-3 col-12">
+              <label for="validationDefault05" class="form-label">
+                Lugar*
+              </label>
               <select
               @change="placeHolderArea()"
                 class="form-select"
@@ -45,7 +50,7 @@
                 v-model="areaSeleccionada"
                 required
               >
-                <option selected :value="areaSeleccionada" v-show="mostrarPlaceHolderArea">
+                <option selected :value="areaSeleccionada" v-show="mostrarPlaceHolderArea" required>
                   {{
                     areaSeleccionada
                   }}
@@ -55,9 +60,9 @@
                 </option>
               </select>
             </div>
-            <div class="mb-3 col-3">
+            <div class="mb-3 col-12">
               <label for="validationDefault04" class="form-label">
-                Tipo de sensor
+                Tipo de sensor*
               </label>
               <select
               @change="placeHolderTipoSensor()"
@@ -66,7 +71,7 @@
                 id="validationDefault04"
                 required
               >
-                <option selected :value="tipoSensorSeleccionado" v-show="mostrarPlaceHolderTipoSensor">
+                <option selected :value="tipoSensorSeleccionado" v-show="mostrarPlaceHolderTipoSensor" required>
                   {{
                     tipoSensorSeleccionado
                   }}
@@ -77,24 +82,23 @@
               </select>
             </div>
           </div>
-          <div class="col-auto">
+          <div class="col-auto" id="btnAltaSugerencia">
             <button
-              type="submit"
+              id="btnSiguienteFormAltaSugerencia"
               class="btn btn-success mb-3"
               data-bs-toggle="modal"
-              data-bs-target="#modalIFrame"
+              data-bs-target="#ConfiguracionIFrameForm"
+              @click="cargarIdArea()"
+              :disabled="formValido"
             >
               Siguiente
             </button>
           </div>
         </form>
-        <ConfiguracionIFrame
-          :tipoSensorSeleccionado="tipoSensorSeleccionado"
-          :areaSeleccionada="areaSeleccionada"
-        />
       </div>
     </div>
   </div>
+        <ConfiguracionIFrame :tipoSensorSeleccionado="tipoSensorSeleccionado" :areaSeleccionada="idArea"/>
 </template>
 
 <script>
@@ -112,9 +116,12 @@ export default {
       pisoSeleccionado:"Seleccionar piso",
       areaSeleccionada:"Seleccionar area",
       tipoSensorSeleccionado:"Seleccionar tipo de sensor",
+      areasConID:[],
+      idArea:null,
       mostrarPlaceHolderArea:true,
       mostrarPlaceHolderPiso:true,
-      mostrarPlaceHolderTipoSensor:true
+      mostrarPlaceHolderTipoSensor:true,
+      formValido:true
     };
   },
   async beforeMount() {
@@ -122,28 +129,41 @@ export default {
     let tipoSensorList = await iotController.getTiposDeSensores();
     for(let i = 0 ; i < tipoSensorList.length ; i++){
       if(tipoSensorList[i] !== 'NO_IDENTIFICADO') {
-        this.tiposSensores.push(tipoSensorList[i].toLowerCase().replaceAll('_',' '));
+        this.tiposSensores.push(tipoSensorList[i].charAt(0).toUpperCase() + tipoSensorList[i].slice(1).toLowerCase().replaceAll('_',' '));
       }
     }
   },
   methods: {
     async obtenerAreasPorPiso() {
-      let areasList = await iotController.getAreasByPiso(this.pisoSeleccionado);
-      for(let i = 0 ; i < areasList.length ; i++) {
-        this.areas.push(areasList[i][1]);
+      this.areasConID = await iotController.getAreasByPiso(this.pisoSeleccionado);
+      for(let i = 0 ; i < this.areasConID.length ; i++) {
+        this.areas.push(this.areasConID[i][1]);
       }
+      this.placeHolderPiso()
+    },
+    placeHolderPiso() {
+      this.mostrarPlaceHolderPiso = false;
+      this.validarCampos();
     },
     placeHolderArea() {
       this.mostrarPlaceHolderArea = false;
-    },
-    placeHolderPiso() {
-      console.log(this.pisoSeleccionado);
-      console.log(this.areaSeleccionada);
-      console.log(this.tipoSensorSeleccionado);
-      this.mostrarPlaceHolderPiso = false;
+      this.validarCampos();
     },
     placeHolderTipoSensor() {
       this.mostrarPlaceHolderTipoSensor = false;
+      this.validarCampos();
+    },
+    cargarIdArea() {
+      for(let i = 0 ; i < this.areasConID.length ; i++){
+        if(this.areasConID[i][1] === this.areaSeleccionada) {
+          let id = this.areasConID[i][0];
+          let nombre = this.areasConID[i][1];
+          this.idArea = {id:id, nombre:nombre};
+        }
+      }
+    },
+    validarCampos(){
+      this.formValido = this.mostrarPlaceHolderPiso || this.mostrarPlaceHolderArea || this.mostrarPlaceHolderTipoSensor;
     }
   },
 };

@@ -14,7 +14,10 @@ export default {
   },
 
   clearLocalStorage() {
-    localStorage.removeItem('token');
+    //localStorage.removeItem('token');
+    //localStorage.removeItem('autorizaciones');
+    //this.clearLocalStorage();
+    
   },
 
   guardarTokenInLocalStorage(token) {
