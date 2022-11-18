@@ -33,13 +33,7 @@ const router = createRouter({
 })
 
 router.beforeResolve(async(to, from) => {
-  window.onbeforeunload = function(event) {
-    
-    //window.localStorage.clear()
-    //window.localStorage.clear()
-    }
-  //window.localStorage.username = to.query.usuario;
-  //window.localStorage.email = to.query.email;
+  console.log(to.query)
   let user = {
     username:to.query.usuario,
     email:to.query.email,
@@ -48,23 +42,29 @@ router.beforeResolve(async(to, from) => {
     estecnico:to.query.estecnico,
     instituto:to.query.instituto
   };
-  if(window.localStorage.getItem('token') == null) {
+  if(window.sessionStorage.getItem('token') == null) {
     let result = await iotController.validarUsuario(user)
     .then(async (response) => {
       return response;
     });
     if(result !== undefined){
-      if(window.localStorage.getItem('token') == null || window.localStorage.getItem('token') == ''){
-        window.localStorage.token = result;
-        window.localStorage.autorizaciones = JSON.stringify(await iotController.getAutorizaciones(window.localStorage.token));
+      if(window.sessionStorage.getItem('token') == null || window.sessionStorage.getItem('token') == ''){
+        window.sessionStorage.setItem('token',result);
+        window.sessionStorage.setItem('autorizaciones', JSON.stringify(await iotController.getAutorizaciones(window.sessionStorage.token)));
       }
     }
-    to.fullPath='';
   } else {
-    if(window.localStorage.getItem('autorizaciones') == null){
-      window.localStorage.autorizaciones = JSON.stringify(await iotController.getAutorizaciones(window.localStorage.token));
+    if(window.sessionStorage.getItem('autorizaciones') == null){
+      window.sessionStorage.setItem('autorizaciones', JSON.stringify(await iotController.getAutorizaciones(window.sessionStorage.token)));
     }
   }
+  to.fullPath = '';
+  to.query.usuario = '';
+  to.query.email = '';
+  to.query.categoria = '';
+  to.query.ultimoanio = '';
+  to.query.estecnico = '';
+  to.query.instituto = '';
 })
 
 export default router

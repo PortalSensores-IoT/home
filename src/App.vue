@@ -93,8 +93,8 @@ export default {
   },
   beforeMount(){
     setTimeout(() => {
-      if(localStorage.autorizaciones !== 'undefined' && localStorage.autorizaciones !== undefined) {
-        this.autorizaciones = JSON.parse(localStorage.autorizaciones);
+      if(window.sessionStorage.getItem('autorizaciones') != null && window.sessionStorage.getItem('autorizaciones') != '') {
+        this.autorizaciones = JSON.parse(window.sessionStorage.getItem('autorizaciones'));
         this.comienzaApp = true;
         this.mostrarAccesoDenegado = false;
       } else {
@@ -102,17 +102,6 @@ export default {
         this.comienzaApp = true;
       }
     }, this.pantallaDeCarga);
-  },
-  beforeUnmount(){
-    
-  },
-  created(){
-    /*window.onbeforeunload = function(event) {
-      
-      window.localStorage.setItem("keyBoard",this.KeyboardEvent.prototype.code)
-      window.localStorage.clear()
-      }*/
-      
   }
 };
 </script>

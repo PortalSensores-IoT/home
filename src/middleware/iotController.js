@@ -1,4 +1,3 @@
-/* globals localStorage */
 import axios from "axios"
 
 const URL_API_IOT = 'https://pp1-iot.herokuapp.com/';
@@ -61,7 +60,7 @@ export default {
   async crearTicketSensor(solicitud){
     let config = {
       headers:{
-        Authorization: PREFIJO_TOKEN + window.localStorage.token
+        Authorization: PREFIJO_TOKEN + window.sessionStorage.token
       }
     };
     let body = {
