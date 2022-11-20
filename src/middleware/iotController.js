@@ -15,6 +15,7 @@ const SERVICE_GET_TOKEN_USER = 'api/usuarios/user/token'
 const SERVICE_GET_AUTH_USER = 'api/usuarios/user/auth'
 const SERVICE_GET_AREAS_BY_PISO = 'api/areas/nombres/'
 const SERVICE_GET_TIPO_SENSORES = 'api/sensores/tipos/'
+const SERVICE_GET_SENSOR_BY_ID = 'api/sensores/ids/'
 
 const PREFIJO_PISOS = 'piso '
 
@@ -259,5 +260,18 @@ export default {
     });
 
     return result;
-  }
+  },
+
+  async getSensorById(idSensor){
+
+    let result = await axios.get(URL_API_IOT + SERVICE_GET_SENSOR_BY_ID + (idSensor === undefined ? 1 : idSensor))
+      .then(async (response) => {
+        return response.data;
+       })
+      .catch(err => {
+        console.log(err);
+      });
+    return result;
+
+  },
 }

@@ -19,8 +19,8 @@
     </li>
   </ul>
 
-  <div class="tab-content overflow-auto shadow" id="myTabContent" >
-    <div id="cardSugerenciasPendientes" class="card tab-pane fade show active" role="tabpanel" aria-labelledby="cardSugerenciasPendientes-tab">
+  <div class="tab-content shadow" id="myTabContent" >
+    <div id="cardSugerenciasPendientes" class="card tab-pane fade show active overflow-auto" role="tabpanel" aria-labelledby="cardSugerenciasPendientes-tab">
       <div id="cardSugerenciasPendientesHeader" class="card-header py-3">
         <b>Sugerencias pendientes</b>
       </div>
@@ -64,7 +64,7 @@
       </div>
     </div>
 
-    <div id="cardSugerenciasCerradas" class="card tab-pane fade" role="tabpanel" aria-labelledby="cardSugerenciasCerradas-tab">
+    <div id="cardSugerenciasCerradas" class="card tab-pane fade overflow-auto" role="tabpanel" aria-labelledby="cardSugerenciasCerradas-tab">
       <div class="card-header py-3">
         <b>Sugerencias cerradas</b>
       </div>
@@ -88,7 +88,15 @@
                   <td> {{ sugerencia.fecha }} </td>
                   <td> {{ sugerencia.appUsuario.nombre }} </td>
                   <td align="center">
-                      <button type="button" class="btn btn-outline-success">Ver detalle</button>
+                    <button 
+                      @click="verDetalleSugerencia(sugerencia)"
+                      type="button" 
+                      class="btn btn-outline-success" 
+                      data-bs-toggle="modal" 
+                      data-bs-target="#modalDetalleSugerencia"
+                    >
+                      Ver detalle
+                    </button>
                   </td>
               </tr>
           </tbody>
@@ -96,7 +104,7 @@
       </div>
     </div>
 
-    <div id="cardSugerenciasRechazadas" class="card tab-pane fade" role="tabpanel" aria-labelledby="cardSugerenciasRechazadas-tab">
+    <div id="cardSugerenciasRechazadas" class="card tab-pane fade overflow-auto" role="tabpanel" aria-labelledby="cardSugerenciasRechazadas-tab">
       <div class="card-header py-3">
         <b>Sugerencias rechazadas</b>
       </div>
@@ -120,14 +128,22 @@
                   <td> {{ sugerencia.fecha }} </td>
                   <td> {{ sugerencia.appUsuario.nombre }} </td>
                   <td align="center">
-                      <button type="button" class="btn btn-outline-success">Ver detalle</button>
+                    <button 
+                      @click="verDetalleSugerencia(sugerencia)"
+                      type="button" 
+                      class="btn btn-outline-success" 
+                      data-bs-toggle="modal" 
+                      data-bs-target="#modalDetalleSugerencia"
+                    >
+                      Ver detalle
+                    </button>
                   </td>
               </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <div id="cardSugerenciasAprobadas" class="card tab-pane fade" role="tabpanel" aria-labelledby="cardSugerenciasAprobadas-tab">
+    <div id="cardSugerenciasAprobadas" class="card tab-pane fade overflow-auto" role="tabpanel" aria-labelledby="cardSugerenciasAprobadas-tab">
       <div class="card-header py-3">
         <b>Sugerencias aprobadas</b>
       </div>
@@ -151,7 +167,15 @@
                   <td> {{ sugerencia.fecha }} </td>
                   <td> {{ sugerencia.appUsuario.nombre }} </td>
                   <td align="center">
-                      <button type="button" class="btn btn-outline-success">Ver detalle</button>
+                    <button 
+                      @click="verDetalleSugerencia(sugerencia)"
+                      type="button" 
+                      class="btn btn-outline-success" 
+                      data-bs-toggle="modal" 
+                      data-bs-target="#modalDetalleSugerencia"
+                    >
+                      Ver detalle
+                    </button>
                   </td>
               </tr>
           </tbody>
@@ -177,7 +201,8 @@
             <h5 class="modal-title" id="exampleModalLabel">Detalle sugerencia</h5>
           </div>
           <div class="modal-body">
-            Descripcion: {{ sugerenciaSeleccionada.descripcion }}
+            <h6 class="card-title">Descripción:</h6>
+            <p class="card-text">{{ sugerenciaSeleccionada.descripcion }}</p>
 
             <iframe
               height="400"

@@ -10,7 +10,7 @@
           <th scope="col">Sensor</th>
           <th scope="col">Unidad de medida</th>
           <th scope="col">Último valor registrado</th>
-          <th scope="col">Fecha</th>
+          <th scope="col">Frecuencia de registro (s)</th>
           <th scope="col" colspan="2"></th>
         </tr>
       </thead>
@@ -18,8 +18,10 @@
         <tr v-for="sensor in this.sensoresInArea" :key="sensor.id">
           <td>{{ sensor.tipo }}</td>
           <td>{{ sensor.unidadDeMedida }}</td>
-          <td>{{this.getUltimoRegistroValor(sensor)}}</td>
-          <td>{{ this.getUltimoRegistroFecha(sensor) }}</td>
+          <td>
+            <CeldaUltimoRegistro :sensor="sensor"/>
+          </td>
+          <td>{{ sensor.registros.length > 0 ? sensor.registros[sensor.registros.length-1].frecuencia : "-"}}</td>
           <td id="imgModificar">
             <button type="button" data-bs-toggle="modal" data-bs-target="#modalModificaSensor"
               @click="modificarSensor(sensor)">
@@ -44,11 +46,12 @@
 <script>
 import ConfirmarBajaSensor from "@/components/ConfirmarBajaSensor.vue";
 import ConfirmarModificacionSensor from "@/components/ConfirmarModificacionSensor.vue";
+import CeldaUltimoRegistro from "@/components/CeldaUltimoRegistro.vue";
 
 export default {
 
   name: "RegistroTable",
-  components:{ConfirmarBajaSensor, ConfirmarModificacionSensor},
+  components:{ConfirmarBajaSensor, ConfirmarModificacionSensor, CeldaUltimoRegistro},
   props: {
     tituloTabla:String,
     sensoresInArea:Object,
@@ -62,40 +65,12 @@ export default {
   }
   },
   methods:{
-    getUltimoRegistroValor(sensor) {
-      if(sensor.registros != undefined && sensor.registros != null) {
-        let ultimoRegistro = sensor.registros[sensor.registros.length-1];
-        return ultimoRegistro === undefined ? '-' : this.getSignoUnidadDeMedida(sensor, ultimoRegistro.valor);
-      } else {
-        return '-';
-      }
-    },
     getUltimoRegistroFecha(sensor){
       if(sensor.registros != undefined && sensor.registros != null) {
         let ultimoRegistro = sensor.registros[sensor.registros.length-1];
         return ultimoRegistro === undefined ? '-' : ultimoRegistro.fecha;
       } else {
         return '-';
-      }
-    },
-    getSignoUnidadDeMedida(sensor, valor) {
-      switch(sensor.unidadDeMedida) {
-        case 'Porcentaje':
-          return valor + '%';
-        case 'Celcius':
-          return valor + '°C';
-        case 'Decibeles':
-          return valor + 'dB';
-        case 'ppm':
-          return valor + 'ppm';
-        case 'Boolean':
-          if(sensor.tipo === 'PUERTA' || sensor.tipo === 'VENTANA'){
-            return valor == 1 ? ' Abierta' : ' Cerrada';
-          } else {
-            return valor == 1 ? ' Activado' : ' Desactivado';
-          }
-        case undefined:
-          return '-';
       }
     },
     eliminarSensor(sensor) {
@@ -117,7 +92,7 @@ export default {
     },
     clearSensorModificacion(){ 
       this.modificaSensor = null;
-    }
+    },
   }
 };
 </script>
@@ -188,5 +163,19 @@ img {
     height: 8px;    /* Tamaño del scroll en horizontal */
     display: none;  /* Ocultar scroll */
 }
+
+
+.update-enter-active {
+        transition: all .5s ease-in;
+    }
+
+    .update-leave-active {
+        transition: all .5s ease-out;
+    }
+
+    .update-enter, .update-leave-to {
+        opacity: .5;
+        background-color: #fd0;
+    }
 
 </style>

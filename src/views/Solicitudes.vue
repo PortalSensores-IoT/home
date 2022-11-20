@@ -23,7 +23,7 @@
     </ul>
     
     <div class="tab-content shadow" id="myTabContent">
-        <div id="cardSolicitudesPendientes" class="card tab-pane show active" role="tabpanel"
+        <div id="cardSolicitudesPendientes" class="card tab-pane show active overflow-auto " role="tabpanel"
             aria-labelledby="cardSolicitudesPendientes-tab">
             <div id="cardSolicitudesPendientesHeader" class="card-header py-3">
                 <b>Solicitudes pendientes</b>
@@ -73,7 +73,7 @@
             </div>
         </div>
     
-        <div id="cardSolicitudesCerradas" class="card tab-pane" role="tabpanel"
+        <div id="cardSolicitudesCerradas" class="card tab-pane overflow-auto " role="tabpanel"
             aria-labelledby="cardSolicitudesCerradas-tab">
             <div class="card-header py-3">
                 <b>Solicitudes cerradas</b>
@@ -101,8 +101,17 @@
                             <td> {{ solicitud.nombreArea }} </td>
                             <td> {{ solicitud.fecha }} </td>
                             <td> {{ solicitud.appUsuario.nombre }} </td>
-                            <td align="center" >
-                                <button v-show="solicitud.tipo === 'MODIFICAR_SENSOR'"  type="button" class="btn btn-outline-success">Ver descripción</button>
+                            <td align="center">
+                                <button  
+                                    v-show="solicitud.tipo === 'MODIFICAR_SENSOR'"   
+                                    @click="verDetalleSolicitud(solicitud)"
+                                    type="button" 
+                                    class="btn btn-outline-success" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#modalDetalleSolicitud"
+                                >
+                                    Ver descripción
+                                </button>
                             </td>
                         </tr>
                     </tbody>
@@ -110,7 +119,7 @@
             </div>
         </div>
     
-        <div id="cardSolicitudesRechazadas" class="card tab-pane" role="tabpanel"
+        <div id="cardSolicitudesRechazadas" class="card tab-pane overflow-auto " role="tabpanel"
             aria-labelledby="cardSolicitudesRechazadas-tab">
             <div class="card-header py-3">
                 <b>Solicitudes rechazadas</b>
@@ -138,15 +147,24 @@
                             <td> {{ solicitud.nombreArea }} </td>
                             <td> {{ solicitud.fecha }} </td>
                             <td> {{ solicitud.appUsuario.nombre }} </td>
-                            <td align="center" >
-                                <button v-show="solicitud.tipo === 'MODIFICAR_SENSOR'"  type="button" class="btn btn-outline-success">Ver descripción</button>
+                            <td align="center">
+                                <button  
+                                    v-show="solicitud.tipo === 'MODIFICAR_SENSOR'"   
+                                    @click="verDetalleSolicitud(solicitud)"
+                                    type="button" 
+                                    class="btn btn-outline-success" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#modalDetalleSolicitud"
+                                >
+                                    Ver descripción
+                                </button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        <div id="cardSolicitudesAprobadas" class="card tab-pane" role="tabpanel"
+        <div id="cardSolicitudesAprobadas" class="card tab-pane overflow-auto " role="tabpanel"
             aria-labelledby="cardSolicitudesAprobadas-tab">
             <div class="card-header py-3">
                 <b>Solicitudes aprobadas</b>
@@ -174,8 +192,17 @@
                             <td> {{ solicitud.nombreArea }} </td>
                             <td> {{ solicitud.fecha }} </td>
                             <td> {{ solicitud.appUsuario.nombre }} </td>
-                            <td align="center" >
-                                <button v-show="solicitud.tipo === 'MODIFICAR_SENSOR'"  type="button" class="btn btn-outline-success">Ver descripción</button>
+                            <td align="center">
+                                <button  
+                                    v-show="solicitud.tipo === 'MODIFICAR_SENSOR'"   
+                                    @click="verDetalleSolicitud(solicitud)"
+                                    type="button" 
+                                    class="btn btn-outline-success" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#modalDetalleSolicitud"
+                                >
+                                    Ver descripción
+                                </button>
                             </td>
                         </tr>
                     </tbody>
@@ -193,7 +220,8 @@
             <h5 class="modal-title" id="exampleModalLabel">Detalle solicitud</h5>
           </div>
           <div class="modal-body">
-            Descripcion: {{ solicitudSeleccionada.descripcion }}
+            <h6 class="card-title">Descripción:</h6>
+            <p class="card-text">{{ solicitudSeleccionada.descripcion }}</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Close</button>
