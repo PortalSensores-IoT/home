@@ -1,5 +1,5 @@
 <template>
-    <transition name="fade" mode="out-in">
+    <transition name="slide-fade" mode="out-in">
         <p v-if="show" class="m-auto">
             {{ this.ultimoRegistro }}
         </p>
@@ -55,18 +55,14 @@ export default {
             this.ultimoRegistro = this.getUltimoRegistroValor(this.sensor)
 
             setInterval(() => {
-                this.show = false
-                console.log("Antes: " + this.ultimoRegistro)
+                setTimeout(() => this.show = false, 500);
 
                 iotController.getSensorById(this.sensor.id).then(response => {
                     this.ultimoRegistro = this.getUltimoRegistroValor(response)
                 })
 
-                console.log("Después: " + this.ultimoRegistro)
-
                 setTimeout(() => this.show = true, 500);
-               
-            }, 10000)
+            }, 30000)
 
         }
     }
@@ -75,10 +71,18 @@ export default {
 </script>
 
 <style scoped>
-    .fade-enter-active, .fade-leave-active {
-    transition: opacity 1s
+
+    .slide-fade-enter-active {
+    transition: all 0.3s ease-out;
     }
-    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-    opacity: 0
+
+    .slide-fade-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
     }
+
+    .slide-fade-enter-from,
+    .slide-fade-leave-to {
+        transform: translateX(20px);
+        opacity: 0;
+    }   
 </style>
