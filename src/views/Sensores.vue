@@ -1,65 +1,78 @@
 <template>
-  <div id="sensoresContainer" class="shadow col-11 col-md-11">
-    <div id="barraBusquedaContainer">
-      <div id="barraBusquedaDiv">
-        <div id="selectorGroupPiso">
-          <select
-            @change="filtrarLugaresPorPiso(pisoSeleccionado)"
-            v-model="pisoSeleccionado"
-            id="comboBoxPiso"
-            class="btn btn-success form select"
-            placeholder="Seleccionar Piso"
-          >
-            <option id="selectPisoPlaceholder" selected hidden>{{pisoSeleccionado}}</option>
-            <option
-              v-for="piso in pisos"
-              :key="piso.piso"
-              :value="piso"
-              :selected="piso == '0'"
-            >
-              {{ piso == 0 ? "Planta baja" : piso }}
-            </option>
-          </select>
-        </div>
-        <div id="selectorGroupLugar">
-          <select v-model="areaSeleccionada" id="comboBoxLugar" class="btn btn-success">
-            <option id="selectLugarPlaceholder" selected hidden>{{areaSeleccionada}}</option>
-            <option v-for="area in areasCombox" :key="area.id" :value="area">
-              {{ area.nombre }}
-            </option>
-          </select>
-        </div>
-        <div id="btnBusquedaContainer">
-          <button 
-            id="btnBuscar" 
-            :disabled="this.areaSeleccionada === 'Área...' || this.areaSeleccionada === null" 
-            class="btn btn-success" 
-            @click="buscarSensores()"
-          >
-            Buscar
-          </button>
-        </div>
-        <div id="btnBusquedaContainer">
-          <button 
-            id="btnBuscar"
-            :disabled="this.areaSeleccionada === 'Área...' || this.areaSeleccionada === null" 
-            class="btn btn-success" 
-            @click="redireccionarSensoresEnTiempoReal()"
-          >
-            Ver en tiempo real
-          </button>
-        </div>
-      </div>
-      <div id="btnAltaContainer">
-        <button id="btnAgregar" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAltaSensor" @click="obtenerTiposDeSensores()" v-show="this.autorizaciones['Alta sensor']">
-          Solicitar alta sensor
+
+  <div class="card mt-2 shadow">
+    <div id="sensoresButtons" class="card-header bg-light d-flex flex-row">
+      <!--Button Seleccionar piso-->
+      <div class="dropdown me-2">
+        <button class="btn btn-outline-success dropdown-toggle" style="min-width: 154px;" type="button" id="pisoDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          {{ pisoSeleccionado === "" ? "Seleccionar piso" : pisoSeleccionado === 0 ? "Planta baja" : pisoSeleccionado }}
         </button>
+        <ul class="dropdown-menu" aria-labelledby="pisoDropdown">
+          <li 
+            v-for="piso in pisos"
+            :key="piso"
+            :value="piso"
+          >
+            <button 
+              class="dropdown-item" 
+              type="button"
+              @click="seleccionarPiso(piso)"
+            > 
+              {{ piso === 0 ? "Planta baja" : piso }}
+            </button>
+          </li>
+        </ul>
       </div>
+
+      <!--Button Seleccionar área-->
+      <div class="dropdown me-2">
+        <button class="btn btn-outline-success dropdown-toggle" style="min-width: 154px;" type="button" id="areaDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          {{ areaSeleccionada === "" ? "Seleccionar área" : areaSeleccionada.nombre }}
+        </button>
+        <ul class="dropdown-menu overflow-auto" aria-labelledby="areaDropdown" style="max-height: 50vh;">
+          <li 
+            v-for="area in areas"
+            :key="area.id"
+            :value="area"
+          >
+            <button 
+              class="dropdown-item" 
+              type="button"
+              @click="seleccionarArea(area)"
+            > 
+              {{ area.nombre }}
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <button 
+        id="btnBuscar"
+        :disabled="this.areaSeleccionada === ''" 
+        class="btn btn-success me-2" 
+        @click="buscarSensores()"
+      >
+        Buscar
+      </button>
+
+      <button 
+        id="btnTiempoReal"
+        :disabled="this.areaSeleccionada === ''" 
+        class="btn btn-success" 
+        @click="redireccionarSensoresEnTiempoReal()"
+      >
+        Ver en tiempo real
+      </button>
+
+      <button id="btnAlta" class="btn btn-success ms-auto" data-bs-toggle="modal" data-bs-target="#modalAltaSensor" @click="obtenerTiposDeSensores()" v-show="this.autorizaciones['Alta sensor']">
+        Solicitar alta sensor
+      </button>
       <FormAltaSensor :tiposSensores="tiposSensores" :pisos="pisos"/>
+
     </div>
+
     <registroTable :tituloTabla="tituloTabla" :sensoresInArea="sensoresInArea" :autorizaciones="autorizaciones" :areaSeleccionada="areaSeleccionada"/>
   </div>
-
 </template>
 
 
@@ -80,8 +93,8 @@ export default {
       areas: [],
       areasCombox: [],
       tiposSensores:[],
-      pisoSeleccionado: "Piso...",
-      areaSeleccionada: "Área...",
+      pisoSeleccionado: "",
+      areaSeleccionada: "",
       sensoresInArea: null,
       tituloTabla: "Tabla de sensores "
     };
@@ -90,21 +103,7 @@ export default {
     await this.cargarDatos();
   },
   methods: {
-    filtrarLugaresPorPiso(pisoSeleccionado) {
-      this.areasCombox = [];
-      for(let i = 0 ; i < this.areas.length ; i++){
-        let area = this.areas[i];
-        if (area.piso == pisoSeleccionado) {
-          if (!this.areasCombox.includes(area.nombre)) {
-            this.areasCombox.push(area);
-          }
-        }
-      }
-      this.areasCombox.sort();
-      this.areaSeleccionada = "Área...";
-    },
     async cargarDatos(){
-      this.areas = await iotController.getAreas();
       this.pisos = await iotController.getCantidadPisos();
     },
     async buscarSensores() {
@@ -114,7 +113,7 @@ export default {
     },
     setTituloTabla() {
       if (this.areaSeleccionada != "Área..." && this.pisoSeleccionado != "Piso...") {
-        this.tituloTabla = "Tabla de sensores  " + this.areaSeleccionada.nombre + " - Piso: " + (this.pisoSeleccionado == 0 ? "Planta baja" : this.pisoSeleccionado);
+        this.tituloTabla = "Tabla de sensores:  " + this.areaSeleccionada.nombre + " - Piso " + (this.pisoSeleccionado == 0 ? "Planta baja" : this.pisoSeleccionado);
       }
     },
     redireccionarSensoresEnTiempoReal(){
@@ -122,83 +121,43 @@ export default {
     },
     async obtenerTiposDeSensores(){
       this.tiposSensores = await iotController.formatearTiposDeSensores(await iotController.getTiposDeSensores());
+    },
+    async seleccionarPiso( piso ){
+      this.areaSeleccionada = ""
+      this.pisoSeleccionado = piso;
+      this.areas = await iotController.getAreasByPiso(this.pisoSeleccionado);
+    },
+    seleccionarArea(area){
+      this.areaSeleccionada = area
     }
   },
 };
 </script>
 
 <style scoped>
-#sensoresContainer{
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  margin: 0 auto;
-  height: calc(90% - 80px);
-  border-radius: 2% !important;
+
+.card{
+  border-radius: 0 !important;
+  min-height: 80vh;
+  max-height: 80vh;
 }
 
-#barraBusquedaContainer{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  width: 100%;
-  height: auto;
-  background-color: transparent;
-  margin: 0;
-}
-
-#barraBusquedaDiv {
-  display: flex;
-  width: auto;
-  text-align: center;
-  justify-content: space-between;
-}
-
-#comboBoxPiso,
-#comboBoxLugar {
-  width: 160px;
+#pisoDropdown,
+#areaDropdown,
+#btnBuscar, #btnTiempoReal, #btnAltaRegistro {
   height: 38px;
   font-size: 15px !important;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   margin-right: 0.5em;
 }
 
-#btnBuscar{
-  margin-right: .5em;
+.dropdown-toggle::after{
+  float: right ;
+  margin-top: 10px;
 }
 
-#btnBuscar,
-#btnAgregar {
-  width: auto;
-  min-width: 160px;
-}
-
-#footerBox {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  bottom: 0;
-  max-height: 70px !important;
-}
-
-@media screen and (max-width: 1200px) {
-  #barraBusquedaContainer{
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: normal;
-  }
-
-  #btnAltaContainer{
-    display: flex;
-    width: 100%;
-    margin-top: .5em;
-  }
-  
-  #btnAgregar{
-    margin: auto 0.5em auto auto;
-    
-  }
+.dropdown-item:active{
+  background-color: #6fa363;
 }
 
 </style>

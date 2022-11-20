@@ -41,6 +41,7 @@
               data-bs-toggle="modal"
               data-bs-target="#modalEnviarAltaSugerencia"
               :disabled="descripcion==''"
+              style="float: right !important;"
             >
               Enviar sugerencia
             </button>

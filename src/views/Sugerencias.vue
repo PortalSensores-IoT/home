@@ -19,7 +19,7 @@
     </li>
   </ul>
 
-  <div class="tab-content overflow-auto" id="myTabContent" style="max-height: calc(90vh - 80px);">
+  <div class="tab-content overflow-auto shadow" id="myTabContent" >
     <div id="cardSugerenciasPendientes" class="card tab-pane fade show active" role="tabpanel" aria-labelledby="cardSugerenciasPendientes-tab">
       <div id="cardSugerenciasPendientesHeader" class="card-header py-3">
         <b>Sugerencias pendientes</b>
@@ -32,6 +32,7 @@
                   <th scope="col">Tipo de sensor</th>
                   <th scope="col">Área</th>
                   <th scope="col">Fecha</th>
+                  <th scope="col">Autor</th>
                   <th colspan="2" scope="col"></th>
               </tr>
           </thead>
@@ -41,6 +42,7 @@
                   <td> {{ sugerencia.tipoSensor }} </td>
                   <td> {{ sugerencia.nombreArea }} </td>
                   <td> {{ sugerencia.fecha }} </td>
+                  <td> {{ sugerencia.appUsuario.nombre }} </td>
                   <td align="center">
                     <button 
                       @click="verDetalleSugerencia(sugerencia)"
@@ -54,7 +56,7 @@
                   </td>
                   <td id="sugerenciaButtons" align="right" v-show="esDirectivo">
                       <button @click="aprobarSugerencia(sugerencia.id)"><font-awesome-icon id="btnAprobar" icon="fa-solid fa-check"/></button>
-                      <button @click="rechazarSugerencia(sugerencia.id)"><font-awesome-icon id="btnRechazar" icon="fa-solid fa-skull-crossbones"/></button>
+                      <button @click="rechazarSugerencia(sugerencia.id)"><font-awesome-icon id="btnRechazar" icon="fa-solid fa-xmark"/></button>
                   </td>
               </tr>
           </tbody>
@@ -74,6 +76,7 @@
                   <th scope="col">Tipo de sensor</th>
                   <th scope="col">Área</th>
                   <th scope="col">Fecha</th>
+                  <th scope="col">Autor</th>
                   <th scope="col"></th>
               </tr>
           </thead>
@@ -83,6 +86,7 @@
                   <td> {{ sugerencia.tipoSensor }} </td>
                   <td> {{ sugerencia.nombreArea }} </td>
                   <td> {{ sugerencia.fecha }} </td>
+                  <td> {{ sugerencia.appUsuario.nombre }} </td>
                   <td align="center">
                       <button type="button" class="btn btn-outline-success">Ver detalle</button>
                   </td>
@@ -104,6 +108,7 @@
                   <th scope="col">Tipo de sensor</th>
                   <th scope="col">Área</th>
                   <th scope="col">Fecha</th>
+                  <th scope="col">Autor</th>
                   <th scope="col"></th>
               </tr>
           </thead>
@@ -113,6 +118,7 @@
                   <td> {{ sugerencia.tipoSensor }} </td>
                   <td> {{ sugerencia.nombreArea }} </td>
                   <td> {{ sugerencia.fecha }} </td>
+                  <td> {{ sugerencia.appUsuario.nombre }} </td>
                   <td align="center">
                       <button type="button" class="btn btn-outline-success">Ver detalle</button>
                   </td>
@@ -133,6 +139,7 @@
                   <th scope="col">Tipo de sensor</th>
                   <th scope="col">Área</th>
                   <th scope="col">Fecha</th>
+                  <th scope="col">Autor</th>
                   <th scope="col"></th>
               </tr>
           </thead>
@@ -142,6 +149,7 @@
                   <td> {{ sugerencia.tipoSensor }} </td>
                   <td> {{ sugerencia.nombreArea }} </td>
                   <td> {{ sugerencia.fecha }} </td>
+                  <td> {{ sugerencia.appUsuario.nombre }} </td>
                   <td align="center">
                       <button type="button" class="btn btn-outline-success">Ver detalle</button>
                   </td>
@@ -256,6 +264,11 @@ export default {
 
 <style scoped>
 
+  .card {
+    min-height: 75vh;
+    max-height: 75vh;
+  }
+
   #myTabContent div {
     border-radius: 0% !important;
   }
@@ -361,6 +374,8 @@ export default {
   #myTabContent::-webkit-scrollbar {
     width: 8px;     /* Tamaño del scroll en vertical */
     height: 8px;    /* Tamaño del scroll en horizontal */
-    display: none;  /* Ocultar scroll */
+    display: none;  /* Ocultar scroll */  
 }
+
+
 </style>

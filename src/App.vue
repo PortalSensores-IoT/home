@@ -63,7 +63,7 @@
         <nav class="navbar shadow-sm px-4" id="headerVistas">
           <a class="navbar-brand" href="#">Vista</a>
         </nav>
-        <div class="px-4 pt-4 h-100 w-100" >
+        <div class="px-4 pt-3 w-100" >
           <router-view :autorizaciones="autorizaciones"/>
         </div>
       </div>
@@ -161,5 +161,48 @@ export default {
 #headerVistas{
   background-color: #fff;
 }
+
+.btn-outline-success{
+  border-color: #6fa363 !important;
+  color: #6fa363;
+}
+
+.btn-outline-success:hover,
+.btn-check:checked+.btn, 
+.btn.active, 
+.btn.show,.btn:first-child:active, 
+:not(.btn-check)+.btn:active,
+.btn-success{
+  background-color: #6fa363 !important;
+  border-color: #6fa363 !important;
+}
+
+.btn-success:hover{
+  background-color: #6c9663 !important;
+}
+
+
+/* Scroll bar */
+::-webkit-scrollbar {
+  width: 3px;
+  background-color: rgb(212, 211, 211);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(171, 170, 170); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #8c8c8c; 
+}
+
 
 </style>

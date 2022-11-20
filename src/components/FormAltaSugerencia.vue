@@ -139,7 +139,7 @@ export default {
     async obtenerAreasPorPiso() {
       this.areasConID = await iotController.getAreasByPiso(this.pisoSeleccionado);
       for(let i = 0 ; i < this.areasConID.length ; i++) {
-        this.areas.push(this.areasConID[i][1]);
+        this.areas.push(this.areasConID[i].nombre);
       }
       this.placeHolderPiso()
     },
@@ -157,9 +157,9 @@ export default {
     },
     cargarIdArea() {
       for(let i = 0 ; i < this.areasConID.length ; i++){
-        if(this.areasConID[i][1] === this.areaSeleccionada) {
-          let id = this.areasConID[i][0];
-          let nombre = this.areasConID[i][1];
+        if(this.areasConID[i].nombre === this.areaSeleccionada) {
+          let id = this.areasConID[i].id;
+          let nombre = this.areasConID[i].nombre;
           this.idArea = {id:id, nombre:nombre};
         }
       }

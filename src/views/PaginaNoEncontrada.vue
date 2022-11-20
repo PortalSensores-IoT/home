@@ -31,6 +31,7 @@
 
 #pageContainer{
   height: 100vh;
+  background-color: rgba(156, 156, 156, 0.212);
 }
 
 .background {

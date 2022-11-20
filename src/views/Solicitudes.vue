@@ -1,5 +1,5 @@
 <template>
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <ul class="nav nav-tabs mt-2" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="cardSolicitudesPendientes-tab" data-bs-toggle="tab"
                 data-bs-target="#cardSolicitudesPendientes" type="button" role="tab"
@@ -22,7 +22,7 @@
         </li>
     </ul>
     
-    <div class="tab-content" id="myTabContent">
+    <div class="tab-content shadow" id="myTabContent">
         <div id="cardSolicitudesPendientes" class="card tab-pane show active" role="tabpanel"
             aria-labelledby="cardSolicitudesPendientes-tab">
             <div id="cardSolicitudesPendientesHeader" class="card-header py-3">
@@ -37,6 +37,7 @@
                             <th scope="col">Tipo de sensor</th>
                             <th scope="col">Área</th>
                             <th scope="col">Fecha</th>
+                            <th scope="col">Autor</th>
                             <th colspan="2" scope="col"></th>
                         </tr>
                     </thead>
@@ -49,13 +50,22 @@
                             <td> {{ solicitud.tipoSensor }} </td>
                             <td> {{ solicitud.nombreArea }} </td>
                             <td> {{ solicitud.fecha }} </td>
+                            <td> {{ solicitud.appUsuario.nombre }} </td>
                             <td align="center">
-                                <button type="button" class="btn btn-outline-success">Ver detalle</button>
-                                
+                                <button  
+                                    v-show="solicitud.tipo === 'MODIFICAR_SENSOR'"   
+                                    @click="verDetalleSolicitud(solicitud)"
+                                    type="button" 
+                                    class="btn btn-outline-success" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#modalDetalleSolicitud"
+                                >
+                                    Ver descripción
+                                </button>
                             </td>
                             <td id="solicitudButtons" align="right" v-show="esTecnico">
                                 <button @click="aprobarSolicitud(solicitud.id)"><font-awesome-icon id="btnAprobar" icon="fa-solid fa-check"/></button>
-                                <button @click="rechazarSolicitud(solicitud.id)"><font-awesome-icon id="btnRechazar" icon="fa-solid fa-skull-crossbones"/></button>
+                                <button @click="rechazarSolicitud(solicitud.id)"><font-awesome-icon id="btnRechazar" icon="fa-solid fa-xmark"/></button>
                             </td>
                         </tr>
                     </tbody>
@@ -77,6 +87,7 @@
                             <th scope="col">Tipo de sensor</th>
                             <th scope="col">Área</th>
                             <th scope="col">Fecha</th>
+                            <th scope="col">Autor</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -89,8 +100,9 @@
                             <td> {{ solicitud.tipoSensor }} </td>
                             <td> {{ solicitud.nombreArea }} </td>
                             <td> {{ solicitud.fecha }} </td>
-                            <td align="center">
-                                <button type="button" class="btn btn-outline-success">Ver detalle</button>
+                            <td> {{ solicitud.appUsuario.nombre }} </td>
+                            <td align="center" >
+                                <button v-show="solicitud.tipo === 'MODIFICAR_SENSOR'"  type="button" class="btn btn-outline-success">Ver descripción</button>
                             </td>
                         </tr>
                     </tbody>
@@ -112,6 +124,7 @@
                             <th scope="col">Tipo de sensor</th>
                             <th scope="col">Área</th>
                             <th scope="col">Fecha</th>
+                            <th scope="col">Autor</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -124,9 +137,9 @@
                             <td> {{ solicitud.tipoSensor }} </td>
                             <td> {{ solicitud.nombreArea }} </td>
                             <td> {{ solicitud.fecha }} </td>
-                            <td align="center">
-                                <button type="button" class="btn btn-outline-success">Ver detalle</button>
-                                
+                            <td> {{ solicitud.appUsuario.nombre }} </td>
+                            <td align="center" >
+                                <button v-show="solicitud.tipo === 'MODIFICAR_SENSOR'"  type="button" class="btn btn-outline-success">Ver descripción</button>
                             </td>
                         </tr>
                     </tbody>
@@ -147,6 +160,7 @@
                             <th scope="col">Tipo de sensor</th>
                             <th scope="col">Área</th>
                             <th scope="col">Fecha</th>
+                            <th scope="col">Autor</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -159,9 +173,9 @@
                             <td> {{ solicitud.tipoSensor }} </td>
                             <td> {{ solicitud.nombreArea }} </td>
                             <td> {{ solicitud.fecha }} </td>
-                            <td align="center">
-                                <button type="button" class="btn btn-outline-success">Ver detalle</button>
-                                
+                            <td> {{ solicitud.appUsuario.nombre }} </td>
+                            <td align="center" >
+                                <button v-show="solicitud.tipo === 'MODIFICAR_SENSOR'"  type="button" class="btn btn-outline-success">Ver descripción</button>
                             </td>
                         </tr>
                     </tbody>
@@ -169,6 +183,23 @@
             </div>
         </div>
     
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalDetalleSolicitud" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Detalle solicitud</h5>
+          </div>
+          <div class="modal-body">
+            Descripcion: {{ solicitudSeleccionada.descripcion }}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
 </template>
 <script>
@@ -183,6 +214,7 @@ export default{
             solicitudesAprobadas: [],
             solicitudesRechazadas: [],
             esTecnico: false,
+            solicitudSeleccionada: {},
         }
     },
     async beforeMount() {
@@ -205,12 +237,20 @@ export default{
         async rechazarSolicitud(id){
             iotController.rechazarTicket(id)
             await this.cargarDatos
+        },
+        verDetalleSolicitud(solicitud){
+            this.solicitudSeleccionada = solicitud;
         }
     }
 }
 </script>
 
 <style scoped>
+
+  .card {
+    min-height: 75vh;
+    max-height: 75vh;
+  }
     
   #myTabContent div {
     border-radius: 0% !important;
@@ -237,16 +277,7 @@ export default{
 
   tr th, tr td{
     vertical-align: middle;
-  }
-
-
-  .btn-outline-success{
-    border-color: #6fa363;
-    color: #6fa363;
-  }
-
-  .btn-outline-success:hover{
-    background-color: #6fa363 !important;
+    height: 55px;
   }
 
   #solicitudButtons button {

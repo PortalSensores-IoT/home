@@ -145,6 +145,14 @@ export default {
       .catch(err => {
         console.log(err);
       });
+
+    result = result.map( areaArray => {
+      return {
+        id: areaArray[0], 
+        nombre: areaArray[1] 
+      }
+    })
+    
     return result;
   },
 

@@ -35,7 +35,7 @@
             <label for="validationDefault05" class="form-label">Área</label>
             <select v-model="areaSeleccionada" class="form-select" id="validationDefault04" required>
               <option id="selectAreaPlaceholder" selected hidden>{{areaSeleccionada}}</option>
-              <option v-for="area in areasCombobox" :key="area" :value="area">{{area[1]}}</option>
+              <option v-for="area in areasCombobox" :key="area" :value="area">{{area.nombre}}</option>
             </select>
           </div>
           <div id="buttonsForms" class="col-12 modal-footer">
@@ -109,7 +109,7 @@ export default {
       let tipo = 'ALTA_SENSOR';
       let tipoSensor = this.tipoSeleccionado.toUpperCase().replaceAll(' ','_');
       let area = this.areaSeleccionada
-      this.altaSensor = {tipo:tipo, tipoSensor:tipoSensor, area:area[1], descripcion:'', idSensor:'', urls:[]};
+      this.altaSensor = {tipo:tipo, tipoSensor:tipoSensor, area:area.nombre, descripcion:'', idSensor:'', urls:[]};
        let result = await iotController.crearTicketSensor(this.altaSensor);
       this.muestraSpinner = false;
       if(result !== undefined && result !== '') {

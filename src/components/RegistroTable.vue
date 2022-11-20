@@ -1,37 +1,41 @@
 <template>
-  <div id="instanciasTableDiv">
-    <table class="table table-striped">
+  
+  <div id="instanciasTableDiv" class="card-body">
+    <table class="table table-striped table-hover">
       <thead>
         <tr >
-          <th id="headTable" scope="col" colspan="5"><b>{{tituloTabla}}</b></th>
+          <th id="headTable" scope="col" colspan="5">{{tituloTabla}}</th>
         </tr>
         <tr>
-          <th scope="col"><b>Sensor</b></th>
-          <th scope="col"><b>Unidad de medida</b></th>
-          <th scope="col"><b>Último valor registrado</b></th>
-          <th scope="col"><b>Fecha</b></th>
+          <th scope="col">Sensor</th>
+          <th scope="col">Unidad de medida</th>
+          <th scope="col">Último valor registrado</th>
+          <th scope="col">Fecha</th>
           <th scope="col" colspan="2"></th>
         </tr>
       </thead>
       <tbody>
-        <tr id="registroRow" v-for="sensor in this.sensoresInArea" :key="sensor.id">
+        <tr v-for="sensor in this.sensoresInArea" :key="sensor.id">
           <td>{{ sensor.tipo }}</td>
           <td>{{ sensor.unidadDeMedida }}</td>
           <td>{{this.getUltimoRegistroValor(sensor)}}</td>
           <td>{{ this.getUltimoRegistroFecha(sensor) }}</td>
           <td id="imgModificar">
-            <button type="button" data-bs-toggle="modal" data-bs-target="#modalModificaSensor" @click="modificarSensor(sensor)">
-              <img v-bind:src="require('../assets/modificar.png')" alt="algo">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#modalModificaSensor"
+              @click="modificarSensor(sensor)">
+              <font-awesome-icon id="btnAprobar" icon="fa-solid fa-pen" style="color: #6fa363;"/>
             </button>
           </td>
           <td id="imgTacho" v-show="this.autorizaciones['Baja sensor']">
-            <button v-if="autorizaciones !== undefined"  data-bs-toggle="modal" data-bs-target="#modalBajaSensor" @click="eliminarSensor(sensor) ">
-              <img v-bind:src="require('../assets/tacho.png')" alt="">
+            <button v-if="autorizaciones !== undefined" data-bs-toggle="modal" data-bs-target="#modalBajaSensor"
+              @click="eliminarSensor(sensor) ">
+              <font-awesome-icon id="btnAprobar" icon="fa-solid fa-trash" style="color: #a22a2a;"/>
             </button>
           </td>
         </tr>
       </tbody>
     </table>
+  
   </div>
   <ConfirmarBajaSensor :bajaSensor="this.bajaSensor"/>
   <ConfirmarModificacionSensor :modificaSensor="this.modificaSensor"/>
@@ -130,31 +134,9 @@ export default {
   overflow: auto;
 }
 
-table {
-  font-family: sans-serif;
-  width: 90%;
-  border-spacing: 0 !important ;
-}
-
-th {
-  font-family: sans-serif;
-  margin: 0px auto;
-  padding: 10px;
-  text-align: left;
-  width: 30%;
-  font-weight: 400;
-}
-
-table body{
-  display: flex;
-  overflow: auto;
-  max-height: 90vh !important;
-}
-
-td {
-  background: none;
-  padding-left: 10px;
-}
+tr th, tr td{
+    vertical-align: middle;
+  }
 
 #headTable {
   font-size: 1.5em;
