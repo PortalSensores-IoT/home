@@ -15,7 +15,7 @@
                 data-bs-target="#cardSolicitudesAprobadas" type="button" role="tab" aria-controls="cardSolicitudesAprobadas"
                 aria-selected="false">Aprobadas</button>
         </li>
-        <li class="nav-item" role="presentation">
+        <li class="nav-item" role="presentation" v-show="esTecnico">
             <button class="nav-link" id="cardSolicitudesRechazadas-tab" data-bs-toggle="tab"
                 data-bs-target="#cardSolicitudesRechazadas" type="button" role="tab"
                 aria-controls="cardSolicitudesRechazadas" aria-selected="false">Rechazadas</button>

@@ -14,7 +14,7 @@
     <li class="nav-item" role="presentation">
       <button class="nav-link" id="cardSugerenciasAprobadas-tab" data-bs-toggle="tab" data-bs-target="#cardSugerenciasAprobadas" type="button" role="tab" aria-controls="cardSugerenciasAprobadas" aria-selected="false">Aprobadas</button>
     </li>
-    <li class="nav-item" role="presentation">
+    <li class="nav-item" role="presentation" v-show="this.esDirectivo">
       <button class="nav-link" id="cardSugerenciasRechazadas-tab" data-bs-toggle="tab" data-bs-target="#cardSugerenciasRechazadas" type="button" role="tab" aria-controls="cardSugerenciasRechazadas" aria-selected="false">Rechazadas</button>
     </li>
   </ul>
