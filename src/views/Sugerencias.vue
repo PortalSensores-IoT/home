@@ -1,21 +1,21 @@
 <template>
   
-  <button id="btnEnviarSugerencia" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAltaSugerencia" v-show="this.autorizaciones['Alta sugerencia']">
+  <button id="btnEnviarSugerencia" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAltaSugerencia" v-show="this.autorizaciones.BOTON_ALTA_SUGERENCIA">
     Realizar sugerencia
   </button>
 
   <ul class="nav nav-tabs mt-2" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
-      <button class="nav-link active" id="cardSugerenciasPendientes-tab" data-bs-toggle="tab" data-bs-target="#cardSugerenciasPendientes" type="button" role="tab" aria-controls="cardSugerenciasPendientes" aria-selected="true">Pendientes</button>
+      <button class="nav-link active" id="cardSugerenciasPendientes-tab" data-bs-toggle="tab" data-bs-target="#cardSugerenciasPendientes" type="button" role="tab" aria-controls="cardSugerenciasPendientes" aria-selected="true" v-show="autorizaciones.TABLA_SUGERENCIAS_PENDIENTES">Pendientes</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="cardSugerenciasCerradas-tab" data-bs-toggle="tab" data-bs-target="#cardSugerenciasCerradas" type="button" role="tab" aria-controls="cardSugerenciasCerradas" aria-selected="false">Cerradas</button>
+      <button class="nav-link" id="cardSugerenciasCerradas-tab" data-bs-toggle="tab" data-bs-target="#cardSugerenciasCerradas" type="button" role="tab" aria-controls="cardSugerenciasCerradas" aria-selected="false" v-show="autorizaciones.TABLA_SUGERENCIAS_CERRADAS">Cerradas</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="cardSugerenciasAprobadas-tab" data-bs-toggle="tab" data-bs-target="#cardSugerenciasAprobadas" type="button" role="tab" aria-controls="cardSugerenciasAprobadas" aria-selected="false">Aprobadas</button>
+      <button class="nav-link" id="cardSugerenciasAprobadas-tab" data-bs-toggle="tab" data-bs-target="#cardSugerenciasAprobadas" type="button" role="tab" aria-controls="cardSugerenciasAprobadas" aria-selected="false" v-show="autorizaciones.TABLA_SUGERENCIAS_ACEPTADAS">Aprobadas</button>
     </li>
     <li class="nav-item" role="presentation" v-show="this.esDirectivo">
-      <button class="nav-link" id="cardSugerenciasRechazadas-tab" data-bs-toggle="tab" data-bs-target="#cardSugerenciasRechazadas" type="button" role="tab" aria-controls="cardSugerenciasRechazadas" aria-selected="false">Rechazadas</button>
+      <button class="nav-link" id="cardSugerenciasRechazadas-tab" data-bs-toggle="tab" data-bs-target="#cardSugerenciasRechazadas" type="button" role="tab" aria-controls="cardSugerenciasRechazadas" aria-selected="false" v-show="autorizaciones.TABLA_SUGERENCIAS_RECHAZADAS">Rechazadas</button>
     </li>
   </ul>
 
@@ -55,8 +55,8 @@
                     </button>
                   </td>
                   <td id="sugerenciaButtons" align="right" v-show="esDirectivo">
-                      <button @click="aprobarSugerencia(sugerencia.id)"><font-awesome-icon id="btnAprobar" icon="fa-solid fa-check"/></button>
-                      <button @click="rechazarSugerencia(sugerencia.id)"><font-awesome-icon id="btnRechazar" icon="fa-solid fa-xmark"/></button>
+                      <button @click="aprobarSugerencia(sugerencia.id)" v-show="autorizaciones.BOTON_ACEPTA_SUGERENCIA"><font-awesome-icon id="btnAprobar" icon="fa-solid fa-check"/></button>
+                      <button @click="rechazarSugerencia(sugerencia.id)" v-show="autorizaciones.BOTON_RECHAZO_SUGERENCIA"><font-awesome-icon id="btnRechazar" icon="fa-solid fa-xmark"/></button>
                   </td>
               </tr>
           </tbody>

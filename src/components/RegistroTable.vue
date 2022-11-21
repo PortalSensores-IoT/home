@@ -24,13 +24,13 @@
           </td>
           <td>{{ sensor.registros.length > 0 ? sensor.registros[sensor.registros.length-1].frecuencia : "-"}}</td>
           <td>{{ this.formatearString(sensor.estado) }}</td>
-          <td id="imgModificar" v-show="this.autorizaciones['Modif. sensor']">
+          <td id="imgModificar" v-show="this.autorizaciones.BOTON_MODIFICACION_SENSOR">
             <button type="button" data-bs-toggle="modal" data-bs-target="#modalModificaSensor"
               @click="modificarSensor(sensor)">
               <font-awesome-icon id="btnAprobar" icon="fa-solid fa-pen" style="color: #6fa363;"/>
             </button>
           </td>
-          <td id="imgTacho" v-show="this.autorizaciones['Baja sensor']">
+          <td id="imgTacho" v-show="this.autorizaciones.BOTON_BAJA_SENSOR">
             <button v-if="autorizaciones !== undefined" data-bs-toggle="modal" data-bs-target="#modalBajaSensor"
               @click="eliminarSensor(sensor) ">
               <font-awesome-icon id="btnAprobar" icon="fa-solid fa-trash" style="color: #a22a2a;"/>

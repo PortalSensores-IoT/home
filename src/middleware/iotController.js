@@ -239,7 +239,7 @@ export default {
       }
     };
 
-    let result = await axios.put(URL_API_IOT + SERVICE_APROBAR_TICKETS + id, config)
+    let result = await axios.post(URL_API_IOT + SERVICE_APROBAR_TICKETS + id, config)
       .then(async (response) => {
         return response.data
     })
@@ -257,7 +257,7 @@ export default {
       }
     };
 
-    let result = await axios.put(URL_API_IOT + SERVICE_RECHAZAR_TICKETS + id, config)
+    let result = await axios.post(URL_API_IOT + SERVICE_RECHAZAR_TICKETS + id, config)
       .then(async (response) => {
         return response.data
     })

@@ -64,7 +64,7 @@
         Ver en tiempo real
       </button>
 
-      <button id="btnAlta" class="btn btn-success ms-auto" data-bs-toggle="modal" data-bs-target="#modalAltaSensor" @click="obtenerTiposDeSensores()" v-show="this.autorizaciones['Alta sensor']">
+      <button id="btnAlta" class="btn btn-success ms-auto" data-bs-toggle="modal" data-bs-target="#modalAltaSensor" @click="obtenerTiposDeSensores()" v-show="this.autorizaciones.BOTON_ALTA_SENSOR">
         Solicitar alta sensor
       </button>
       <FormAltaSensor :tiposSensores="tiposSensores" :pisos="pisos"/>

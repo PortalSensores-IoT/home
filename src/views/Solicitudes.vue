@@ -3,22 +3,22 @@
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="cardSolicitudesPendientes-tab" data-bs-toggle="tab"
                 data-bs-target="#cardSolicitudesPendientes" type="button" role="tab"
-                aria-controls="cardSolicitudesPendientes" aria-selected="true">Pendientes</button>
+                aria-controls="cardSolicitudesPendientes" aria-selected="true" v-show="autorizaciones.TABLA_SOLICITUDES_PENDIENTES">Pendientes</button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="cardSolicitudesCerradas-tab" data-bs-toggle="tab"
                 data-bs-target="#cardSolicitudesCerradas" type="button" role="tab" aria-controls="cardSolicitudesCerradas"
-                aria-selected="false">Cerradas</button>
+                aria-selected="false" v-show="autorizaciones.TABLA_SOLICITUDES_CERRADAS">Cerradas</button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="cardSolicitudesAprobadas-tab" data-bs-toggle="tab"
                 data-bs-target="#cardSolicitudesAprobadas" type="button" role="tab" aria-controls="cardSolicitudesAprobadas"
-                aria-selected="false">Aprobadas</button>
+                aria-selected="false" v-show="autorizaciones.TABLA_SOLICITUDES_ACEPTADAS">Aprobadas</button>
         </li>
         <li class="nav-item" role="presentation" v-show="esTecnico">
             <button class="nav-link" id="cardSolicitudesRechazadas-tab" data-bs-toggle="tab"
                 data-bs-target="#cardSolicitudesRechazadas" type="button" role="tab"
-                aria-controls="cardSolicitudesRechazadas" aria-selected="false">Rechazadas</button>
+                aria-controls="cardSolicitudesRechazadas" aria-selected="false" v-show="autorizaciones.TABLA_SOLICITUDES_RECHAZADAS">Rechazadas</button>
         </li>
     </ul>
     
@@ -64,8 +64,8 @@
                                 </button>
                             </td>
                             <td id="solicitudButtons" align="right" v-show="esTecnico">
-                                <button @click="aprobarSolicitud(solicitud.id)"><font-awesome-icon id="btnAprobar" icon="fa-solid fa-check"/></button>
-                                <button @click="rechazarSolicitud(solicitud.id)"><font-awesome-icon id="btnRechazar" icon="fa-solid fa-xmark"/></button>
+                                <button @click="aprobarSolicitud(solicitud.id)" v-show="autorizaciones.BOTON_ACEPTA_SOLICITUD_SENSOR"><font-awesome-icon id="btnAprobar" icon="fa-solid fa-check"/></button>
+                                <button @click="rechazarSolicitud(solicitud.id)" v-show="autorizaciones.BOTON_RECHAZA_SOLICITUD_SENSOR"><font-awesome-icon id="btnRechazar" icon="fa-solid fa-xmark"/></button>
                             </td>
                         </tr>
                     </tbody>
@@ -235,6 +235,9 @@ import iotController from '@/middleware/iotController';
 
 export default{
     name: "Solicitudes",
+    props:{
+        autorizaciones:Object
+    },
     data(){
         return {
             solicitudesPendientes: [],
