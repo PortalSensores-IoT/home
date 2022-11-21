@@ -182,6 +182,12 @@ export default {
     return arrTiposDeSensores;
   },
 
+  formatearString(str){
+    str = str.replaceAll('_',' ');
+    str = str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    return str;
+  },
+
   async getTickets() {
     let result = await axios.get(URL_API_IOT + SERVICE_GET_TICKETS)
       .then(async (response) => {

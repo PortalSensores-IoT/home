@@ -56,7 +56,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">
-            Solicitando sugerencia
+            Realizando sugerencia
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
@@ -64,7 +64,7 @@
           <div class="spinner-border text-success" role="status" v-if="this.muestraSpinner">
             <span class="sr-only">iot</span>
           </div>
-          <div class="" role="status" v-else>
+          <div class="text-center" role="status" v-else>
           {{this.textoConfirmacionBaja}}
           </div>
         </div>
@@ -105,9 +105,9 @@ export default {
       let result = await iotController.crearTicketSensor(altaSugerencia);
       this.muestraSpinner = false;
       if (result !== undefined && result !== "") {
-        this.textoConfirmacionBaja = "Sugerencia enviada con exito!";
+        this.textoConfirmacionBaja = "¡Sugerencia enviada con éxito!";
       } else {
-        this.textoConfirmacionBaja = "Falló el envio de la sugerencia";
+        this.textoConfirmacionBaja = "Falló el envío de la sugerencia";
       }
     },
     nuevaPestañaGrafico() {

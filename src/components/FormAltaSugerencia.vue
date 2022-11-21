@@ -27,64 +27,70 @@
               <label for="validationDefault05" class="form-label">
                 Piso*
               </label>
-              <select
-                @change="obtenerAreasPorPiso()"
-                v-model="pisoSeleccionado"
-                class="form-select"
-                id="validationDefault04"
-                required
-              >
-              <option selected :value="pisoSeleccionado" v-show="mostrarPlaceHolderPiso">
-                  {{
-                    pisoSeleccionado
-                  }}
-                </option>
-                <option v-for="piso in pisos" :key="piso" :value="piso" required>
-                  {{ piso === 0 ? 'Planta baja' : piso }}
-                </option>
-              </select>
+              <button class="form-select d-flex" style="min-width: 154px;" type="button" id="pisoDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ pisoSeleccionado === "" ? "Seleccionar piso" : pisoSeleccionado === 0 ? "Planta baja" : pisoSeleccionado }}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="pisoDropdown" style="width: 93% !important;">
+                <li 
+                  v-for="piso in pisos"
+                  :key="piso"
+                  :value="piso"
+                >
+                  <button 
+                    class="dropdown-item" 
+                    type="button"
+                    @click="seleccionarPiso(piso)"
+                  > 
+                    {{ piso === 0 ? "Planta baja" : piso }}
+                  </button>
+                </li>
+              </ul>
             </div>
             <div class="mb-3 col-12">
               <label for="validationDefault05" class="form-label">
-                Lugar*
+                Área*
               </label>
-              <select
-              @change="placeHolderArea()"
-                class="form-select"
-                id="validationDefault04"
-                v-model="areaSeleccionada"
-                required
-              >
-                <option selected :value="areaSeleccionada" v-show="mostrarPlaceHolderArea" required>
-                  {{
-                    areaSeleccionada
-                  }}
-                </option>
-                <option v-for="area in areas" :key="area" :value="area">
-                  {{ area }}
-                </option>
-              </select>
+              <button class="form-select d-flex" style="min-width: 154px;" type="button" id="areaDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ areaSeleccionada === "" ? "Seleccionar área" : areaSeleccionada.nombre }}
+              </button>
+              <ul class="dropdown-menu overflow-auto" aria-labelledby="areaDropdown" style="width: 93% !important; max-height: 50vh;">
+                <li 
+                  v-for="area in areas"
+                  :key="area.id"
+                  :value="area"
+                >
+                  <button 
+                    class="dropdown-item" 
+                    type="button"
+                    @click="seleccionarArea(area)"
+                  > 
+                    {{ area.nombre }}
+                  </button>
+                </li>
+              </ul>
             </div>
             <div class="mb-3 col-12">
-              <label for="validationDefault04" class="form-label">
+              <label for="validationDefault05" class="form-label">
                 Tipo de sensor*
               </label>
-              <select
-              @change="placeHolderTipoSensor()"
-                v-model="tipoSensorSeleccionado"
-                class="form-select"
-                id="validationDefault04"
-                required
-              >
-                <option selected :value="tipoSensorSeleccionado" v-show="mostrarPlaceHolderTipoSensor" required>
-                  {{
-                    tipoSensorSeleccionado
-                  }}
-                </option>
-                <option v-for="tipo in tiposSensores" :key="tipo.descripcion" :value="tipo.descripcion">
-                  {{ tipo.descripcion }}
-                </option>
-              </select>
+              <button class="form-select d-flex" style="min-width: 154px;" type="button" id="areaDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ tipoSensorSeleccionado === "" ? "Seleccionar área" : tipoSensorSeleccionado }}
+              </button>
+              <ul class="dropdown-menu overflow-auto" aria-labelledby="areaDropdown" style="width: 93% !important; max-height: 50vh;">
+                <li 
+                  v-for="tipo in tiposSensores"
+                  :key="tipo.id"
+                  :value="tipo"
+                >
+                  <button 
+                    class="dropdown-item" 
+                    type="button"
+                    @click="seleccionarTipoSensor(tipo.id)"
+                  > 
+                    {{ tipo.id }}
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
           <div class="col-auto" id="btnAltaSugerencia">
@@ -93,7 +99,6 @@
               class="float-right btn btn-success "
               data-bs-toggle="modal"
               data-bs-target="#ConfiguracionIFrameForm"
-              @click="cargarIdArea()"
               :disabled="formValido"
               style="float: right !important;"
             >
@@ -104,7 +109,7 @@
       </div>
     </div>
   </div>
-        <ConfiguracionIFrame :tipoSensorSeleccionado="tipoSensorSeleccionado" :areaSeleccionada="idArea"/>
+        <ConfiguracionIFrame :tipoSensorSeleccionado="tipoSensorSeleccionado" :areaSeleccionada="areaSeleccionada"/>
 </template>
 
 <script>
@@ -119,11 +124,9 @@ export default {
       pisos:[],
       areas:[],
       tiposSensores:[],
-      pisoSeleccionado:"Seleccionar piso",
-      areaSeleccionada:"Seleccionar area",
-      tipoSensorSeleccionado:"Seleccionar tipo de sensor",
-      areasConID:[],
-      idArea:null,
+      pisoSeleccionado:"",
+      areaSeleccionada:"",
+      tipoSensorSeleccionado:"",
       mostrarPlaceHolderArea:true,
       mostrarPlaceHolderPiso:true,
       mostrarPlaceHolderTipoSensor:true,
@@ -133,40 +136,29 @@ export default {
   async beforeMount() {
     this.pisos = await iotController.getCantidadPisos();
     this.tiposSensores = await iotController.formatearTiposDeSensores(await iotController.getTiposDeSensores());
-    
   },
   methods: {
-    async obtenerAreasPorPiso() {
-      this.areasConID = await iotController.getAreasByPiso(this.pisoSeleccionado);
-      for(let i = 0 ; i < this.areasConID.length ; i++) {
-        this.areas.push(this.areasConID[i].nombre);
-      }
-      this.placeHolderPiso()
+    validarCampos(){
+      this.formValido = this.mostrarPlaceHolderPiso || this.mostrarPlaceHolderArea || this.mostrarPlaceHolderTipoSensor;
     },
-    placeHolderPiso() {
+    async seleccionarPiso( piso ){
+      this.areaSeleccionada = ""
+      this.mostrarPlaceHolderArea = true;
+      this.pisoSeleccionado = piso;
+      this.areas = await iotController.getAreasByPiso(this.pisoSeleccionado);
       this.mostrarPlaceHolderPiso = false;
       this.validarCampos();
     },
-    placeHolderArea() {
+    seleccionarArea(area){
+      this.areaSeleccionada = area
       this.mostrarPlaceHolderArea = false;
       this.validarCampos();
     },
-    placeHolderTipoSensor() {
+    seleccionarTipoSensor(tipo) {
+      this.tipoSensorSeleccionado = tipo;
       this.mostrarPlaceHolderTipoSensor = false;
       this.validarCampos();
     },
-    cargarIdArea() {
-      for(let i = 0 ; i < this.areasConID.length ; i++){
-        if(this.areasConID[i].nombre === this.areaSeleccionada) {
-          let id = this.areasConID[i].id;
-          let nombre = this.areasConID[i].nombre;
-          this.idArea = {id:id, nombre:nombre};
-        }
-      }
-    },
-    validarCampos(){
-      this.formValido = this.mostrarPlaceHolderPiso || this.mostrarPlaceHolderArea || this.mostrarPlaceHolderTipoSensor;
-    }
   },
 };
 </script>

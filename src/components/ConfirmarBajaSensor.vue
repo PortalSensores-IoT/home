@@ -35,7 +35,7 @@
           <div class="spinner-border text-success" role="status" v-if="this.muestraSpinner">
             <span class="sr-only">iot</span>
           </div>
-          <div class="" role="status" v-else>
+          <div class="text-center" role="status" v-else>
           {{this.textoConfirmacionBaja}}
           </div>
         </div>
@@ -61,9 +61,9 @@ export default {
       let result = await iotController.crearTicketSensor(this.bajaSensor);
       this.muestraSpinner = false;
       if(result !== undefined && result !== '') {
-        this.textoConfirmacionBaja = "Solicitud de baja de sensor enviado con exito!";
+        this.textoConfirmacionBaja = "¡Solicitud de baja de sensor enviada con éxito!";
       } else {
-        this.textoConfirmacionBaja = "Falló el envio de la solicitud";
+        this.textoConfirmacionBaja = "Falló el envío de la solicitud";
       }
     }
   },
