@@ -54,9 +54,9 @@
                       Ver detalle
                     </button>
                   </td>
-                  <td id="sugerenciaButtons" align="right" v-show="esDirectivo">
-                      <button @click="aprobarSugerencia(sugerencia.id)" v-show="autorizaciones.BOTON_ACEPTA_SUGERENCIA"><font-awesome-icon id="btnAprobar" icon="fa-solid fa-check"/></button>
-                      <button @click="rechazarSugerencia(sugerencia.id)" v-show="autorizaciones.BOTON_RECHAZO_SUGERENCIA"><font-awesome-icon id="btnRechazar" icon="fa-solid fa-xmark"/></button>
+                  <td id="sugerenciaButtons" align="right" v-show="esDirectivo ">
+                      <button @click="aprobarSugerencia(sugerencia.id)" v-show="autorizaciones.BOTON_ACEPTA_SUGERENCIA && !esAutorDeLaSugerencia(sugerencia.appUsuario.email)"><font-awesome-icon id="btnAprobar" icon="fa-solid fa-check"/></button>
+                      <button @click="rechazarSugerencia(sugerencia.id)" v-show="autorizaciones.BOTON_RECHAZO_SUGERENCIA && !esAutorDeLaSugerencia(sugerencia.appUsuario.email)"><font-awesome-icon id="btnRechazar" icon="fa-solid fa-xmark"/></button>
                   </td>
               </tr>
           </tbody>
@@ -286,6 +286,9 @@ export default {
     },
     formatearString(string){
       return iotController.formatearString(string);
+    },
+    esAutorDeLaSugerencia(mailDelAutor){
+      return window.sessionStorage.email === mailDelAutor;
     }
   }
 }

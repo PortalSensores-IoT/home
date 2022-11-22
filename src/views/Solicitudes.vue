@@ -35,6 +35,7 @@
                             <th scope="col">ID</th>
                             <th scope="col">Tipo de solicitud</th>
                             <th scope="col">Tipo de sensor</th>
+                            <th scope="col">ID de sensor</th>
                             <th scope="col">Área</th>
                             <th scope="col">Fecha</th>
                             <th scope="col">Autor</th>
@@ -48,6 +49,7 @@
                                     solicitud.tipo === "ALTA_SENSOR" ? "Alta de sensor" :
                                     "Modificación de sensor" }} </td>
                             <td> {{ this.formatearString(solicitud.tipoSensor) }} </td>
+                            <td> {{ solicitud.idSensor }} </td>
                             <td> {{ solicitud.nombreArea }} </td>
                             <td> {{ solicitud.fecha }} </td>
                             <td> {{ solicitud.appUsuario.nombre }} </td>
@@ -85,6 +87,7 @@
                             <th scope="col">ID</th>
                             <th scope="col">Tipo de solicitud</th>
                             <th scope="col">Tipo de sensor</th>
+                            <th scope="col">ID de sensor</th>
                             <th scope="col">Área</th>
                             <th scope="col">Fecha</th>
                             <th scope="col">Autor</th>
@@ -98,6 +101,7 @@
                                     solicitud.tipo === "ALTA_SENSOR" ? "Alta de sensor" :
                                     "Modificación de sensor" }} </td>
                             <td> {{ this.formatearString(solicitud.tipoSensor) }} </td>
+                            <td> {{ solicitud.idSensor }} </td>
                             <td> {{ solicitud.nombreArea }} </td>
                             <td> {{ solicitud.fecha }} </td>
                             <td> {{ solicitud.appUsuario.nombre }} </td>
@@ -131,6 +135,7 @@
                             <th scope="col">ID</th>
                             <th scope="col">Tipo de solicitud</th>
                             <th scope="col">Tipo de sensor</th>
+                            <th scope="col">ID de sensor</th>
                             <th scope="col">Área</th>
                             <th scope="col">Fecha</th>
                             <th scope="col">Autor</th>
@@ -144,6 +149,7 @@
                                     solicitud.tipo === "ALTA_SENSOR" ? "Alta de sensor" :
                                     "Modificación de sensor" }} </td>
                             <td> {{ this.formatearString(solicitud.tipoSensor) }} </td>
+                            <td> {{ solicitud.idSensor }} </td>
                             <td> {{ solicitud.nombreArea }} </td>
                             <td> {{ solicitud.fecha }} </td>
                             <td> {{ solicitud.appUsuario.nombre }} </td>
@@ -176,6 +182,7 @@
                             <th scope="col">ID</th>
                             <th scope="col">Tipo de solicitud</th>
                             <th scope="col">Tipo de sensor</th>
+                            <th scope="col">ID de sensor</th>
                             <th scope="col">Área</th>
                             <th scope="col">Fecha</th>
                             <th scope="col">Autor</th>
@@ -189,6 +196,7 @@
                                     solicitud.tipo === "ALTA_SENSOR" ? "Alta de sensor" :
                                     "Modificación de sensor" }} </td>
                             <td> {{ this.formatearString(solicitud.tipoSensor) }} </td>
+                            <td> {{ solicitud.idSensor }} </td>
                             <td> {{ solicitud.nombreArea }} </td>
                             <td> {{ solicitud.fecha }} </td>
                             <td> {{ solicitud.appUsuario.nombre }} </td>

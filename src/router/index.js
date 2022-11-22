@@ -61,6 +61,7 @@ router.beforeResolve(async(to, from) => {
       if(window.sessionStorage.getItem('token') == null || window.sessionStorage.getItem('token') == ''){
         window.sessionStorage.setItem('token',result);
         window.sessionStorage.setItem('rol',to.query.categoria.toLocaleLowerCase());
+        window.sessionStorage.setItem('email',to.query.email);
         window.sessionStorage.setItem('autorizaciones', JSON.stringify(await iotController.getAutorizaciones(window.sessionStorage.token)));
       }
     }
