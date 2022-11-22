@@ -1,6 +1,6 @@
 <template>
-    <transition name="slide-fade" mode="out-in">
-        <p v-if="show" class="m-auto">
+    <transition name="fade">
+        <p v-if="show" class="my-auto p-2">
             {{ this.ultimoRegistro }}
         </p>
     </transition>
@@ -28,7 +28,7 @@ export default {
     },
     methods: {
         getUltimoRegistroValor(sensor) {
-            return sensor.registros.length > 0 ? this.getSignoUnidadDeMedida(sensor, sensor.registros[sensor.registros.length-1].valor) : "-"
+            return sensor.registros?.length > 0 ? this.getSignoUnidadDeMedida(sensor, sensor.registros[sensor.registros.length-1].valor) : "-"
         },
         getSignoUnidadDeMedida(sensor, valor) {
             switch (sensor.unidadDeMedida) {
@@ -55,14 +55,14 @@ export default {
             this.ultimoRegistro = this.getUltimoRegistroValor(this.sensor)
 
             setInterval(() => {
-                setTimeout(() => this.show = false, 500);
+                setTimeout(() => this.show = false, 2000);
 
                 iotController.getSensorById(this.sensor.id).then(response => {
                     this.ultimoRegistro = this.getUltimoRegistroValor(response)
                 })
 
-                setTimeout(() => this.show = true, 500);
-            }, 30000)
+                setTimeout(() => this.show = true, 2000);
+            }, 5000)
 
         }
     }
@@ -72,17 +72,21 @@ export default {
 
 <style scoped>
 
-    .slide-fade-enter-active {
-    transition: all 0.3s ease-out;
-    }
+    
 
-    .slide-fade-leave-active {
-    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-    }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s ease;
+}
 
-    .slide-fade-enter-from,
-    .slide-fade-leave-to {
-        transform: translateX(20px);
-        opacity: 0;
-    }   
+.fade-enter-active:first-child,
+.fade-leave-active:first-child{
+    width: min-content;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    transition: 0 2s ease;
+    opacity: 0;
+}
 </style>
