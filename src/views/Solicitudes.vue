@@ -5,7 +5,7 @@
                 data-bs-target="#cardSolicitudesPendientes" type="button" role="tab"
                 aria-controls="cardSolicitudesPendientes" aria-selected="true" v-show="autorizaciones.TABLA_SOLICITUDES_PENDIENTES">Pendientes</button>
         </li>
-        <li class="nav-item" role="presentation">
+        <li class="nav-item" role="presentation" v-show="false">
             <button class="nav-link" id="cardSolicitudesCerradas-tab" data-bs-toggle="tab"
                 data-bs-target="#cardSolicitudesCerradas" type="button" role="tab" aria-controls="cardSolicitudesCerradas"
                 aria-selected="false" v-show="autorizaciones.TABLA_SOLICITUDES_CERRADAS">Cerradas</button>

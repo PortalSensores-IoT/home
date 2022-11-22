@@ -8,7 +8,7 @@
     <li class="nav-item" role="presentation">
       <button class="nav-link active" id="cardSugerenciasPendientes-tab" data-bs-toggle="tab" data-bs-target="#cardSugerenciasPendientes" type="button" role="tab" aria-controls="cardSugerenciasPendientes" aria-selected="true" v-show="autorizaciones.TABLA_SUGERENCIAS_PENDIENTES">Pendientes</button>
     </li>
-    <li class="nav-item" role="presentation">
+    <li class="nav-item" role="presentation" v-show="false">
       <button class="nav-link" id="cardSugerenciasCerradas-tab" data-bs-toggle="tab" data-bs-target="#cardSugerenciasCerradas" type="button" role="tab" aria-controls="cardSugerenciasCerradas" aria-selected="false" v-show="autorizaciones.TABLA_SUGERENCIAS_CERRADAS">Cerradas</button>
     </li>
     <li class="nav-item" role="presentation">
