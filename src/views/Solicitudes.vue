@@ -268,12 +268,14 @@ export default{
             this.solicitudesRechazadas= this.filtrarSolicitudesPorEstado("DESAPROBADA");
         },
         async aprobarSolicitud(id){
-            iotController.aprobarTicket(id)
-            await this.cargarDatos
+            await iotController.aprobarTicket(id).then( response => {
+                this.cargarDatos()
+            })
         },
         async rechazarSolicitud(id){
-            iotController.rechazarTicket(id)
-            await this.cargarDatos
+            await iotController.rechazarTicket(id).then( response => {
+                this.cargarDatos()
+            })
         },
         verDetalleSolicitud(solicitud){
             this.solicitudSeleccionada = solicitud;

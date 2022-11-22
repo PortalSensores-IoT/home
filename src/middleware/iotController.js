@@ -235,11 +235,11 @@ export default {
   async aprobarTicket(id){
     let config = {
       headers:{
-        Authorization: PREFIJO_TOKEN + window.sessionStorage.getItem('token')
+        Authorization: PREFIJO_TOKEN + window.sessionStorage.token
       }
     };
 
-    let result = await axios.post(URL_API_IOT + SERVICE_APROBAR_TICKETS + id, config)
+    let result = await axios.post(URL_API_IOT + SERVICE_APROBAR_TICKETS + id,{}, config)
       .then(async (response) => {
         return response.data
     })
@@ -253,11 +253,11 @@ export default {
   async rechazarTicket(id){
     let config = {
       headers:{
-        'Authorization': PREFIJO_TOKEN + window.sessionStorage.getItem('token')
+        Authorization: PREFIJO_TOKEN + window.sessionStorage.token
       }
     };
 
-    let result = await axios.post(URL_API_IOT + SERVICE_RECHAZAR_TICKETS + id, config)
+    let result = await axios.post(URL_API_IOT + SERVICE_RECHAZAR_TICKETS + id,{}, config)
       .then(async (response) => {
         return response.data
     })

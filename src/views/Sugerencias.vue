@@ -270,12 +270,14 @@ export default {
       this.areas = await iotController.getAreasByPiso(this.pisoSeleccionado)
     },
     async aprobarSugerencia(id){
-        iotController.aprobarTicket(id)
-        await this.cargarDatos
+        await iotController.aprobarTicket(id).then( response => {
+          this.cargarDatos()
+        })
     },
     async rechazarSugerencia(id){
-        iotController.rechazarTicket(id)
-        await this.cargarDatos
+        await iotController.rechazarTicket(id).then( response => {
+          this.cargarDatos()
+        })
     },
     verDetalleSugerencia(sugerencia){
       this.sugerenciaSeleccionada = sugerencia
