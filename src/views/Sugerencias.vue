@@ -39,7 +39,7 @@
           <tbody>
               <tr v-for="sugerencia in this.sugerenciasPendientes" :key="sugerencia.id">
                   <th scope="row">{{ sugerencia.id }}</th>
-                  <td> {{ sugerencia.tipoSensor }} </td>
+                  <td> {{ this.formatearString(sugerencia.tipoSensor) }} </td>
                   <td> {{ sugerencia.nombreArea }} </td>
                   <td> {{ sugerencia.fecha }} </td>
                   <td> {{ sugerencia.appUsuario.nombre }} </td>
@@ -83,7 +83,7 @@
           <tbody>
               <tr v-for="sugerencia in this.sugerenciasCerradas" :key="sugerencia.id">
                   <th scope="row">{{ sugerencia.id }}</th>
-                  <td> {{ sugerencia.tipoSensor }} </td>
+                  <td> {{ this.formatearString(sugerencia.tipoSensor) }} </td>
                   <td> {{ sugerencia.nombreArea }} </td>
                   <td> {{ sugerencia.fecha }} </td>
                   <td> {{ sugerencia.appUsuario.nombre }} </td>
@@ -123,7 +123,7 @@
           <tbody>
               <tr v-for="sugerencia in this.sugerenciasRechazadas" :key="sugerencia.id">
                   <th scope="row">{{ sugerencia.id }}</th>
-                  <td> {{ sugerencia.tipoSensor }} </td>
+                  <td> {{ this.formatearString(sugerencia.tipoSensor) }} </td>
                   <td> {{ sugerencia.nombreArea }} </td>
                   <td> {{ sugerencia.fecha }} </td>
                   <td> {{ sugerencia.appUsuario.nombre }} </td>
@@ -162,7 +162,7 @@
           <tbody>
               <tr v-for="sugerencia in this.sugerenciasAprobadas" :key="sugerencia.id">
                   <th scope="row">{{ sugerencia.id }}</th>
-                  <td> {{ sugerencia.tipoSensor }} </td>
+                  <td> {{ this.formatearString(sugerencia.tipoSensor) }} </td>
                   <td> {{ sugerencia.nombreArea }} </td>
                   <td> {{ sugerencia.fecha }} </td>
                   <td> {{ sugerencia.appUsuario.nombre }} </td>
@@ -279,8 +279,11 @@ export default {
     },
     verDetalleSugerencia(sugerencia){
       this.sugerenciaSeleccionada = sugerencia
-      setTimeout(function() {
-    }, 1000)
+        setTimeout(function() {
+      }, 1000)
+    },
+    formatearString(string){
+      return iotController.formatearString(string);
     }
   }
 }

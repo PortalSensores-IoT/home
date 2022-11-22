@@ -47,7 +47,7 @@
                             <td> {{ solicitud.tipo === "BAJA_SENSOR" ? "Baja de sensor" : 
                                     solicitud.tipo === "ALTA_SENSOR" ? "Alta de sensor" :
                                     "Modificación de sensor" }} </td>
-                            <td> {{ solicitud.tipoSensor }} </td>
+                            <td> {{ this.formatearString(solicitud.tipoSensor) }} </td>
                             <td> {{ solicitud.nombreArea }} </td>
                             <td> {{ solicitud.fecha }} </td>
                             <td> {{ solicitud.appUsuario.nombre }} </td>
@@ -97,7 +97,7 @@
                             <td> {{ solicitud.tipo === "BAJA_SENSOR" ? "Baja de sensor" : 
                                     solicitud.tipo === "ALTA_SENSOR" ? "Alta de sensor" :
                                     "Modificación de sensor" }} </td>
-                            <td> {{ solicitud.tipoSensor }} </td>
+                            <td> {{ this.formatearString(solicitud.tipoSensor) }} </td>
                             <td> {{ solicitud.nombreArea }} </td>
                             <td> {{ solicitud.fecha }} </td>
                             <td> {{ solicitud.appUsuario.nombre }} </td>
@@ -143,7 +143,7 @@
                             <td> {{ solicitud.tipo === "BAJA_SENSOR" ? "Baja de sensor" : 
                                     solicitud.tipo === "ALTA_SENSOR" ? "Alta de sensor" :
                                     "Modificación de sensor" }} </td>
-                            <td> {{ solicitud.tipoSensor }} </td>
+                            <td> {{ this.formatearString(solicitud.tipoSensor) }} </td>
                             <td> {{ solicitud.nombreArea }} </td>
                             <td> {{ solicitud.fecha }} </td>
                             <td> {{ solicitud.appUsuario.nombre }} </td>
@@ -188,7 +188,7 @@
                             <td> {{ solicitud.tipo === "BAJA_SENSOR" ? "Baja de sensor" : 
                                     solicitud.tipo === "ALTA_SENSOR" ? "Alta de sensor" :
                                     "Modificación de sensor" }} </td>
-                            <td> {{ solicitud.tipoSensor }} </td>
+                            <td> {{ this.formatearString(solicitud.tipoSensor) }} </td>
                             <td> {{ solicitud.nombreArea }} </td>
                             <td> {{ solicitud.fecha }} </td>
                             <td> {{ solicitud.appUsuario.nombre }} </td>
@@ -240,6 +240,7 @@ export default{
     },
     data(){
         return {
+            solicitudes: [],
             solicitudesPendientes: [],
             solicitudesCerradas: [],
             solicitudesAprobadas: [],
@@ -255,11 +256,16 @@ export default{
         }
     },
     methods:{
+        async obtenerSolicitudes(){
+            this.solicitudes = await iotController.getSolicitudes();
+        },
         async cargarDatos(){
-            this.solicitudesPendientes = await iotController.getSolicitudesByEstado("ABIERTA");
-            this.solicitudesCerradas = await iotController.getSolicitudesByEstado("CERRADA");
-            this.solicitudesAprobadas = await iotController.getSolicitudesByEstado("APROBADA");
-            this.solicitudesRechazadas= await iotController.getSolicitudesByEstado("DESAPROBADA");
+            await this.obtenerSolicitudes()
+            
+            this.solicitudesPendientes = this.filtrarSolicitudesPorEstado("ABIERTA");
+            this.solicitudesCerradas = this.filtrarSolicitudesPorEstado("CERRADA");
+            this.solicitudesAprobadas = this.filtrarSolicitudesPorEstado("APROBADA");
+            this.solicitudesRechazadas= this.filtrarSolicitudesPorEstado("DESAPROBADA");
         },
         async aprobarSolicitud(id){
             iotController.aprobarTicket(id)
@@ -271,6 +277,13 @@ export default{
         },
         verDetalleSolicitud(solicitud){
             this.solicitudSeleccionada = solicitud;
+        },
+        filtrarSolicitudesPorEstado(estado){
+            let result = this.solicitudes.filter( ticket => ticket.estado == estado);
+            return result
+        },
+        formatearString(string){
+            return iotController.formatearString(string);
         }
     }
 }
