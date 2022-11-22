@@ -61,7 +61,7 @@
       </div>
       <div class="col px-0" id="contenedorVistas">
         <nav class="navbar shadow-sm px-4" id="headerVistas">
-          <a class="navbar-brand" href="#"><h4>Módulo IoT</h4></a>
+          <a class="navbar-brand" href="#"><h4 class="my-auto">Módulo IoT</h4></a>
           <a href="https://www.ungs.edu.ar/" target="_blank"><img src="./assets/logoUNGS.png" width="200" height="30"></a>
         </nav>
         <div class="px-4 pt-3 w-100" >
@@ -119,6 +119,7 @@ export default {
 * {
   margin: 0;
   padding: 0;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
 #loaderContainer{
@@ -207,6 +208,5 @@ export default {
 ::-webkit-scrollbar-thumb:hover {
   background: #8c8c8c; 
 }
-
 
 </style>
