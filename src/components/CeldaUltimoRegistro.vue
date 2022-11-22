@@ -59,10 +59,11 @@ export default {
 
                 iotController.getSensorById(this.sensor.id).then(response => {
                     this.ultimoRegistro = this.getUltimoRegistroValor(response)
+                    setTimeout(() => this.show = true, 2000);
                 })
 
-                setTimeout(() => this.show = true, 2000);
-            }, 5000)
+                
+            }, 45000)
 
         }
     }
