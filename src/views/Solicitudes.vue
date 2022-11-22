@@ -250,10 +250,10 @@ export default{
         }
     },
     async beforeMount() {
-        await this.cargarDatos();
         if(window.sessionStorage.getItem('rol') == 'directivo'){
             this.esTecnico = true;
         }
+        await this.cargarDatos();
     },
     methods:{
         async obtenerSolicitudes(){
