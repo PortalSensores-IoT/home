@@ -66,7 +66,7 @@ p {
 }*/
 
 img{
-  filter: hue-rotate(271deg) saturate(53.2%) brightness(95.2%);
+  filter: hue-rotate(271deg) saturate(53.2%) brightness(105.2%);
   width: 105% !important;
 }
 
