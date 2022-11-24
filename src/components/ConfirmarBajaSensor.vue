@@ -9,7 +9,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ¿Estás seguro que desea solicitar la baja del sensor de {{ this.bajaSensor !== null ? this.bajaSensor.tipoSensor : '' }}?
+          ¿Estás seguro que desea solicitar la baja del sensor de {{ this.bajaSensor !== null ? this.formatearString(this.bajaSensor.tipoSensor) : '' }}?
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
@@ -65,6 +65,9 @@ export default {
       } else {
         this.textoConfirmacionBaja = "Falló el envío de la solicitud";
       }
+    },
+    formatearString(string){
+      return iotController.formatearString(string);
     }
   },
 };

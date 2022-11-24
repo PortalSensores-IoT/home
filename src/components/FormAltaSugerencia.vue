@@ -87,7 +87,7 @@
                     type="button"
                     @click="seleccionarTipoSensor(tipo.id)"
                   > 
-                    {{ tipo.id }}
+                    {{ this.formatearString(tipo.id) }}
                   </button>
                 </li>
               </ul>
@@ -161,6 +161,9 @@ export default {
     },
     informarNuevaSugerencia(){
       this.$emit('recargarSugerenciasPendientes');
+    },
+    formatearString(string){
+      return iotController.formatearString(string);
     }
   },
 };
