@@ -74,7 +74,7 @@
       </div>
     </div>
   </div>
-        <EnvioFormAltaSugerencia :url="url" :areaSeleccionada="this.areaSeleccionada" :tipoSensorSeleccionado="tipoSensorSeleccionado"/>
+        <EnvioFormAltaSugerencia v-on:informarNuevaSugerencia="informarNuevaSugerencia" :url="url" :areaSeleccionada="this.areaSeleccionada" :tipoSensorSeleccionado="tipoSensorSeleccionado"/>
 </template>
 
 <script>
@@ -149,6 +149,9 @@ export default {
     },
     validarForm() {
       this.formValido = this.mostrarPlaceHolderAnio || this.mostrarPlaceHolderMes;
+    },
+    informarNuevaSugerencia(){
+      this.$emit('informarNuevaSugerencia');
     }
   },
 };

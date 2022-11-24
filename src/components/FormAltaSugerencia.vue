@@ -109,7 +109,7 @@
       </div>
     </div>
   </div>
-        <ConfiguracionIFrame :tipoSensorSeleccionado="tipoSensorSeleccionado" :areaSeleccionada="areaSeleccionada"/>
+        <ConfiguracionIFrame v-on:informarNuevaSugerencia="informarNuevaSugerencia" :tipoSensorSeleccionado="tipoSensorSeleccionado" :areaSeleccionada="areaSeleccionada"/>
 </template>
 
 <script>
@@ -159,6 +159,9 @@ export default {
       this.mostrarPlaceHolderTipoSensor = false;
       this.validarCampos();
     },
+    informarNuevaSugerencia(){
+      this.$emit('recargarSugerenciasPendientes');
+    }
   },
 };
 </script>

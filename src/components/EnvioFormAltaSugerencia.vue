@@ -106,6 +106,7 @@ export default {
       this.muestraSpinner = false;
       if (result !== undefined && result !== "") {
         this.textoConfirmacionBaja = "¡Sugerencia enviada con éxito!";
+        this.$emit('informarNuevaSugerencia');
       } else {
         this.textoConfirmacionBaja = "Falló el envío de la sugerencia";
       }

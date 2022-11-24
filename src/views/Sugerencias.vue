@@ -188,7 +188,7 @@
   
 
 
-  <FormAltaSugerencia/>
+  <FormAltaSugerencia v-on:recargarSugerenciasPendientes="recargarSugerenciasPendientes"/>
 
   <!-- Button trigger modal -->
 
@@ -289,6 +289,9 @@ export default {
     },
     esAutorDeLaSugerencia(mailDelAutor){
       return window.sessionStorage.email === mailDelAutor;
+    },
+    async recargarSugerenciasPendientes(){
+      this.sugerenciasPendientes = await iotController.getSugerenciasByEstado("ABIERTA");
     }
   }
 }
