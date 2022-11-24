@@ -74,7 +74,7 @@
                 Tipo de sensor*
               </label>
               <button class="form-select d-flex" style="min-width: 154px;" type="button" id="areaDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                {{ tipoSensorSeleccionado === "" ? "Seleccionar área" : tipoSensorSeleccionado }}
+                {{ tipoSensorSeleccionado === "" ? "Seleccionar área" : this.formatearString(tipoSensorSeleccionado) }}
               </button>
               <ul class="dropdown-menu overflow-auto" aria-labelledby="areaDropdown" style="width: 93% !important; max-height: 50vh;">
                 <li 
